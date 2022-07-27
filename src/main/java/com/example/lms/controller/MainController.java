@@ -13,8 +13,58 @@ public class MainController {
 }
     @RequestMapping("/main")
     public String main(){
-    return "main";
+    return "studentMain";
     }
 
+    @RequestMapping("/addLecture")
+    public String addLecture(){
+    return "addLecture";
+    }
+
+    @RequestMapping("/board")
+    public String board(){
+        return "board";
+    }
+    @RequestMapping("/boardUpdate")
+    public String boardUpdate(){
+        return "boardUpdate";
+    }
+    @RequestMapping("/collegeInfo")
+    public String collegeInfo(){
+        return "collegeInfo";
+    }
+    @RequestMapping("/join")
+    public String join(){
+        return "join";
+    }
+    @RequestMapping("/leave")
+    public String leave(){
+        return "leave";
+    }
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
+    @RequestMapping("/professorMain")
+    public String professorMain(){
+        return "professorMain";
+    }
+    @RequestMapping("/studentMain")
+    public String studentMain(){
+        return "studentMain";
+    }
+
+    @RequestMapping("/subInfo")
+    public String subInfo(){
+        return "subInfo";
+    }
+    @RequestMapping("/todo")
+    public String todo(){
+        return "todo";
+    }
+    @RequestMapping("/updateInfo")
+    public String updateInfo(){
+        return "updateInfo";
+    }
 
 }
