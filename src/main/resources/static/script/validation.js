@@ -42,25 +42,29 @@ function join(){
 }
 
 function leaveAction(){
+    console.log("userCode: "+$("#code").val());
+    console.log("pw: "+ $("#pw").val());
     const  requestData = {
-        "id" : $("#log").val(),
+        "usercode" : $("#code").val(),
         "pw" : $("#pw").val()
     }
+    console.log("validation code: "+requestData.usercode);
+    console.log("validation pw: "+requestData.pw);
+
     $.ajax({
-        url : "/delete",
-        type : "DELETE",
+        url :"/delete",
+        type :"DELETE",
         data : JSON.stringify(requestData),
         contentType : "application/json"
     }).done(result =>{
         if(result == true){
             alert("탈퇴완료");
-            $("form").submit();
+          //  $("form").submit();
+            location.href='/';
         }else{
-            console.log("\n\n\n하이\n\n\n");
             alert("비밀번호가 일치하지 않습니다.");
         }
     }).fail(erorr =>{
-        console.log("\n\n\n하이\n\n\n");
         console.log(erorr.responseText);
     })
 }
@@ -79,7 +83,7 @@ function login(){
         contentType: "application/json",
         success: function (result) {
             alert("로그인 성공!")
-            form.submit();
+            location.href='/';
         },
         error: function (result) {
             alert("아이디와 비밀번호를 다시 확인하고 입력해주세요.")

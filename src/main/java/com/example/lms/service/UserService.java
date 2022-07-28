@@ -49,7 +49,10 @@ public class UserService {
 
     @Transactional
     public void deleteUser(UserRequestDTO dto){
-        userRepository.deleteById(dto.getId());
+//        userRepository.deleteById(dto.getId());
+//        System.out.println("deleteUser: "+dto.getUsercode());
+        UserVO vo = new UserVO(dto);
+        userRepository.delete(vo);
     }
 
     public UserVO readUser(UserRequestDTO userRequestDto){
@@ -60,7 +63,11 @@ public class UserService {
     }
 
     public UserVO readUserPw(UserRequestDTO userRequestDto){
-        List<UserVO> result = userRepository.findByStringIdPw(userRequestDto.getId(), userRequestDto.getPw());
+        System.out.println("UserService: "+userRequestDto.getUsercode());
+        System.out.println("USER PASS: "+userRequestDto.getPw());
+
+        List<UserVO> result = userRepository.findByStringCodePw(userRequestDto.getUsercode(), userRequestDto.getPw());
+
         if(result.isEmpty())
             return null;
         return result.get(0);

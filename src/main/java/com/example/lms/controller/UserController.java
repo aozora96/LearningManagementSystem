@@ -33,6 +33,7 @@ public class UserController {
 
     @DeleteMapping("/delete")
     public boolean delete(@RequestBody UserRequestDTO dto){
+        System.out.println("UserController : "+dto.getUsercode());
         if(userService.readUserPw(dto) != null){
             userService.deleteUser(dto);
             System.out.println("회원정보 일치 -> 회원탈퇴 성공");
@@ -56,8 +57,7 @@ public class UserController {
 
     @PostMapping("/login")
     public void login(@RequestBody UserRequestDTO userRequestDto, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UserVO user = getUser(userRequestDto); //
-        System.out.println("훌라훌라:"+user);
+        UserVO user = getUser(userRequestDto);
         String url = "";
         if(user.getPw().equals(userRequestDto.getPw())){
             System.out.println("로그인성공");
@@ -70,6 +70,6 @@ public class UserController {
         }
 
         HttpSession session = request.getSession();
-        session.setAttribute("log",user.getId());
+        session.setAttribute("log",user.getUsercode());
     }
 }

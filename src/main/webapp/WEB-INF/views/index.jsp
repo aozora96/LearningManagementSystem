@@ -6,11 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+<c:import url = "/WEB-INF/views/header.jsp"/>
 홈페이지의 메인 화면
 
 
@@ -48,6 +50,6 @@
 3) TODO LIST
 3-1. 좌측 aside 에 해당 유저가 작성한 TODO LIST 출력
 3-2. 해당 유저가 작성한 TODO LIST 가 없는 경우, 공란
-
+<c:import url = "/WEB-INF/views/footer.jsp"/>
 </body>
 </html>
