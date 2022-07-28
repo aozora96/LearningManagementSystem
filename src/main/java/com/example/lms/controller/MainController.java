@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MainController {
 
-@RequestMapping(value="/",method = RequestMethod.GET)
+@RequestMapping(value="/",method = RequestMethod.POST)
     public String index(){
     return "index";
 }
@@ -62,9 +62,15 @@ public class MainController {
     public String todo(){
         return "todo";
     }
-    @RequestMapping("/updateInfo")
-    public String updateInfo(){
-        return "updateInfo";
+    @RequestMapping("/header")
+    public String header(){
+        return "header";
     }
+
+    @RequestMapping("/footer")
+    public String footer(){
+        return "footer";
+    }
+
 
 }

@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-footer
+<h1>FOOTER</h1>
 </body>
 </html>
