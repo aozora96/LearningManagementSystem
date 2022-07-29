@@ -1,0 +1,29 @@
+header{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto;
+    grid-template-areas:
+    "logMenu"
+    "collegeName";
+}
+#logMenu{
+    background-color: palegoldenrod;
+    grid-area: logMenu;
+    padding-right: 30px;
+    text-align: end;
+}
+
+#collegeName{
+    background-color: aqua;
+    grid-area: collegeName;
+    text-align: center;
+    font-size: 3em;
+}
+
+
+
+
+
+
+
+

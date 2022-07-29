@@ -1,5 +1,6 @@
 package com.example.lms.domain.user;
 
+import com.example.lms.util.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ import java.util.Date;
 @Getter
 @Entity // -> 이 class가 하나의 객체라는 것을 알려주는 Annotation
 @Table(name="student")
-public class UserVO { // -> UserDTO, 순수 객체만 담기 때문에 Setter(X)
+public class UserVO extends Timestamp { // -> UserDTO, 순수 객체만 담기 때문에 Setter(X)
 //    userCode int primary key,
 //    grade char(1) not null,
 //            `name` varchar(20) not null,

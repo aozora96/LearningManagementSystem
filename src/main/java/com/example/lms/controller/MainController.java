@@ -1,24 +1,25 @@
 package com.example.lms.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MainController {
 
-@RequestMapping(value="/",method = RequestMethod.GET)
+    @RequestMapping(value="/",method = RequestMethod.GET)
     public String index(){
-    return "index";
-}
+        return "index";
+    }
     @RequestMapping("/main")
     public String main(){
-    return "studentMain";
+        return "studentMain";
     }
 
     @RequestMapping("/addLecture")
     public String addLecture(){
-    return "addLecture";
+        return "addLecture";
     }
 
     @RequestMapping("/board")
@@ -70,6 +71,7 @@ public class MainController {
     public String footer(){
         return "footer";
     }
+
 
 
 }

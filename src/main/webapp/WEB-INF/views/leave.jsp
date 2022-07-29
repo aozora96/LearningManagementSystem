@@ -15,7 +15,7 @@
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>
 <%
-    session.setAttribute("log",8806);
+    session.setAttribute("log",4518);
     int log = (int)session.getAttribute("log");
 %>
 

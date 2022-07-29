@@ -15,7 +15,7 @@
 <body style="text-align: center">
 <c:import url = "/WEB-INF/views/header.jsp"/>
 <h1>LOGIN</h1>
-<form>
+<form >
 아이디<input type = "text" name = "id" id = "id"><br>
 비밀번호<input type = "password" name = "pw" id = "pw"><br>
 <input type ="button" value ="로그인" onclick="login()">

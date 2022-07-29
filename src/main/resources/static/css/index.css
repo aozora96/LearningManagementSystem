@@ -1,0 +1,45 @@
+#main{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px 120px auto;
+    grid-template-areas:
+    "menuList"
+    "images"
+    "miniHome"
+}
+
+#menuList{
+    grid-area: menuList;
+}
+
+#images{
+    grid-area: images;
+}
+
+#miniHome{
+    grid-area: miniHome;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas: "todo" "schedule";
+}
+
+#todo{
+    grid-area: todo;
+    background-color: palegoldenrod;
+}
+
+#schedule{
+    grid-area: schedule;
+    background-color: orange;
+}
+
+
+
+
+
+
+
+
+
+
+

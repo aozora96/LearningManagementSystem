@@ -9,9 +9,14 @@
 <html>
 <head>
     <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
 학과 별 강의에 대한 소개
 ㄴ>
-</body>
-</html>
+<select id="major" onchange="callSub()">
+    <option>학과 선택</option>
+</select>
+<section id="subject" >
+
+</section>

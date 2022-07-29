@@ -72,4 +72,16 @@ public class UserService {
             return null;
         return result.get(0);
     }
+
+    public boolean checkId(String id){
+        // 동일아이디가 있으면 false로 반환
+        System.out.println("SERVICE!!");
+        List<UserVO> result = userRepository.findAll();
+        for(int i=0; i< result.size(); i++){
+            if(id.equals(result.get(i).getId())){
+                return false;
+            }
+        }
+        return true;
+    }
 }
