@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -32,5 +33,12 @@ public class TodoService {
         TodoVO todoVO = new TodoVO(todoRequestDTO);
         todoRepository.save(todoVO);
     }
+    @Transactional
+    public void checkTodoList(@RequestBody TodoRequestDTO todoRequestDTO){
+        TodoVO todoVO = new TodoVO(todoRequestDTO);
+        System.out.println(todoVO.getTodoCode());
+        todoRepository.updateTodoChecked(todoVO.getTodoCode());
+    }
+
 
 }

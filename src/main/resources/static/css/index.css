@@ -1,71 +1,96 @@
+/* 본명조 - nav 적용 */
+@font-face {
+    font-family: 'NotoSerifKR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *{
     margin: 0;
     padding: 0;
 }
 
-.main{
-display: grid;
-grid-template-columns: 1fr;
-grid-template-rows: 130px 80px 500px auto 100px;
-grid-template-areas:
+body{
+    display: grid;
+    grid-template-rows: 130px 80px 571px 660px 100px;
+    grid-template-areas:
     "header"
-    "first"
-    "second"
-    "last"
+    "nav"
+    "one"
+    "two"
     "footer";
 }
 
-header{
+haeder{
     grid-area: header;
-}
-footer{
-    grid-area: footer;
-    background-color: red;
+    background-color: lightpink;
 }
 
-#first{
-background-color: #87bb6f;
-grid-area: first;
-color:darkslategrey;
-display: flex;
-justify-content: space-around;
-align-items: center;
-padding:10px;
+footer{
+    grid-area: footer;
+    background-color: black;
+    color: white;
+}
+
+#nav{
+    grid-area: nav;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    font-family: 'NotoSerifKR';
+    font-size: 1.2em;
+
+    background-color: navy;
+    color: white;
+
+
 }
 
 .slide{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 480px 20px;
-    grid-template-areas:
-    "images"
-    "page";
-    grid-area: second;
-    background-color: lightblue;
+    grid-area: one;
 }
 
-
 #last{
-    grid-area: last;
+    grid-area: two;
+
     display: grid;
-    grid-template-columns: 250px auto;
-    grid-template-areas: "todo schedule";
+    grid-template-columns: 780px auto;
+    grid-template-areas:
+    "todo schedule";
 }
 
 #todo{
     grid-area: todo;
-    background-color: lightyellow;
 }
 
 #schedule{
     grid-area: schedule;
-    background-color: lightgray;
-    color: white;
+    background-color: beige;
+
+    margin: 0;
+    padding: 0;
+    width: 900px;
+    height: 440px;
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid ;
+    border-left: 1px solid ;
+}
+#schedule div{
+    font-size: 0.8em;
+    text-align: center;
+    line-height: 40px;
+    border-right: 1px solid ;
+    border-bottom: 1px solid ;
+    width:149px;
+    height: 39px;
 }
 
 /* 여기부터 이미지 슬라이드 */
 .slides>input[name=ra] {
-
     display: none;
 }
 

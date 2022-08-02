@@ -10,19 +10,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>Title</title>
+    <title>강좌소개</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel = "stylesheet" href="css/subInfo.css">
 </head>
 <body>
-<c:import url = "/WEB-INF/views/header.jsp"/>
-학과 별 강의에 대한 소개
-ㄴ>
-<select id="major" onchange="callSub()">
-    <option>학과 선택</option>
+<div id = main>
+    <c:import url = "/WEB-INF/views/header.jsp"/>
+    <select id="major" onchange="callSub()">
+        <option>--학과 선택--</option>
 </select>
 <section id="subject" >
 
 </section>
+</div>
 <c:import url = "/WEB-INF/views/footer.jsp"/>
 <script src="script/subInfo.js"></script>
 </body>

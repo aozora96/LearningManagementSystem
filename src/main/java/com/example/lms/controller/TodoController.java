@@ -23,6 +23,11 @@ public class TodoController {
             System.out.println("NULL");
         return list;
     }
+    @PostMapping("checkTodo")
+    public void checkTodo(@RequestBody TodoRequestDTO todoRequestDTO){
+        System.out.println("한번 보자 ");
+        todoService.checkTodoList(todoRequestDTO);
+    }
     @PostMapping("/addTodo")
     public void addTodoList(@RequestBody TodoRequestDTO todoRequestDTO){
         todoService.addTodoList(todoRequestDTO);

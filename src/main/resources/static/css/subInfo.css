@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#main{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 130px 80px auto 300px;
+    grid-template-areas:
+        "header"
+        "majorSelect"
+        "contents"
+        "footer";
+}
+
+/* grid 영역 반영 */
+header{
+    grid-area: header;
+}
+
+footer{
+    grid-area: footer;
+    background-color: black;
+    color : white;
+}
+
+#major{
+    grid-area: majorSelect;
+    background-color: lightsteelblue;
+}
+
+#subject{
+    padding-top : 15px;
+    grid-area: contents;
+    background-color: lightpink;
+}
+
+
+
+
+

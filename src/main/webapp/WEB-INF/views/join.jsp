@@ -13,7 +13,7 @@
     이름<br>
     <input type = "text" name = "name" id ="name" required placeholder="name"><br><br>
     아이디<br>
-    <input type = "text" name = "id" id = "id" required placeholder="id(2자 이상)"><br><br>
+    <input type = "text" name = "joinId" id = "joinId" required placeholder="id(2자 이상)"><br><br>
     <input type="hidden" id="chId">
     <p id="inuse" style="display:none; color:red; font-size: 8pt;">이미 사용중인 아이디입니다.</p>
     <p id="use" style="display:none; color:green; font-size: 8pt;">사용가능한 아이디입니다.</p>

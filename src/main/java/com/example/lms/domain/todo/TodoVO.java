@@ -19,11 +19,15 @@ public class TodoVO {
     private int userCode;
     @Column(name ="contents", nullable = false)
     private String contents;
+    @Column(name="checked", nullable = false)
+    private String checked;
 
     public TodoVO(TodoRequestDTO dto){
         this.userCode = dto.getUserCode();
         this.todoCode = dto.getTodoCode();
         this.contents = dto.getContents();
+        this.checked = dto.getChecked();
+
     }
 
 }

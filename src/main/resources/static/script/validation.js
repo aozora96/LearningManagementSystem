@@ -10,14 +10,14 @@ function userCodeMaker() {
 
 //아이디 중복검사
 // $("#id").keyup(checkId());
-let id = document.body.querySelector("#id");
+let id = document.body.querySelector("#joinId");
 id.addEventListener("keyup", e =>{
     checkId();
 })
 function checkId(){
-    if($("#id").val().length >= 2){
+    if($("#joinId").val().length >= 2){
         let requestData = {
-            "id" : $("#id").val(),
+            "id" : $("#joinId").val(),
         }
         $.ajax({
             url:"/checkId",

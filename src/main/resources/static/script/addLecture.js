@@ -27,7 +27,7 @@ $.ajax({
     data : JSON.stringify(requestData),
     contentType : "application/json"
 }).done(result =>{
-    console.log(result);
+    //console.log(result);
     // console.log(result.length);
     if(result.length > 0){
         for(let i=0; i<result.length; i++){
@@ -52,7 +52,7 @@ function callSub(){
         contentType : "application/json"
     }).done(result =>{
         //console.log("result");
-        // console.log(result);
+        //console.log(result);
 
         //옵션지우기
         $("#subject").find("option").remove();
@@ -63,9 +63,11 @@ function callSub(){
         for(let i=0; i<result.length; i++){
             let option = document.createElement("option");
             option.setAttribute("value", result[i].sub_schedule);
+            option.setAttribute("data-runtime", result[i].runtime);
             option.setAttribute("data-sc", result[i].subcode);
             option.setAttribute("data-p", result[i].p_name);
-            console.log(result[i].subcode);
+            option.setAttribute("data-pcode", result[i].p_code);
+            //console.log(result[i].subcode);
             //console.log(result[i].sub_schedule);
             option.innerText = result[i].title;
             $("#subject").append(option);
@@ -88,10 +90,12 @@ function colors(){
     let check = true;
 
     let sel = document.body.querySelector("#subject");
-    console.log(sel.value);
+    //console.log(sel.value);
+    // console.log($("#subject option:checked").data("runtime"));
     let start = sel.value.substring(0,2);
     let add = sel.value.substring(2,4);
-    let cnt = sel.value.substring(4) - sel.value.substring(2,4);
+    let cnt = parseInt($("#subject option:checked").data("runtime"));
+    //console.log(cnt);
     if(!overCnt(cnt)){
         alert("신청가능한 최대학점은 20학점 입니다.");
         return;
@@ -123,6 +127,7 @@ function colors(){
         }
         else if($("#subject option:checked").text() ===  $("#"+temp).text()){
             alert($("#"+temp).text() + " 은/는 이미 수강신청한 과목입니다");
+            check = false;
             break;
         }
         else{
@@ -145,6 +150,15 @@ function colors(){
         //console.log($("#subject option:checked").text());
         sche.innerText = $("#subject option:checked").text();
         $("#schedule").append(sche);
+        //교수테이블에 추가
+        const proData = {
+            "usercode" : $("#subject option:checked").data("pcode"),
+            "subcode" : $("#subject option:checked").data("sc"),
+            "stucode" : $("#hide").val(),
+            "title" : $("#subject option:checked").text(),
+            "sub_schedule": sel.value
+        }
+        proSave(proData);
     }
     if(cc >= bc.length){
         cc = 0;
@@ -200,10 +214,17 @@ $("#schedule").click(function (e){ // 밑에 추가된 강의명 선택하면 �
         $("."+del).empty();
         $("."+del).removeClass(del);
         e.target.remove();
+        //학생시간표 삭제용
         const  timeData = {
             "subcode" : delSc
         }
         timeDel(timeData);
+        //교수테이블 삭제용
+        const proData = {
+            "subcode" : delSc,
+            "stucode" : $("#hide").val()
+        }
+        proDel(proData);
     }
 })
 
@@ -265,4 +286,34 @@ function overCnt(cnt){
     else{
         return true;
     }
+}
+
+//교수테이블에 추가반영
+function proSave(proData){
+    $.ajax({
+        url : "/savePro",
+        type : "POST",
+        data : JSON.stringify(proData),
+        contentType : "application/json"
+    }).done(result =>{
+        console.log(result);
+        // console.log(result.length);
+    }).fail(erorr =>{
+        console.log(erorr.responseText);
+    })
+}
+
+//교수테이블에 삭제반영
+function proDel(proData){
+    $.ajax({
+        url : "/delPro",
+        type : "POST",
+        data : JSON.stringify(proData),
+        contentType : "application/json"
+    }).done(result =>{
+        console.log(result);
+        // console.log(result.length);
+    }).fail(erorr =>{
+        console.log(erorr.responseText);
+    })
 }

@@ -9,4 +9,5 @@ public class TodoRequestDTO {
     private int userCode;
     private int todoCode;
     private String contents;
+    private String checked;
 }

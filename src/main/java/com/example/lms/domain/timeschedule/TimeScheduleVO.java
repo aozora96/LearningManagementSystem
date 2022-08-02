@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Getter
-@Table(name="timeschedule")
+@Table(name="add_lecture")
 @NoArgsConstructor
 //@AllArgsConstructor
 @Entity
