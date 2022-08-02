@@ -72,6 +72,10 @@ public class MainController {
         return "footer";
     }
 
+    @RequestMapping("/updateInfo")
+    public String updateInfo(){
+        return "updateInfo";
+    }
 
 
 }

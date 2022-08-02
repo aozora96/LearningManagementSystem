@@ -58,6 +58,12 @@ public class UserVO extends Timestamp { // -> UserDTO, 순수 객체만 담기 �
     @Column(name="birth", nullable = false)
     private Date birth;
 
+    public void updateUser(UserRequestDTO dto){
+        this.pw = dto.getPw();
+        this.address = dto.getAddress();
+        this.mobile = dto.getMobile();
+    }
+
     public UserVO(UserRequestDTO dto){
         this.usercode = dto.getUsercode();
         this.grade = dto.getGrade();

@@ -16,15 +16,15 @@ public class TodoController {
     private TodoService todoService;
 
     @PostMapping("/getTodo")
-    public List<TodoVO> getTodoList(){
-        List<TodoVO> list = todoService.readTodoList();
+    public List<TodoVO> getTodoList(@RequestBody TodoRequestDTO todoRequestDTO){
+        System.out.println(todoRequestDTO.getUserCode());
+        List<TodoVO> list = todoService.readTodoList(todoRequestDTO);
         if(list == null)
             System.out.println("NULL");
-        for(int i = 0; i<list.size(); i++){
-            System.out.println("사용자 코드: "+list.get(i).getUserCode());
-            System.out.println("TODO NO: "+list.get(i).getTodoCode());
-            System.out.println("TODO 내용: "+list.get(i).getContents());
-        }
         return list;
+    }
+    @PostMapping("/addTodo")
+    public void addTodoList(@RequestBody TodoRequestDTO todoRequestDTO){
+        todoService.addTodoList(todoRequestDTO);
     }
 }

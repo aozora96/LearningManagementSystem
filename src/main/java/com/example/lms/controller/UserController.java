@@ -49,19 +49,23 @@ public class UserController {
         // 여기서
         System.out.println("getUser들어옴");
         UserVO user =  userService.readUser(userRequestDto);
-        System.out.println(user.getId());
+//        System.out.println(user.getId());
         if(user == null)
             System.out.println("NULL");
         return user;
     }
 
     @PostMapping("/login")
-    public void login(@RequestBody UserRequestDTO userRequestDto, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public String login(@RequestBody UserRequestDTO userRequestDto, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserVO user = getUser(userRequestDto);
         String url = "";
         if(user.getPw().equals(userRequestDto.getPw())){
             System.out.println("로그인성공");
-            url ="/";
+             url ="/";
+
+            HttpSession session = request.getSession();
+            session.setAttribute("log",user.getUsercode());
+            session.setAttribute("logId",user.getId());
         }
         else {
             System.out.println(user.getPw());
@@ -69,8 +73,7 @@ public class UserController {
             url ="/login";
         }
 
-        HttpSession session = request.getSession();
-        session.setAttribute("log",user.getUsercode());
+        return url;
     }
 
     @GetMapping("/logout")
@@ -94,5 +97,18 @@ public class UserController {
             System.out.println("이미 사용중인 아이디");
             return false;
         }
+    }
+
+    @PostMapping("/updateUser")
+    public boolean update(@RequestBody UserRequestDTO dto){
+        UserVO user =userService.updateUser(dto);
+        if(user.getPw().equals(dto.getPw())){
+            System.out.println("회원정보 일치 -> 정보수정 성공");
+            return true;
+        }
+        else{
+            System.out.println("정보수정 실패");
+        }
+        return false;
     }
 }

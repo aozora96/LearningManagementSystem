@@ -13,20 +13,47 @@
     <title>MAIN</title>
 </head>
 <body>
-<c:import url = "/WEB-INF/views/header.jsp"/>
-<div id = "main">
-    <sapn id = "menuList">
-       <p>학교소개</p>
-        <p>학과 별 강의소개</p>
-        <p>수강신청</p>
-           <p>공지사항</p>
-    </sapn>
-    <div id ="images"></div>
-    <div id ="miniHome">
-        <span><div id ="todo">여기에 TODO LIST</div>
-            <div id ="schedule">여기는 시간표가 들어갈 거야</div></span>
+<div class ="main">
+    <c:import url = "/WEB-INF/views/header.jsp"/>
+    <section id = first>
+        <img style ="float: left;" src ="https://bit.ly/3zLwXbr" width="70">
+   <a href="/collegeInfo">학교소개</a>
+       <a href="/subInfo">학과 별 강의소개</a>
+        <a href="/addLecture">수강신청</a>
+        <a href="/board">공지사항</a>
+</section>
+    <div class="slide">
+
+        <div class="slides">
+            <input type="radio" id="ra01" name="ra" value="" checked>
+            <input type="radio" id="ra02" name="ra" value="">
+            <input type="radio" id="ra03" name="ra" value="">
+
+            <div class="sl"  style="text-align: center; ">
+                <img src="image/002.png" alt="">
+            </div>
+
+            <div class="sl" style="text-align: center; ">
+                <img src="image/testInfo.png" alt="">
+            </div>
+
+            <div class="sl"  style="text-align: center; ">
+                <img src="image/003.png" alt="">
+            </div>
+
+        </div>
+
+        <div class="page">
+            <label for="ra01">●</label>
+            <label for="ra02">●</label>
+            <label for="ra03">●</label>
+        </div>
+
+<section id = "last">
+   <div id = "todo">투두리스트</div>
+       <div id = "schedule">시간표</div>
+</section>
     </div>
-</div>
 <c:import url = "/WEB-INF/views/footer.jsp"/>
 </body>
 </html>

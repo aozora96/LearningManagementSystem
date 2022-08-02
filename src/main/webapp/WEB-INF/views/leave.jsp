@@ -15,14 +15,13 @@
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>
 <%
-    session.setAttribute("log",4518);
-    int log = (int)session.getAttribute("log");
+    Object logObj = session.getAttribute("log");
 %>
 
 회원탈퇴
 <form>
-    <input type ="hidden" id ="code" value ="<%=log%>">
-    UserCode : <input type="text" placeholder="<%=log%>" readonly style="border: none"><br>
+    <input type ="hidden" id ="code" value ="<%=logObj%>">
+    UserCode : <input type="text" placeholder="<%=logObj%>" readonly style="border: none"><br>
     비밀번호 : <input type="text" id="pw" placeholder="비밀번호 입력">
     <input type="button" value="탈퇴하기" onclick="leaveAction()">
 </form>

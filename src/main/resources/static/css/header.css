@@ -1,20 +1,32 @@
+/* 학교 이름 */
+@font-face {
+    font-family: 'ChosunKg';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunKg.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
 header{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 50px auto;
+    grid-template-rows: 30px 100px;
     grid-template-areas:
     "logMenu"
     "collegeName";
 }
 #logMenu{
-    background-color: palegoldenrod;
     grid-area: logMenu;
     padding-right: 30px;
     text-align: end;
 }
 
 #collegeName{
-    background-color: aqua;
+    font-family: 'ChosunKg';
     grid-area: collegeName;
     text-align: center;
     font-size: 3em;

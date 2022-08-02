@@ -27,16 +27,19 @@
 <body>
 수강신청
 <div>
-    <%--전공--%>
-    <select id="major" onchange="callSub()">
-        <option></option>
-    </select>
-    <%--과목명--%>
-    <select id="subject" onchange="colors()" c>
-        <option></option>
-    </select>
-    <button onclick="timeSche()">수강신청 완료</button>
-</div>
+    <div>
+        <%--전공--%>
+        <select id="major" onchange="callSub()">
+            <option></option>
+        </select>
+        <%--과목명--%>
+        <select id="subject" onchange="colors()">
+            <option></option>
+        </select>
+        <button>수강신청 완료</button>
+        <%--즉시 DB반영이라 버튼이 필요없을듯 하지만 있는게 나을것 같아서 일단 둠--%>
+        <span id="hakjum">0</span>점
+    </div>
 <div id="subInfo">
 
 </div>

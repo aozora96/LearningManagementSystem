@@ -6,6 +6,8 @@ import com.example.lms.domain.timeschedule.TimeScheduleVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TimeScheduleService {
     @Autowired
@@ -25,6 +27,12 @@ public class TimeScheduleService {
     //시간표 삭제
     public void delTime(TimeScheduleDTO dto){
         timeScheduleRepository.deleteById(dto.getSubcode());
+    }
+
+    //시간표 불러오기
+    public List showTime(){
+        List<TimeScheduleVO> temp = timeScheduleRepository.findAll();
+        return temp;
     }
 
 }

@@ -1,45 +1,116 @@
-#main{
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: 130px 80px 500px auto 100px;
+grid-template-areas:
+    "header"
+    "first"
+    "second"
+    "last"
+    "footer";
+}
+
+header{
+    grid-area: header;
+}
+footer{
+    grid-area: footer;
+    background-color: red;
+}
+
+#first{
+background-color: #87bb6f;
+grid-area: first;
+color:darkslategrey;
+display: flex;
+justify-content: space-around;
+align-items: center;
+padding:10px;
+}
+
+.slide{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 70px 120px auto;
+    grid-template-rows: 480px 20px;
     grid-template-areas:
-    "menuList"
     "images"
-    "miniHome"
+    "page";
+    grid-area: second;
+    background-color: lightblue;
 }
 
-#menuList{
-    grid-area: menuList;
-}
 
-#images{
-    grid-area: images;
-}
-
-#miniHome{
-    grid-area: miniHome;
+#last{
+    grid-area: last;
     display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-template-areas: "todo" "schedule";
+    grid-template-columns: 250px auto;
+    grid-template-areas: "todo schedule";
 }
 
 #todo{
     grid-area: todo;
-    background-color: palegoldenrod;
+    background-color: lightyellow;
 }
 
 #schedule{
     grid-area: schedule;
-    background-color: orange;
+    background-color: lightgray;
+    color: white;
 }
 
+/* 여기부터 이미지 슬라이드 */
+.slides>input[name=ra] {
 
+    display: none;
+}
 
+.sl {
+    display: none;
+}
 
+.sl:nth-of-type(1) {
+    display: block;
+}
 
+.sl>img {
 
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+}
 
+.slides{
+    grid-area: images;
+}
+.page {
+    text-align: center;
+    grid-area: page;
+}
 
+.page>label {
+    cursor: pointer;
+}
 
+#ra02:checked~.sl:nth-of-type(1) {
+    display: none;
+}
 
+#ra02:checked~.sl:nth-of-type(2) {
+    display: block;
+}
+
+#ra03:checked~.sl:nth-of-type(1) {
+    display: none;
+}
+
+#ra03:checked~.sl:nth-of-type(3) {
+    display: block;
+}
+
+/* 여기까지 이미지 슬라이드 */
 

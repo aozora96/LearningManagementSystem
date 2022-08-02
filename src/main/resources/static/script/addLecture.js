@@ -1,3 +1,4 @@
+//전공학과 리스트 불러오기
 $.ajax({
     url : "/majorList",
     type : "POST",
@@ -16,6 +17,29 @@ $.ajax({
     console.log(erorr.responseText);
 })
 
+//기존에 수강신청한게 있으면 불러오기
+const  requestData = {
+    "usercode" : $("#hide").val()
+}
+$.ajax({
+    url : "/showTime",
+    type : "POST",
+    data : JSON.stringify(requestData),
+    contentType : "application/json"
+}).done(result =>{
+    console.log(result);
+    // console.log(result.length);
+    if(result.length > 0){
+        for(let i=0; i<result.length; i++){
+            colors2(result[i]);
+            //console.log(result[i].sub_schedule)
+        }
+    }
+}).fail(erorr =>{
+    console.log(erorr.responseText);
+})
+
+//과목명 불러오기
 function callSub(){
     const  requestData = {
         "major" : $("#major").val()
@@ -54,7 +78,10 @@ function callSub(){
 
 
 // background 임의로 색 넣어놓음.
-let bc = ["#f1f0c0","#b7e4dd","green","orange","pink","#f5efbb","#d1d1d1","#8fc8ab","skyblue","#9a85a4","rgb(241, 215, 216)","#b0bbe6","#c4dfaa"];
+let bc = ["#6E85B7","#f1f0c0","#b7e4dd","#c2ded0","orange",
+    "pink","#ceac93","#d1d1d1","#8fc8ab","skyblue","#F5F0BB",
+    "#9a85a4","rgb(241, 215, 216)","#b0bbe6","#c4dfaa",
+    "#e7fbbe","#f4d19b","#D57E7E","#C6DCE4"];
 let cc = 0;
 
 function colors(){
@@ -65,6 +92,10 @@ function colors(){
     let start = sel.value.substring(0,2);
     let add = sel.value.substring(2,4);
     let cnt = sel.value.substring(4) - sel.value.substring(2,4);
+    if(!overCnt(cnt)){
+        alert("신청가능한 최대학점은 20학점 입니다.");
+        return;
+    }
     for(let i =0; i<cnt; i++){
         let temp = start + add;
         let tt = $("#"+temp).attr("class");
@@ -90,6 +121,10 @@ function colors(){
             document.getElementById(temp).style.background = bc[cc];
             add ++;
         }
+        else if($("#subject option:checked").text() ===  $("#"+temp).text()){
+            alert($("#"+temp).text() + " 은/는 이미 수강신청한 과목입니다");
+            break;
+        }
         else{
             alert("이미 수강신청된 시간입니다.");
             $("."+sel.value).css('background','none');
@@ -99,7 +134,10 @@ function colors(){
             break;
         }
     }
+    //수강신청된 시간에 동일 class명 부여
     if(check){
+        //학점계산
+        hakjumCnt(cnt);
         cc++;
         let sche = document.createElement("p");
         sche.setAttribute("class",sel.value);
@@ -113,14 +151,49 @@ function colors(){
     }
 }
 
+//이미 신청된 강의목록
+function colors2(result){
+    let check = true;
+
+    let sel = result.sub_schedule;
+
+    let start = sel.substring(0,2);
+    let add = sel.substring(2,4);
+    let cnt = sel.substring(4) - sel.substring(2,4);
+    for(let i =0; i<cnt; i++){
+        let temp = start + add;
+        document.getElementById(temp).setAttribute("class",sel);
+        document.getElementById(temp).innerText = result.title;//과목명
+        document.getElementById(temp).style.background = bc[cc];
+        add ++;
+    }
+    //수강신청된 시간에 동일 class명 부여
+    if(check){
+        //학점계산
+        hakjumCnt(cnt);
+        cc++;
+        let sche = document.createElement("p");
+        sche.setAttribute("class",sel);
+        sche.setAttribute( "id", result.subcode); //과목코드
+        sche.innerText = result.title;//과목명
+        $("#schedule").append(sche);
+    }
+    if(cc >= bc.length){
+        cc = 0;
+    }
+}
+
 $("#schedule").click(function (e){ // 밑에 추가된 강의명 선택하면 삭제
     console.log(e.target);
     let del = e.target.getAttribute("class");
     let delSc = e.target.getAttribute("id");
+    let cnt = del.substring(4) - del.substring(2,4);
+    minusCnt(cnt);
 
-    console.log(del);
-    console.log(delSc);
-    console.log(del.value);
+    // console.log(del);//요일/시간
+    // console.log(cnt);//cnt(runtime)
+    // console.log(delSc);
+    // console.log(del.value);
     //console.log(del !== null);
     if(del !== null){
         $("."+del).css('background','none');
@@ -134,6 +207,7 @@ $("#schedule").click(function (e){ // 밑에 추가된 강의명 선택하면 �
     }
 })
 
+// 선택한 강의목록 시간표에 추가
 function timeSave(timeData){
     $.ajax({
         url : "/saveTime",
@@ -148,6 +222,7 @@ function timeSave(timeData){
     })
 }
 
+// 시간표 삭제
 function timeDel(timeData){
     $.ajax({
         url : "/delTime",
@@ -160,4 +235,34 @@ function timeDel(timeData){
     }).fail(erorr =>{
         console.log(erorr.responseText);
     })
+}
+
+//현재까지 신청학점 계산
+function hakjumCnt(cnt){
+    let temp = $("#hakjum").text();
+    // console.log(temp);
+    temp = (parseInt(temp)+parseInt(cnt))
+    // console.log(temp);
+    $("#hakjum").text(temp)
+}
+
+//현재까지 신청학점 빼기
+function minusCnt(cnt){
+    let temp = $("#hakjum").text();
+    // console.log(temp);
+    temp = (parseInt(temp)-parseInt(cnt))
+    // console.log(temp);
+    $("#hakjum").text(temp)
+}
+
+//신청학점 초과체크
+function overCnt(cnt){
+    let temp = $("#hakjum").text();
+    let add = (parseInt(temp)+parseInt(cnt))
+    if(temp >= 20 || add >= 22){
+        return false;
+    }
+    else{
+        return true;
+    }
 }

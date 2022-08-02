@@ -23,24 +23,28 @@
             // String log = String.valueOf(session.getAttribute("log"));
             if(logObj == null){
         %>
-        <a href="/login">login</a>
-        <a href="/join">join</a>
+        <a style ="padding-right: 15px; color: darkgreen;" href="/login">로그인</a>
+        <a style ="padding-right: 15px; color: darkgreen;" href="/join">회원가입</a>
         <%}else {
             log= String.valueOf(logObj);
 
             if(log.length() == 1){%>
         <span>admin</span>
         <%} else if(log.length() == 2){%>
-        <a href="/professorMain">mypage</a>
+        <a style ="padding-right: 15px; color: darkgreen;" href="/professorMain">마이페이지</a>
         <%} else if(log.length() == 4){%>
-        <a href="/studentMain">mypage</a>
+        <a style ="padding-right: 15px; color: darkgreen;" href="/studentMain">마이페이지</a>
         <%}%>
-        <a href="/logout" > logout </a>
+        <a style ="padding-right: 15px; color: darkgreen;" href="/logout" >로그아웃</a>
         <%}
-        %>
+        System.out.println("헤더 세션 로그: "+ logObj);
+    %>
     </div>
     <div id = "collegeName">
-        OO대학교
+        <a href="/" style="padding-top: 0; color: darkgreen;">GREEN UNIVERSITY</a>
     </div>
 </header>
+</body>
+</html>
+
 

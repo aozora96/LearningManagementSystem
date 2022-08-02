@@ -22,31 +22,6 @@ public class UserService {
         userRepository.save(user);
     }
 
-    //check pw
-//    public UserVO checkPw(UserRequestDTO dto){
-//        UserVO temp;
-//        String code = dto.getUsercode()+"";
-//        Optional<UserVO> xx = userRepository.findById(code);
-//        if(xx.isPresent()){
-//            temp =  xx.get();
-//        }else{
-//            temp = null;
-//        }
-//        return temp;
-//    }
-
-     //Delete
-//    @Transactional
-//    public boolean deleteUser(UserRequestDTO userRequestDto){
-//        UserVO check = checkPw(userRequestDto);
-//        String code = userRequestDto.getUsercode()+"";
-//        if(check.getPw().equals(userRequestDto.getPw())){
-//            userRepository.deleteById(code);
-//            return true;
-//        }
-//        return false;
-//    }
-
     @Transactional
     public void deleteUser(UserRequestDTO dto){
 //        userRepository.deleteById(dto.getId());
@@ -83,5 +58,15 @@ public class UserService {
             }
         }
         return true;
+    }
+
+    public UserVO updateUser(UserRequestDTO userRequestDto){
+        UserVO user = userRepository.findById(userRequestDto.getUsercode()).orElseThrow(
+                () -> new IllegalArgumentException("존재하지않는 회원정보")
+        );
+        user.updateUser(userRequestDto);
+        userRepository.save(user);
+
+        return user;
     }
 }
