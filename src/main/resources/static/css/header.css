@@ -6,12 +6,21 @@
     font-style: normal;
 }
 
+/* 본명조 - nav 적용 */
+@font-face {
+    font-family: 'NotoSerifKR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 a{
     text-decoration: none;
     color: white;
 }
 
 header{
+    grid-area: header;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 30px 100px;
@@ -21,12 +30,13 @@ header{
 }
 #logMenu{
     grid-area: logMenu;
+    padding-top:10px;
     padding-right: 30px;
     text-align: end;
 }
 
 #collegeName{
-    font-family: 'ChosunKg';
+    font-family: 'NotoSerifKR';
     grid-area: collegeName;
     text-align: center;
     font-size: 3em;

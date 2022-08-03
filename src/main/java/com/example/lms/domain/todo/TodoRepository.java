@@ -17,6 +17,11 @@ public interface TodoRepository extends JpaRepository<TodoVO, Integer> {
 
     @Modifying
     @Query(value = "update todo set checked ='Y' where todo_code =?1 " , nativeQuery = true)
-    public void updateTodoChecked(int code);
+    public void updateTodoCheckedY(int code);
+
+
+    @Modifying
+    @Query(value = "update todo set checked ='N' where todo_code =?1 " , nativeQuery = true)
+    public void updateTodoCheckedN(int code);
 
 }

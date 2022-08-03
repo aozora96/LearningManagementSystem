@@ -1,0 +1,17 @@
+section{
+    margin: 0;
+    padding: 0;
+    width: 480px;
+    height: 880px;
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid ;
+    border-left: 1px solid ;
+}
+section div{
+
+    border-right: 1px solid ;
+    border-bottom: 1px solid ;
+    width: 79px;
+    height: 79px;
+}

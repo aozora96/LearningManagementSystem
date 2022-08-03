@@ -1,4 +1,3 @@
-
 let logCode = String($("#code").val());
 const requestData = {
     "userCode" : $("#code").val() // user_code아님
@@ -29,7 +28,6 @@ $.ajax({
                 let br = document.createElement('br');
                 let content = document.createElement('span');
                 let checkbox = document.createElement('input');
-                let delBtn = document.createElement('button');
                 checkbox.setAttribute("type","checkbox");
                 content.setAttribute("id", i+1);
                 checkbox.setAttribute("onclick","checkClick(event)");
@@ -45,41 +43,20 @@ $.ajax({
                 content.innerText = `${i+1}. ` + result[i].contents;
                 label.appendChild(content);
                 label.appendChild(checkbox);
-                //label.appendChild(br);
-                delBtn.setAttribute("onclick","delTodo(event)");
-                delBtn.setAttribute("value",`${stringi}`);
-                delBtn.innerText = "삭제";
-                delBtn.setAttribute("id",`${stringi}`);
+                label.appendChild(br);
 
-                $("#todoList").append(label,delBtn,br);
+                $("#todoList").append(label);
             }
         }
-        let br = document.createElement('br');
-        let addContents = document.createElement('input');
-        addContents.setAttribute("type","text");
-        addContents.setAttribute("id","contents");
-        addContents.setAttribute("name","contents");
-        let addButton = document.createElement('input');
-        addButton.setAttribute("value","+");
-        addButton.setAttribute("type","button");
-        addButton.setAttribute("onclick","addTodo()");
-        // let delButton = document.createElement('input');
-        // delButton.setAttribute("value","완료된 일 삭제하기");
-        // delButton.setAttribute("type","button");
-        // delButton.setAttribute("onclick","delTodo()");
-
-        $("#todoList").append(addContents,addButton,br);
     },
     error: function (result) {
         alert("error");
     }
 })
-
-// TODO
-function  todoList() {
+function checkLoad(){
     let logCode = String($("#code").val());
     const requestData = {
-        "userCode": $("#code").val() // user_code아님
+        "userCode" : $("#code").val() // user_code아님
     }
     $.ajax({
         url: "/getTodo",
@@ -91,22 +68,22 @@ function  todoList() {
             todoList.innerHTML = "";
             //<input type ="hidden" id ="code" value ="<%=log%>">
             let hidden = document.createElement('input');
-            hidden.setAttribute("type", "hidden");
-            hidden.setAttribute("id", "code");
-            hidden.setAttribute("value", `${logCode}`);
+            hidden.setAttribute("type","hidden");
+            hidden.setAttribute("id","code");
+            hidden.setAttribute("value",`${logCode}`);
             $("#todoList").append(hidden);
             console.log(result); //
             console.log(typeof result); //
-            if (result.length === 0) {
+            if(result.length === 0){
                 $("#list").innerText = "todo 리스트를 추가해보세요.";
-            } else{
+            }
+            else{
                 for(let i = 0; i<result.length; i++){
 
                     let label = document.createElement('label');
                     let br = document.createElement('br');
                     let content = document.createElement('span');
                     let checkbox = document.createElement('input');
-                    let delBtn = document.createElement('button');
                     checkbox.setAttribute("type","checkbox");
                     content.setAttribute("id", i+1);
                     checkbox.setAttribute("onclick","checkClick(event)");
@@ -122,53 +99,11 @@ function  todoList() {
                     content.innerText = `${i+1}. ` + result[i].contents;
                     label.appendChild(content);
                     label.appendChild(checkbox);
-                    //label.appendChild(br);
+                    label.appendChild(br);
 
-                    delBtn.setAttribute("onclick","delTodo(event)");
-                    delBtn.setAttribute("value",`${stringi}`);
-                    delBtn.innerText = "삭제";
-                    delBtn.setAttribute("id",`${stringi}`);
-
-                    $("#todoList").append(label,delBtn,br);
+                    $("#todoList").append(label);
                 }
             }
-            let br = document.createElement('br');
-            let addContents = document.createElement('input');
-            addContents.setAttribute("type", "text");
-            addContents.setAttribute("id", "contents");
-            addContents.setAttribute("name", "contents");
-            let addButton = document.createElement('input');
-            addButton.setAttribute("value", "+");
-            addButton.setAttribute("type", "button");
-            addButton.setAttribute("onclick", "addTodo()");
-            // let delButton = document.createElement('input');
-            // delButton.setAttribute("value","완료된 일 삭제하기");
-            // delButton.setAttribute("type","button");
-            // delButton.setAttribute("onclick","delTodo()");
-
-            $("#todoList").append(addContents, addButton, br);
-        },
-        error: function (result) {
-            alert("error");
-        }
-    })
-}
-function addTodo(){
-    console.log($("#code").val());
-    console.log($("#contents").val());
-    const requestData = {
-        "userCode" : $("#code").val(),
-        "contents" : $("#contents").val(),
-        "checked" : 'N'
-    }
-    $.ajax({
-        url: "/addTodo",
-        type: "post",
-        data: JSON.stringify(requestData),
-        contentType: "application/json",
-        success: function (result) {
-            todoList();
-            alert("success");
         },
         error: function (result) {
             alert("error");
@@ -176,26 +111,6 @@ function addTodo(){
     })
 }
 
-function delTodo(event) {
-    let todoCode = event.target.value;
-
-    const requestData = {
-        // "userCode": $("#code").val(),
-        "todoCode": todoCode
-    }
-    $.ajax({
-        url: "/delTodo",
-        type: "delete",
-        data: JSON.stringify(requestData),
-        contentType: "application/json",
-        success: function (result) {
-            console.log("del success");
-        },
-        error: function (result) {
-            console.log("del error");
-        }
-    })
-}
 function checkClick(event)  {
     let todoCode = event.target.value;
     if(event.target.checked)  {
@@ -210,7 +125,7 @@ function checkClick(event)  {
             contentType: "application/json",
         }).done(result =>{
             console.log("홍성현이 todo 권위자 등극 ");
-            todoList();
+            checkLoad();
 
 
         })
@@ -226,11 +141,69 @@ function checkClick(event)  {
             contentType: "application/json",
         }).done(result =>{
             console.log("이인성이 todo 권위자 등극 ");
-            todoList();
+            checkLoad();
         })
     }
 
 
 
 
+}
+
+let bc = ["#FFE6E6","#f1f0c0","#b7e4dd","#c2ded0","#FFD384",
+    "pink","#ceac93","#d1d1d1","#8fc8ab","skyblue","#F5F0BB",
+    "#9a85a4","rgb(241, 215, 216)","#b0bbe6","#c4dfaa",
+    "#e7fbbe","#f4d19b","#D57E7E","#C6DCE4"];
+let cc = 0;
+
+
+
+const  timeData = {
+    "usercode" :$("#code").val()
+}
+$.ajax({
+    url : "/showTime",
+    type : "POST",
+    data : JSON.stringify(timeData),
+    contentType : "application/json"
+}).done(result =>{
+    //console.log(result);
+    // console.log(result.length);
+    if(result.length > 0){
+        for(let i=0; i<result.length; i++){
+            colors2(result[i]);
+            //console.log(result[i].sub_schedule)
+        }
+    }
+}).fail(erorr =>{
+    console.log(erorr.responseText);
+})
+
+function colors2(result){
+    let check = true;
+
+    let sel = result.sub_schedule;
+
+    let start = sel.substring(0,2);
+    let add = sel.substring(2,4);
+    let cnt = sel.substring(4) - sel.substring(2,4);
+    for(let i =0; i<cnt; i++){
+        let temp = start + add;
+        document.getElementById(temp).setAttribute("class",sel);
+        document.getElementById(temp).innerText = result.title;//과목명
+        document.getElementById(temp).style.background = bc[cc];
+        add ++;
+    }
+    //수강신청된 시간에 동일 class명 부여
+    if(check){
+        cc++;
+        // let sche = document.createElement("p");
+        // sche.setAttribute("class",sel);
+        // sche.setAttribute( "id", result.subcode); //과목코드
+        // sche.innerText = result.title;//과목명
+        // $("#schedule").append(sche);
+    }
+    if(cc >= bc.length){
+        cc = 0;
+    }
 }

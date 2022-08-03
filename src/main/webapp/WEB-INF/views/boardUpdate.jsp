@@ -6,11 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+<c:import url = "/WEB-INF/views/header.jsp"/>
 게시판 수정 및 추가 및 삭제
+<c:import url = "/WEB-INF/views/footer.jsp"/>
 </body>
 </html>

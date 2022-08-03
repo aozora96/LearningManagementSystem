@@ -26,17 +26,17 @@
         <a style ="padding-right: 15px; color: navy;"  href="/login">로그인</a>
         <a style ="padding-right: 15px; color: navy;" href="/join">회원가입</a>
         <%}else {
-            log= String.valueOf(logObj);
-
-            if(log.length() == 1){%>
-        <span>admin</span>
-        <%} else if(log.length() == 2){%>
-        <a style ="padding-right: 15px; color: navy;" href="/professorMain">마이페이지</a>
-        <%} else if(log.length() == 4){%>
-        <a style ="padding-right: 15px; color: navy;" href="/studentMain">마이페이지</a>
-        <%}%>
-        <a style ="padding-right: 15px; color: navy;" href="/logout" >로그아웃</a>
-        <%}
+            log= String.valueOf(logObj);%>
+   <a style ="padding-right: 15px; color: navy;" href="/logout" >로그아웃</a>
+          <%  if(log.length() == 1){%>
+            <span>admin</span>
+            <%} else if(log.length() == 2){%>
+            <a style ="padding-right: 15px; color: navy;" href="/professorMain">마이페이지</a>
+            <%} else if(log.length() == 4){%>
+            <a style ="padding-right: 15px; color: navy;" href="/studentMain">마이페이지</a>
+            <%}
+          //  <a style ="padding-right: 15px; color: navy;" href="/logout" >로그아웃</a>
+        }
         System.out.println("헤더 세션 로그: "+ logObj);
     %>
     </div>

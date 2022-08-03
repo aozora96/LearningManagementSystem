@@ -161,7 +161,7 @@ function login(){
             }
             else{
                 alert("아이디와 비밀번호를 다시 확인하고 입력해주세요.")
-                    location.href='/login';
+                location.href='/login';
             }
         },
         error: function (result) {
@@ -235,88 +235,4 @@ function execDaumPostcode() {
 
     // iframe을 넣은 element를 보이게 한다.
     element_wrap.style.display = 'block';
-}
-
-// TODO
-function todoList(){
-    let logCode = String($("#code").val());
-    const requestData = {
-        "userCode" : $("#code").val() // user_code아님
-    }
-    $.ajax({
-        url: "/getTodo",
-        type: "post",
-        data: JSON.stringify(requestData),
-        contentType: "application/json",
-        success: function (result) {
-            const todoList = document.querySelector('#todoList');
-            todoList.innerHTML = "";
-            //<input type ="hidden" id ="code" value ="<%=log%>">
-            let hidden = document.createElement('input');
-            hidden.setAttribute("type","hidden");
-            hidden.setAttribute("id","code");
-            hidden.setAttribute("value",`${logCode}`);
-            $("#todoList").append(hidden);
-            console.log(result); //
-            console.log(typeof result); //
-            if(result.length === 0){
-                $("#list").innerText = "todo 리스트를 추가해보세요.";
-            }
-            else{
-                for(let i = 0; i<result.length; i++){
-                    let br = document.createElement('br');
-                    let content = document.createElement('span');
-                    let checkbox = document.createElement('input');
-                    checkbox.setAttribute("type","checkbox");
-                    //console.log(result[i].todoCode);
-                    let stringi = String(result[i].todoCode);
-                    checkbox.setAttribute("value",`${stringi}`);
-                    checkbox.setAttribute("id","done");
-                    checkbox.setAttribute("name","done");
-                    content.innerText = `${i+1}. ` + result[i].contents;
-                    $("#todoList").append(content,checkbox,br);
-                }
-            }
-            let br = document.createElement('br');
-            let addContents = document.createElement('input');
-            addContents.setAttribute("type","text");
-            addContents.setAttribute("id","contents");
-            addContents.setAttribute("name","contents");
-            let addButton = document.createElement('input');
-            addButton.setAttribute("value","+");
-            addButton.setAttribute("type","button");
-            addButton.setAttribute("onclick","addTodo()");
-            // let delButton = document.createElement('input');
-            // delButton.setAttribute("value","완료된 일 삭제하기");
-            // delButton.setAttribute("type","button");
-            // delButton.setAttribute("onclick","delTodo()");
-
-            $("#todoList").append(addContents,addButton,br);
-        },
-        error: function (result) {
-            alert("error");
-        }
-    })
-}
-
-function addTodo(){
-    console.log($("#code").val());
-    console.log($("#contents").val());
-    const requestData = {
-        "userCode" : $("#code").val(),
-        "contents" : $("#contents").val()
-    }
-    $.ajax({
-        url: "/addTodo",
-        type: "post",
-        data: JSON.stringify(requestData),
-        contentType: "application/json",
-        success: function (result) {
-            todoList();
-            alert("success");
-        },
-        error: function (result) {
-            alert("error");
-        }
-    })
 }

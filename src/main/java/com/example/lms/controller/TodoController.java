@@ -4,6 +4,7 @@ import com.example.lms.domain.todo.TodoRequestDTO;
 import com.example.lms.domain.todo.TodoVO;
 import com.example.lms.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,13 +24,24 @@ public class TodoController {
             System.out.println("NULL");
         return list;
     }
-    @PostMapping("checkTodo")
-    public void checkTodo(@RequestBody TodoRequestDTO todoRequestDTO){
-        System.out.println("한번 보자 ");
-        todoService.checkTodoList(todoRequestDTO);
+    @PostMapping("/checkTodoY")
+    public void checkTodoY(@RequestBody TodoRequestDTO todoRequestDTO){
+        System.out.println("한 번 보자 ");
+        todoService.checkTodoListY(todoRequestDTO);
     }
+    @PostMapping("/checkTodoN")
+    public void checkTodoN(@RequestBody TodoRequestDTO todoRequestDTO){
+        System.out.println("두 번 보자 ");
+        todoService.checkTodoListN(todoRequestDTO);
+    }
+
     @PostMapping("/addTodo")
     public void addTodoList(@RequestBody TodoRequestDTO todoRequestDTO){
         todoService.addTodoList(todoRequestDTO);
+    }
+
+    @DeleteMapping("/delTodo")
+    public void delTodo(@RequestBody TodoRequestDTO todoRequestDTO){
+        todoService.deleteTodoList(todoRequestDTO);
     }
 }

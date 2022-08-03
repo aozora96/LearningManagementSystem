@@ -5,3 +5,8 @@
 /*    background-color: black;*/
 /*    color: white;*/
 /*}*/
+footer{
+    grid-are: footer;
+    background-color: black;
+    color: white;
+}

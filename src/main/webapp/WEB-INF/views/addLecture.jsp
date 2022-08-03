@@ -1,33 +1,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
     <title>Title</title>
-    <style>
-        section{
-            margin: 0;
-            padding: 0;
-            width: 480px;
-            height: 880px;
-            display: flex;
-            flex-wrap: wrap;
-            border-top: 1px solid ;
-            border-left: 1px solid ;
-        }
-        section div{
-            border-right: 1px solid ;
-            border-bottom: 1px solid ;
-            width: 79px;
-            height: 79px;
-        }
-    </style>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel = "stylesheet" href = "css/addLecture.css">
 </head>
 
 <body>
+<c:import url = "/WEB-INF/views/header.jsp"/>
 수강신청
 <div>
     <div>
+        <%
+            Object log = session.getAttribute("log");
+            System.out.println("log" + log);
+        %>
+        <input type="hidden" id="hide" value="<%=log%>">
         <%--전공--%>
         <select id="major" onchange="callSub()">
             <option></option>
@@ -44,7 +33,8 @@
 
 </div>
 <section>
-    <div></div><div id="MO">월</div><div id="TU">화</div><div id="WE">수</div><div id="TH">목</div><div id="FR">금</div>
+    <div></div>
+    <div id="MO">월</div><div id="TU">화</div><div id="WE">수</div><div id="TH">목</div><div id="FR">금</div>
     <div>9</div><div id="MO09"></div><div id="TU09"></div><div id="WE09"></div><div id="TH09"></div><div id="FR09"></div>
     <div>10</div><div id="MO10"></div><div id="TU10"></div><div id="WE10"></div><div id="TH10"></div><div id="FR10"></div>
     <div>11</div><div id="MO11"></div><div id="TU11"></div><div id="WE11"></div><div id="TH11"></div><div id="FR11"></div>
@@ -60,7 +50,7 @@
 <div id="schedule">
 
 </div>
-
+    <c:import url = "/WEB-INF/views/footer.jsp"/>
 <script src="script/addLecture.js"></script>
 </body>
 </html>

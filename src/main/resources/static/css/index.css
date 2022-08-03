@@ -6,6 +6,14 @@
     font-style: normal;
 }
 
+/* 강원교육모두체 - 시간표 적용 */
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -13,24 +21,13 @@
 
 body{
     display: grid;
-    grid-template-rows: 130px 80px 571px 660px 100px;
+    grid-template-rows: 130px 78px 571px 660px 80px;
     grid-template-areas:
     "header"
     "nav"
     "one"
     "two"
     "footer";
-}
-
-haeder{
-    grid-area: header;
-    background-color: lightpink;
-}
-
-footer{
-    grid-area: footer;
-    background-color: black;
-    color: white;
 }
 
 #nav{
@@ -43,10 +40,8 @@ footer{
     font-family: 'NotoSerifKR';
     font-size: 1.2em;
 
-    background-color: navy;
+    background-color: #0245A3;
     color: white;
-
-
 }
 
 .slide{
@@ -57,7 +52,7 @@ footer{
     grid-area: two;
 
     display: grid;
-    grid-template-columns: 780px auto;
+    grid-template-columns: 450px auto;
     grid-template-areas:
     "todo schedule";
 }
@@ -68,34 +63,40 @@ footer{
 
 #schedule{
     grid-area: schedule;
-    background-color: beige;
-
     margin: 0;
     padding: 0;
-    width: 900px;
-    height: 440px;
+    width: 936px;
+    height: 550px;
     display: flex;
     flex-wrap: wrap;
-    border-top: 1px solid ;
-    border-left: 1px solid ;
+    /*border-top: 1px solid ;*/
+    /*border-left: 1px solid ;*/
 }
 #schedule div{
-    font-size: 0.8em;
+    margin:3px;
+    /*border-radius: 30px 10px 50px;*/
+    font-size: 1em;
     text-align: center;
-    line-height: 40px;
-    border-right: 1px solid ;
-    border-bottom: 1px solid ;
-    width:149px;
-    height: 39px;
+    line-height: 49px;
+    /*border-right: 1px solid ;*/
+    /*border-bottom: 1px solid ;*/
+    font-family: 'GangwonEdu_OTFBoldA';
+    border : 1px solid;
+    color : gray;
+    width:148px;
+    height: 49px;
 }
 
 /* 여기부터 이미지 슬라이드 */
+
 .slides>input[name=ra] {
     display: none;
 }
 
 .sl {
     display: none;
+    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url("https://bit.ly/3bsnBs2");
+    background-size: cover;
 }
 
 .sl:nth-of-type(1) {

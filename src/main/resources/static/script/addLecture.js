@@ -80,7 +80,7 @@ function callSub(){
 
 
 // background 임의로 색 넣어놓음.
-let bc = ["#6E85B7","#f1f0c0","#b7e4dd","#c2ded0","orange",
+let bc = ["#FFE6E6","#f1f0c0","#b7e4dd","#c2ded0","#FFD384",
     "pink","#ceac93","#d1d1d1","#8fc8ab","skyblue","#F5F0BB",
     "#9a85a4","rgb(241, 215, 216)","#b0bbe6","#c4dfaa",
     "#e7fbbe","#f4d19b","#D57E7E","#C6DCE4"];

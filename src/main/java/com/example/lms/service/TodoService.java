@@ -33,11 +33,29 @@ public class TodoService {
         TodoVO todoVO = new TodoVO(todoRequestDTO);
         todoRepository.save(todoVO);
     }
+
+    //체크 y 로 변경
     @Transactional
-    public void checkTodoList(@RequestBody TodoRequestDTO todoRequestDTO){
+    public void checkTodoListY(@RequestBody TodoRequestDTO todoRequestDTO){
         TodoVO todoVO = new TodoVO(todoRequestDTO);
         System.out.println(todoVO.getTodoCode());
-        todoRepository.updateTodoChecked(todoVO.getTodoCode());
+        todoRepository.updateTodoCheckedY(todoVO.getTodoCode());
+    }
+
+
+    //체크 n 로 변경
+    @Transactional
+    public void checkTodoListN(@RequestBody TodoRequestDTO todoRequestDTO){
+        TodoVO todoVO = new TodoVO(todoRequestDTO);
+        System.out.println(todoVO.getTodoCode());
+        todoRepository.updateTodoCheckedN(todoVO.getTodoCode());
+    }
+
+
+    public void deleteTodoList(@RequestBody TodoRequestDTO todoRequestDTO){
+        TodoVO todoVO = new TodoVO(todoRequestDTO);
+        todoRepository.deleteById(todoVO.getTodoCode());
+
     }
 
 

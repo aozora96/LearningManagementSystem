@@ -6,12 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+<c:import url = "/WEB-INF/views/header.jsp"/>
 <%String logId = String.valueOf(session.getAttribute("logId"));
     System.out.println("이게뭐람 "+logId);
 %>
@@ -42,7 +44,7 @@
     <input type="button" value="수정하기" onclick="updateUserInfo()">
 
 </form>
-
+<c:import url = "/WEB-INF/views/footer.jsp"/>
 <script src="script/updateInfo.js"></script>
 
 </body>
