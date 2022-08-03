@@ -9,48 +9,56 @@
 </head>
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>
-<form style = "text-align: center; padding-top: 30px;" >
-    이름<br>
-    <input type = "text" name = "name" id ="name" required placeholder="name"><br><br>
-    아이디<br>
-    <input type = "text" name = "joinId" id = "joinId" required placeholder="id(2자 이상)"><br><br>
-    <input type="hidden" id="chId">
-    <p id="inuse" style="display:none; color:red; font-size: 8pt;">이미 사용중인 아이디입니다.</p>
-    <p id="use" style="display:none; color:green; font-size: 8pt;">사용가능한 아이디입니다.</p>
-    <br>
+<section id="join">
+    <div id="joinForm">
+        <h1 id="joinText">회원가입</h1>
+        <form>
+            이름<br>
+            <input type = "text" name = "name" id ="name" required placeholder="name"><br><br>
+            아이디<br>
+            <input type = "text" name = "joinId" id = "joinId" required placeholder="id(2자 이상)"><br><br>
+            <input type="hidden" id="chId">
+            <p id="inuse" style="display:none; color:red; font-size: 8pt;">이미 사용중인 아이디입니다.</p>
+            <p id="use" style="display:none; color:green; font-size: 8pt;">사용가능한 아이디입니다.</p>
+            <br>
 
-    비밀번호<br>
-    <input type = "password" name = "pw" id = "pw" required placeholder="pw"><br><br>
-    주소<br>
-    <div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
-        <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+            비밀번호<br>
+            <input type = "password" name = "pw" id = "pw" required placeholder="pw"><br><br>
+            주소<br>
+            <div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+                <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+            </div>
+            <input type="text" id="postcode" placeholder="우편번호" style="width: 255px; height :50px;">
+            <input type="button" class="btn" onclick="execDaumPostcode()" value="우편번호 찾기" style="width: 200px; height :50px;"><br><br>
+            <input type="text" id="address" placeholder="주소" style="width: 300px; height :50px;">
+            <input type="text" id="detailAddress" placeholder="상세주소" style="width: 150px; height :50px;"><br><br>
+
+            성별<br>
+            <select id = "gender">
+                <option name = "none" value ="성별">성별</option>
+                <option name = "Female" value ="F">F</option>
+                <option name = "Male" value ="M">M</option>
+            </select><br><br>
+            전공<br>
+            <select id = "major">
+                <option name = "none" value ="none">전공선택</option>
+                <option name = "business" value = "경영학">경영학과</option>
+                <option name = "computer" value = "컴퓨터공학">컴퓨터공학과</option>
+                <option name = "music" value = "실용음악">실용음악과</option>
+                <option name = "korean" value = "국어국문학">국어국문학과</option>
+            </select><br><br>
+            휴대전화<br>
+            <input type = "text" name ="mobile" id = "mobile" required placeholder="010-0000-0000"><br><br>
+            생년월일<br>
+            <input type = "date" name ="birth" id = "birth" required><br><br>
+            <input type = "button" class="btn" value ="회원가입" onclick = "join()" ><br><br>
+            <input type = "hidden" name ="grade" id = "grade" value ="S">
+        </form>
     </div>
-    <input type="text" id="postcode" placeholder="우편번호">
-    <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br><br>
-    <input type="text" id="address" placeholder="주소">
-    <input type="text" id="detailAddress" placeholder="상세주소"><br><br>
+    <aside id="aside1"></aside>
+    <aside id="aside2"></aside>
+</section>
 
-    성별<br>
-    <select id = "gender">
-        <option name = "none" value ="성별">성별</option>
-        <option name = "Female" value ="F">F</option>
-        <option name = "Male" value ="M">M</option>
-    </select><br><br>
-    전공<br>
-    <select id = "major">
-        <option name = "none" value ="none">전공선택</option>
-        <option name = "business" value = "경영학">경영학과</option>
-        <option name = "computer" value = "컴퓨터공학">컴퓨터공학과</option>
-        <option name = "music" value = "실용음악">실용음악과</option>
-        <option name = "korean" value = "국어국문학">국어국문학과</option>
-    </select><br><br>
-    휴대전화<br>
-    <input type = "text" name ="mobile" id = "mobile" required placeholder="010-0000-0000"><br><br>
-    생년월일<br>
-    <input type = "date" name ="birth" id = "birth" required><br><br>
-    <input type = "button" value ="회원가입" onclick = "join()"><br><br>
-    <input type = "hidden" name ="grade" id = "grade" value ="S">
-</form>
 <c:import url = "/WEB-INF/views/footer.jsp"/>
 </body>
 <script type="text/javascript" src="/script/validation.js?ver=123"></script>

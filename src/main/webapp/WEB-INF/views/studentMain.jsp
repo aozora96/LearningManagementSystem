@@ -10,6 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <html>
 <head>
+    <link rel = "stylesheet" href = "css/studentMain.css">
     <title>학생 마이페이지</title>
 </head>
 <body>
@@ -26,12 +27,12 @@
     <form>
         <input type ="hidden" id = "stLog" value="<%=logId%>">
     </form>
-    id: <div id = "id"></div>
-    이름: <div id = "name"></div>
-    생년월일: <div id = "birth"></div>
-    전공: <div id = "major"></div>
-    주소: <div id = "address"></div>
-    연락처: <div id = "mobile"></div>
+     <div id = "id">id: &nbsp;</div>
+     <div id = "name">이름: &nbsp;</div>
+     <div id = "birth">생년월일: &nbsp;</div>
+     <div id = "major">전공: &nbsp;</div>
+     <div id = "address">주소: &nbsp;</div>
+     <div id = "mobile">연락처: &nbsp;</div>
     <button onclick="location.href='/updateInfo'">정보수정하기</button>
 </section>
 <c:import url = "/WEB-INF/views/footer.jsp"/>

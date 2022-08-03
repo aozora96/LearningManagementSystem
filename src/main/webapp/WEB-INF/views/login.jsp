@@ -15,12 +15,14 @@
 </head>
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>
-<h1>LOGIN</h1>
-<form >
-아이디<input type = "text" name = "id" id = "id"><br>
-비밀번호<input type = "password" name = "pw" id = "pw"><br>
-<input type ="button" value ="로그인" onclick="login()">
-<input type = "button" value ="뒤로가기" onclick="location.href='/'">
+<form>
+    <h1>LOGIN</h1>
+    <input type = "text" name = "id" id = "id" placeholder="ID">
+    <input type = "password" name = "pw" id = "pw" placeholder="PW">
+    <div id = "btns">
+        <input type ="button" id="loginBtn" value ="로그인" onclick="login()">
+        <input type = "button" id="goBackBtn" value ="뒤로가기" onclick="location.href='/'">
+    </div>
 </form>
 <aside id="aside1"></aside>
 <aside id="aside2"></aside>

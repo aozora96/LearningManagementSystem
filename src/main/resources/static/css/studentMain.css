@@ -1,0 +1,26 @@
+body{
+    margin : 0;
+    padding : 0;
+
+    display: grid;
+    grid-template-columns: 250px auto;
+    grid-template-rows: 210px auto 84px;
+    grid-template-areas:
+    "header header"
+    "aside content"
+    "footer footer";
+}
+
+#top{
+    grid-area: header;
+}
+
+aside{
+    grid-area: aside;
+    background-color: lightsteelblue;
+}
+
+section{
+    grid-area: content;
+    background-color: lightpink;
+}

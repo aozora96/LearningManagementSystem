@@ -1,5 +1,10 @@
 footer{
-    grid-are: footer;
-    background-color: black;
-    color: white;
+    grid-area: footer;
+    background-color: #F9F5EB;
+    color: black;
+    text-align: center;
+
+    font-size: 0.8em;
+    padding-top:13px;
 }
+

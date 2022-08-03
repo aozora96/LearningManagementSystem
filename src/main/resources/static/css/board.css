@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-template-rows: 210px auto 70px;
+    grid-template-areas:
+    "header"
+    "content"
+    "footer";
+}
+
+#top{
+    grid-area: header;
+}
+
+#content{
+    grid-area: content;
+}
+
+footer{
+    grid-area: footer;
+}

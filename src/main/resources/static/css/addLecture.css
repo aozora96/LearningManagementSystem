@@ -24,8 +24,9 @@
 /*}*/
 
 body{
+    height: 100vh;
     display: grid;
-    grid-template-rows: 210px 200px auto 80px;
+    grid-template-rows: 210px 200px auto 84px;
     grid-template-areas:
     "header"
     "title"

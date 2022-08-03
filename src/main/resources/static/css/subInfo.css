@@ -3,7 +3,7 @@ body{
     padding: 0;
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: 210px 60px auto 80px;
+    grid-template-rows: 210px 60px auto 84px;
     grid-template-areas:
         "header header header"
         "major major major"
@@ -18,9 +18,9 @@ body{
 #major{
     grid-area: major;
     /*background-color: lightsteelblue;*/
-    border-width: thick;
-    border-color:navy;
-    font-size: 1.2em;
+    border-color: #0245A3;
+    border-width: 2px 0.8em;
+    font-size: 0.9em;
 }
 
 #subject{

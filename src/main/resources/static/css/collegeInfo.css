@@ -5,7 +5,7 @@ body{
     height : 100vh;
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: 210px 4fr 2fr 80px;
+    grid-template-rows: 210px 4fr 2fr 84px;
     grid-template-areas:
     "header header header"
     "collegeText collegeText collegeText"
