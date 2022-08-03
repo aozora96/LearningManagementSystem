@@ -9,12 +9,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
+    <link rel ="stylesheet" href ="css/collegeInfo.css">
     <title>Title</title>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>
 <div id = "collegeText">
-    <h1>학교 소개</h1><br>
+    <div class="collegeImg">
+        <img src="image/bokk.jpg"  class="colImg" alt="" >
+        <h1 class="colInfo">학교 소개</h1>
+    </div>
+    <br>
+    <section id="information">
     그린대학교의 홈페이지를 방문해 주신 여러분을 환영합니다.<br><br>
 
     저는 그린대학교의 총장으로서 이 시대 교육의 방향을 ‘공동체적 자아를 보유한 혁신 리더’를 육성하는 것으로 집중할 계획입니다.<br>
@@ -27,12 +33,15 @@
     그린은 설립 당시부터 기독교적 사랑의 정신을 토대로 진리와 자유의 비전을 구현하고자 노력하여 왔습니다.<br><br>
 
     알렌과 언더우드 선교사가 오랜 항해 끝에 이 땅에 첫발을 내디뎠을 때, 그들은 모두 26세였습니다.<br>
-    그들의 비전과 영혼이 깃들어 있는 연세는 그래서 영원히 26세의 심장을 가진 개척자일 수밖에 없습니다.<br><br>
+    그들의 비전과 영혼이 깃들어 있는 그린은 그래서 영원히 26세의 심장을 가진 개척자일 수밖에 없습니다.<br><br>
 
     본인은 2020년 2월 1일 그린대학교의 19대 총장으로 취임하며, 이 배를 새로운 미래로 이끌어가고자 합니다.<br>
     새로운 그린을 향한 저의 도전과 개척에 모두 함께 해 주실 것을 기대합니다.<br><br>
 
     고맙습니다.<br>
+    </section>
+    <aside id="aside1"></aside>
+    <aside id="aside2"></aside>
 </div>
 <div id="teamInfo">
     <h1>팀원 소개</h1>

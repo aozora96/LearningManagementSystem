@@ -15,16 +15,16 @@
     <link rel = "stylesheet" href="css/subInfo.css">
 </head>
 <body>
-<div id = main>
     <c:import url = "/WEB-INF/views/header.jsp"/>
     <select id="major" onchange="callSub()">
         <option>--학과 선택--</option>
-</select>
-<section id="subject" >
-
-</section>
-</div>
-<c:import url = "/WEB-INF/views/footer.jsp"/>
+    </select>
+    <section id="subject" >
+    </section>
+    <aside id="aside1"></aside>
+    <aside id="aside2"></aside>
+    <c:import url = "/WEB-INF/views/footer.jsp"/>
 <script src="script/subInfo.js"></script>
 </body>
 </html>
+

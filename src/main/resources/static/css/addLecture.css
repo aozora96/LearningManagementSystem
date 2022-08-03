@@ -1,17 +1,181 @@
-section{
+/*시간표*/
+@font-face {
+    font-family: 'ChosunSm';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.1/ChosunSm.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
     margin: 0;
     padding: 0;
-    width: 480px;
-    height: 880px;
+}
+
+/*body{*/
+/*    display: grid;*/
+/*    grid-template-rows: 210px 200px 34px 1fr 80px;*/
+/*    grid-template-areas:*/
+/*    "header"*/
+/*    "title"*/
+/*    "part1"*/
+/*    "part2"*/
+/*    "footer"*/
+/*;*/
+/*}*/
+
+body{
+    display: grid;
+    grid-template-rows: 210px 200px auto 80px;
+    grid-template-areas:
+    "header"
+    "title"
+    "lecture_set"
+    "footer"
+;
+}
+
+#lecture_set{
+    padding-top:40px;
+    padding-bottom: 20px;
+    grid-area: lecture_set;
+    grid-template-rows: 34px auto;
+    grid-template-areas:
+    "part1"
+    "part2";
+}
+
+.addLecture{
+    overflow: hidden;
+    position: relative;
+    height: 220px;
+}
+.addlectureImg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.addlectureInfo{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    color: #fff;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    text-shadow: 2px 2px 6px rgb(0 0 0);
+    font-size: 40px;
+}
+
+#top{
+    grid-area: header;
+}
+
+#title{
+    grid-area: title;
+    line-height: 200px;
+    vertical-align: text-bottom;
+    text-align: center;
+    font-size: 2em;
+    color: white;
+
+    position: relative;
+    background-image: url("https://bit.ly/2Tx4ToI");
+    background-size: 100% 100%;
+    backbround-repeat : no-repeat;
+    background-position: center center;
+    /*background-size: cover;*/
+    /*background-position: 0px -40px;*/
+
+    margin-bottom: 10px;
+}
+
+
+#part1{
+    grid-area: part1;
+    display: flex;
+    justify-content: center;
+
+    font-family: 'ChosunSm';
+
+    margin-bottom: 10px;
+}
+#part2{
+    grid-area: part2;
+    display: flex;
+    grid-template-columns: auto 100px;
+    grid-template-areas:
+    "time" "text"
+;
+}
+
+#major{
+    margin-right: 10px;
+    width: 140px;
+}
+#subject{
+    width: 140px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#hakjum{
+    width: 40px;
+    text-align: right;
+
+    margin-left: 10px;
+}
+#move{
+    width: 120px;
+    height: 30px;
+
+    margin-top: -3px;
+    margin-left: 80px;
+}
+
+#time{
+    grid-area: time;
+    margin: auto;
+    padding: 0;
+
     display: flex;
     flex-wrap: wrap;
-    border-top: 1px solid ;
-    border-left: 1px solid ;
+
+    width: 720px;
+    height: 880px;
+
+    border-top: 1px solid darkgray;
+    border-left: 1px solid darkgray;
 }
 section div{
+    font-family: 'ChosunSm';
+    font-size: 12pt;
 
-    border-right: 1px solid ;
-    border-bottom: 1px solid ;
-    width: 79px;
+    line-height: 79px;
+    text-align: center;
+
+    border-right: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    width: 119px;
     height: 79px;
+
+}
+
+#schedule{
+    text-align: left;
+    width: 180px;
+    border: none;
+}
+
+#schedule p{
+    text-align: center;
+    line-height: 50px;
+
+    border: solid 1px darkgray;
+    border-radius: 20px;
+    height: 50px;
+
+    margin-bottom: 5px;
+}
+
+footer{
+    grid-area: footer;
 }

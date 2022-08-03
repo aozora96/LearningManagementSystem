@@ -11,8 +11,9 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <title>Title</title>
+    <link rel="stylesheet" href="css/login.css"></link>
 </head>
-<body style="text-align: center">
+<body>
 <c:import url = "/WEB-INF/views/header.jsp"/>
 <h1>LOGIN</h1>
 <form >
@@ -21,6 +22,8 @@
 <input type ="button" value ="로그인" onclick="login()">
 <input type = "button" value ="뒤로가기" onclick="location.href='/'">
 </form>
+<aside id="aside1"></aside>
+<aside id="aside2"></aside>
 <c:import url = "/WEB-INF/views/footer.jsp"/>
 </body>
 <script type="text/javascript" src="/script/validation.js?ver=123"></script>

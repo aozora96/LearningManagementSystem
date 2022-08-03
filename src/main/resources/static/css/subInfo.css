@@ -1,42 +1,69 @@
-*{
+body{
     margin: 0;
     padding: 0;
-}
-
-#main{
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 130px 80px auto 300px;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 210px 60px auto 80px;
     grid-template-areas:
-        "header"
-        "majorSelect"
-        "contents"
-        "footer";
+        "header header header"
+        "major major major"
+        "aside1 subject aside2"
+        "footer footer footer";
 }
 
 /* grid 영역 반영 */
-header{
+#top{
     grid-area: header;
 }
+#major{
+    grid-area: major;
+    /*background-color: lightsteelblue;*/
+    border-width: thick;
+    border-color:navy;
+    font-size: 1.2em;
+}
 
+#subject{
+    grid-area: subject;
+    padding-top : 15px;
+    /*background-color: lightpink;*/
+
+    display: flex;
+    flex-direction: column;
+}
 footer{
     grid-area: footer;
     background-color: black;
     color : white;
 }
-
-#major{
-    grid-area: majorSelect;
-    background-color: lightsteelblue;
+#aside1{
+    grid-area: aside1;
+}
+#aside2{
+    grid-area: aside2;
 }
 
-#subject{
-    padding-top : 15px;
-    grid-area: contents;
-    background-color: lightpink;
+.sub{
+    border-bottom-style: dotted;
+    border-color: black;
+    margin: 1%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "img info";
 }
+.sub img{
+    grid-area: img;
+    width: 90%;
+    /*height: 100%;*/
+    background-size: cover;
+}
+.info{
+    grid-area: info;
 
-
-
-
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}

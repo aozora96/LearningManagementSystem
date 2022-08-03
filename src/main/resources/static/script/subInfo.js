@@ -23,43 +23,43 @@ function callSub(){
     console.log($("#major").val());
     $.ajax({
         url : "/getSub",
-                type : "POST",
-                data : JSON.stringify(requestData),
-                contentType : "application/json"
-        }).done(result =>{
-                $("#subject").find("section").remove();
-                for(let i=0; i<result.length; i++){
-                    //섹션 만들기
-                    let section = document.createElement("section");
-                    //  let division = document.querySelector("#textInfo");
-                    section.setAttribute("value", result[i].title);
+        type : "POST",
+        data : JSON.stringify(requestData),
+        contentType : "application/json"
+    }).done(result =>{
+        $("#subject").find("section").remove();
+        for(let i=0; i<result.length; i++){
+            //섹션 만들기
+            let section = document.createElement("section");
+            //  let division = document.querySelector("#textInfo");
+            section.setAttribute("value", result[i].title);
+            section.setAttribute("class","sub")
 
-                    let img = document.createElement("img");
-                    img.setAttribute("src",result[i].thumbnail);
-                    img.setAttribute("style","width:300px; height:300px;");
+            let img = document.createElement("img");
+            img.setAttribute("src",result[i].thumbnail);
+            //img.setAttribute("style","width:100%; height:100%;");
 
-                    //div (title명)
-                    let div_title = document.createElement("div");
-                    div_title.innerText = "강의명 : "+result[i].title;
-                    // 교수명
-                    let div_p_name = document.createElement("div");
-                    div_p_name.innerText = "담당 교수 : "+result[i].p_name;
-                    // 강의시간
-                    let div_runtime = document.createElement("div");
-                    div_runtime.innerText = "강의 시간 : "+result[i].runtime +"시간";
+            let div = document.createElement("div");
+            div.setAttribute("class","info");
+            //div (title명)
+            let div_title = document.createElement("div");
+            div_title.innerText = "강의명 : "+result[i].title;
+            // 교수명
+            let div_p_name = document.createElement("div");
+            div_p_name.innerText = "담당 교수 : "+result[i].p_name;
+            // 강의시간
+            let div_runtime = document.createElement("div");
+            div_runtime.innerText = "강의 시간 : "+result[i].runtime +"시간";
             // 강의소개
             let div_content = document.createElement("div");
             div_content.innerText = "강의 소개 : "+ result[i].content;
-
+            let br = document.createElement("br");
             section.appendChild(img);
-            section.appendChild(div_title);
-            section.appendChild(div_p_name);
-            section.appendChild(div_runtime);
-            section.appendChild(div_content);
-            // division.appendChild(div_title);
-            // division.appendChild(div_p_name);
-            // division.appendChild(div_runtime);
-            // division.appendChild(div_content);
+            div.append(div_title);
+            div.append(div_p_name);
+            div.append(div_runtime,br);
+            div.append(div_content);
+            section.appendChild(div);
 
             $("#subject").append(section);
         }

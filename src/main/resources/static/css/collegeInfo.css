@@ -1,0 +1,66 @@
+
+body{
+    margin : 0;
+    padding : 0;
+    height : 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 210px 4fr 2fr 80px;
+    grid-template-areas:
+    "header header header"
+    "collegeText collegeText collegeText"
+    "aside1 teamInfo aside2"
+    "footer footer footer"
+    ;
+}
+#top{
+    grid-area: header;
+}
+#collegeText{
+    grid-area: collegeText;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 2fr 3fr;
+    grid-template-areas:
+    "collegeImg collegeImg collegeImg"
+    "aside1 information aside2"
+    ;
+}
+#teamInfo{
+    grid-area: teamInfo;
+    border-top-style: dashed;
+}
+.collegeImg{
+    grid-area: collegeImg;
+    overflow: hidden;
+    position: relative;
+    height: 220px;
+}
+#information{
+    grid-area: information;
+}
+#aside1{
+    grid-area: aside1;
+}
+#aside2{
+    grid-area: aside2;
+}
+footer{
+    grid-area: footer;
+}
+.colImg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.colInfo{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    color: #fff;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    text-shadow: 2px 2px 6px rgb(0 0 0);
+    font-size: 40px;
+}

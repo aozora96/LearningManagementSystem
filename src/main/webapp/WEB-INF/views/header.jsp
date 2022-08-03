@@ -9,10 +9,10 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/header.css?">
 </head>
 <body>
-<header>
+<header id="top">
     <div id = "logMenu">
         <%
             // admin : log = 1, 교수 : log 두 자리수, 학생 : log 네 자리수
@@ -26,25 +26,31 @@
         <a style ="padding-right: 15px; color: navy;"  href="/login">로그인</a>
         <a style ="padding-right: 15px; color: navy;" href="/join">회원가입</a>
         <%}else {
-            log= String.valueOf(logObj);%>
-   <a style ="padding-right: 15px; color: navy;" href="/logout" >로그아웃</a>
-          <%  if(log.length() == 1){%>
-            <span>admin</span>
-            <%} else if(log.length() == 2){%>
-            <a style ="padding-right: 15px; color: navy;" href="/professorMain">마이페이지</a>
-            <%} else if(log.length() == 4){%>
-            <a style ="padding-right: 15px; color: navy;" href="/studentMain">마이페이지</a>
-            <%}
-          //  <a style ="padding-right: 15px; color: navy;" href="/logout" >로그아웃</a>
-        }
-        System.out.println("헤더 세션 로그: "+ logObj);
-    %>
+            log= String.valueOf(logObj);
+
+            if(log.length() == 1){%>
+        <span>admin</span>
+        <%} else if(log.length() == 2){%>
+        <a style ="padding-right: 15px; color: navy;" href="/professorMain">마이페이지</a>
+        <%} else if(log.length() == 4){%>
+        <a style ="padding-right: 15px; color: navy;" href="/studentMain">마이페이지</a>
+        <%}%>
+        <a style ="padding-right: 15px; color: navy;" href="/logout" >로그아웃</a>
+        <%}
+            System.out.println("헤더 세션 로그: "+ logObj);
+        %>
     </div>
     <div id = "collegeName">
         <a href="/" style="padding-top: 0; color: navy;">GREEN UNIVERSITY</a>
     </div>
+
+    <div id = nav>
+        <img style ="float: left;" src ="image/Untitled.png" width="70">
+        <a  href="/collegeInfo">학교소개</a>
+        <a  href="/subInfo">학과 별 강의소개</a>
+        <a  href="/addLecture">수강신청</a>
+        <a  href="/board">공지사항</a>
+    </div>
 </header>
 </body>
 </html>
-
-

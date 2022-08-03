@@ -1,12 +1,6 @@
-/* 본명조 - nav 적용 */
-@font-face {
-    font-family: 'NotoSerifKR';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
-/* 강원교육모두체 - 시간표 적용 */
+
+/* 강원교육 */
 @font-face {
     font-family: 'GangwonEdu_OTFBoldA';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
@@ -18,31 +12,29 @@
     margin: 0;
     padding: 0;
 }
-
+.slides{
+    grid-area: images;
+    overflow: hidden;
+    position: relative;
+    height: 550px;
+}
+.colVideo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 body{
     display: grid;
-    grid-template-rows: 130px 78px 571px 660px 80px;
+    grid-template-rows: 210px 561px 660px 80px;
     grid-template-areas:
     "header"
-    "nav"
     "one"
     "two"
     "footer";
 }
 
-#nav{
-    grid-area: nav;
 
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    font-family: 'NotoSerifKR';
-    font-size: 1.2em;
-
-    background-color: #0245A3;
-    color: white;
-}
 
 .slide{
     grid-area: one;
@@ -59,6 +51,8 @@ body{
 
 #todo{
     grid-area: todo;
+    background-color: #0245A3;
+    color : white;
 }
 
 #schedule{
@@ -87,16 +81,23 @@ body{
     height: 49px;
 }
 
-/* 여기부터 이미지 슬라이드 */
+/* ì—¬ê¸°ë¶€í„° ì´ë¯¸ì§€ ìŠ¬ë¼ì´ë“œ */
 
 .slides>input[name=ra] {
     display: none;
 }
 
+#minilogo{
+    font-family: 'NotoSerifKR';
+    font-size: 0.8em;
+    text-align: center;
+    line-height: 78px;
+}
+
 .sl {
     display: none;
-    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url("https://bit.ly/3bsnBs2");
-    background-size: cover;
+    /*background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url("https://bit.ly/3bsnBs2");*/
+    /*background-size: cover;*/
 }
 
 .sl:nth-of-type(1) {
@@ -104,16 +105,19 @@ body{
 }
 
 .sl>img {
-
     align-items: center;
     justify-content: center;
     width: 35%;
 }
 
-.slides{
-    grid-area: images;
-}
+/*.slides{*/
+/*    grid-area: images;*/
+/*}*/
 .page {
+    position:absolute;
+    top:710px;
+    left: 50%;
+
     text-align: center;
     grid-area: page;
 }
@@ -138,5 +142,5 @@ body{
     display: block;
 }
 
-/* 여기까지 이미지 슬라이드 */
+/* ì—¬ê¸°ê¹Œì§€ ì´ë¯¸ì§€ ìŠ¬ë¼ì´ë“œ */
 
