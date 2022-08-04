@@ -58,6 +58,7 @@ body{
 }
 
 #todo{
+    font-family: 'NotoSerifKR';
     grid-area: todo;
     background-color: #0245A3;
     color : white;

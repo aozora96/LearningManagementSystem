@@ -1,5 +1,6 @@
 
 body{
+    font-family: 'NotoSerifKR';
     margin : 0;
     padding : 0;
     height : 100vh;
@@ -16,6 +17,12 @@ body{
 #top{
     grid-area: header;
 }
+
+#green{
+    border-bottom : solid 2px navy;
+    font-size:2.5em;
+}
+
 #collegeText{
     grid-area: collegeText;
     display: grid;
@@ -28,7 +35,7 @@ body{
 }
 #teamInfo{
     grid-area: teamInfo;
-    border-top-style: dashed;
+    border-top : solid 2px navy;
 }
 .collegeImg{
     grid-area: collegeImg;

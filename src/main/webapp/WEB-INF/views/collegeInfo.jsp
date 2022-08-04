@@ -21,6 +21,7 @@
     </div>
     <br>
     <section id="information">
+    <div id ="green">GREEN UNIVERSITY</div><br>
     그린대학교의 홈페이지를 방문해 주신 여러분을 환영합니다.<br><br>
 
     저는 그린대학교의 총장으로서 이 시대 교육의 방향을 ‘공동체적 자아를 보유한 혁신 리더’를 육성하는 것으로 집중할 계획입니다.<br>
@@ -45,10 +46,10 @@
 </div>
 <div id="teamInfo">
     <h1>팀원 소개</h1>
-    <p>정하늘</p>
-    <p>조현희</p>
-    <p>이인성</p>
-    <p>홍성현</p>
+    <p>정하늘 (소개 기입 예정)</p>
+    <p>조현희 (소개 기입 예정)</p>
+    <p>이인성 (소개 기입 예정)</p>
+    <p>홍성현 (소개 기입 예정)</p>
 </div>
 <c:import url = "/WEB-INF/views/footer.jsp"/>
 </body>

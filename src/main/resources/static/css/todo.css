@@ -1,0 +1,34 @@
+body{
+    margin:0;
+    padding:0;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 210px 80px auto 84px;
+    grid-template-areas:
+    "header"
+    "userName"
+    "todo"
+    "footer";
+}
+
+#list{
+    margin: 0 auto;
+    grid-area: todo;
+}
+
+#userName{
+    text-align: center;
+    grid-area: userName;
+}
+
+input{
+    margin-top:50px;
+    padding : 10px;
+}
+
+
+
+h2{
+    font-family: 'MICEMyungjo';
+}
