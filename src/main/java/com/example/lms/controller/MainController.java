@@ -26,6 +26,12 @@ public class MainController {
     public String board(){
         return "board";
     }
+
+    @RequestMapping("/boardWrite")
+    public String boardWrite(){
+        return "boardWrite";
+    }
+
     @RequestMapping("/boardUpdate")
     public String boardUpdate(){
         return "boardUpdate";
@@ -62,6 +68,8 @@ public class MainController {
     public String todo(){
         return "todo";
     }
+    @RequestMapping("/scoreView")
+    public String scoreView(){return "scoreView";}
     @RequestMapping("/header")
     public String header(){
         return "header";
@@ -76,6 +84,8 @@ public class MainController {
     public String updateInfo(){
         return "updateInfo";
     }
+
+
 
 
 }

@@ -22,7 +22,7 @@ const  requestData = {
     "usercode" : $("#hide").val()
 }
 $.ajax({
-    url : "/showTime",
+    url : "/showTime0",
     type : "POST",
     data : JSON.stringify(requestData),
     contentType : "application/json"
@@ -62,6 +62,29 @@ function callSub(){
 
         for(let i=0; i<result.length; i++){
             let option = document.createElement("option");
+            let head = result[i].sub_schedule.substring(0,2);
+            switch(head) {
+                case "MO":
+                    head = "월";
+                    break;
+                case "TU":
+                    head = "화";
+                    break;
+                case "WE":
+                    head = "수";
+                    break;
+                case "TH":
+                    head = "목";
+                    break;
+                default:
+                    head = "금";
+            }
+            let sche = "["+head + result[i].sub_schedule.substring(2,4)+"~"+result[i].sub_schedule.substring(4,6)+"]";
+            //console.log(head);
+            //console.log(sche);
+            //console.log(result[i].p_code);
+            //console.log(result[i]);
+            let subName = result[i].title + sche;
             option.setAttribute("value", result[i].sub_schedule);
             option.setAttribute("data-runtime", result[i].runtime);
             option.setAttribute("data-sc", result[i].subcode);
@@ -69,7 +92,7 @@ function callSub(){
             option.setAttribute("data-pcode", result[i].p_code);
             //console.log(result[i].subcode);
             //console.log(result[i].sub_schedule);
-            option.innerText = result[i].title;
+            option.innerText = subName;
             $("#subject").append(option);
         }
     }).fail(erorr =>{
@@ -96,6 +119,12 @@ function colors(){
     let add = sel.value.substring(2,4);
     let cnt = parseInt($("#subject option:checked").data("runtime"));
     //console.log(cnt);
+    //과목명만 분리
+    let tempText = $("#subject option:checked").text().split('[');
+    let title_ = tempText[0];
+
+    // console.log(title_);
+
     if(!overCnt(cnt)){
         alert("신청가능한 최대학점은 20학점 입니다.");
         return;
@@ -112,26 +141,26 @@ function colors(){
                 // console.log(sel.value);
                 // console.log($("#subject option:checked").data("p"));
                 const  timeData = {
+                    "p_code" : $("#subject option:checked").data("pcode"),
                     "subcode" : $("#subject option:checked").data("sc"),
                     "usercode" : $("#hide").val(),
-                    "title" : $("#subject option:checked").text(),
+                    "title" : title_,
                     "sub_schedule" : sel.value,
-                    "p_name" : $("#subject option:checked").data("p")
                 }
                 timeSave(timeData);
             }
             document.getElementById(temp).setAttribute("class",sel.value);
-            document.getElementById(temp).innerText = $("#subject option:checked").text();
+            document.getElementById(temp).innerText = title_;
             document.getElementById(temp).style.background = bc[cc];
             add ++;
         }
-        else if($("#subject option:checked").text() ===  $("#"+temp).text()){
+        else if(title_ ===  $("#"+temp).text()){
             alert($("#"+temp).text() + " 은/는 이미 수강신청한 과목입니다");
             check = false;
             break;
         }
         else{
-            alert("이미 수강신청된 시간입니다.");
+            alert( $("#"+temp).text() + "  과목의 시간과 동일합니다.");
             $("."+sel.value).css('background','none');
             $("."+sel.value).empty();
             $("."+sel.value).removeClass(sel.value);
@@ -148,17 +177,10 @@ function colors(){
         sche.setAttribute("class",sel.value);
         sche.setAttribute( "id", $("#subject option:checked").data("sc"));
         //console.log($("#subject option:checked").text());
-        sche.innerText = $("#subject option:checked").text();
+
+        sche.innerText = title_;
         $("#schedule").append(sche);
-        //교수테이블에 추가
-        const proData = {
-            "usercode" : $("#subject option:checked").data("pcode"),
-            "subcode" : $("#subject option:checked").data("sc"),
-            "stucode" : $("#hide").val(),
-            "title" : $("#subject option:checked").text(),
-            "sub_schedule": sel.value
-        }
-        proSave(proData);
+        //console.log($("#subject option:checked").data("pcode"));
     }
     if(cc >= bc.length){
         cc = 0;
@@ -201,37 +223,40 @@ $("#schedule").click(function (e){ // 밑에 추가된 강의명 선택하면 �
     console.log(e.target);
     let del = e.target.getAttribute("class");
     let delSc = e.target.getAttribute("id");
-    let cnt = del.substring(4) - del.substring(2,4);
+    let cnt = parseInt(del.substring(4)) -parseInt(del.substring(2,4));
     minusCnt(cnt);
 
-    // console.log(del);//요일/시간
-    // console.log(cnt);//cnt(runtime)
-    // console.log(delSc);
-    // console.log(del.value);
+    console.log(del);//요일/시간
+    console.log(cnt);//cnt(runtime)
+    console.log(delSc);
+    console.log(del.value);
     //console.log(del !== null);
     if(del !== null){
         $("."+del).css('background','none');
-        $("."+del).empty();
-        $("."+del).removeClass(del);
-        e.target.remove();
+
         //학생시간표 삭제용
         const  timeData = {
-            "subcode" : delSc
-        }
-        timeDel(timeData);
-        //교수테이블 삭제용
-        const proData = {
             "subcode" : delSc,
-            "stucode" : $("#hide").val()
+            "usercode" : $("#hide").val()
         }
-        proDel(proData);
+
+        var result = confirm("과목을 삭제하시겠습니까?");
+        if(result){
+            $("."+del).empty();
+            $("."+del).removeClass(del);
+            e.target.remove();
+            timeDel(timeData);
+            alert("삭제되었습니다.");
+        }else{
+            alert("삭제취소되었습니다.");
+        }
     }
 })
 
 // 선택한 강의목록 시간표에 추가
 function timeSave(timeData){
     $.ajax({
-        url : "/saveTime",
+        url : "/saveTime0",
         type : "POST",
         data : JSON.stringify(timeData),
         contentType : "application/json"
@@ -246,7 +271,7 @@ function timeSave(timeData){
 // 시간표 삭제
 function timeDel(timeData){
     $.ajax({
-        url : "/delTime",
+        url : "/delTime0",
         type : "DELETE",
         data : JSON.stringify(timeData),
         contentType : "application/json"
@@ -286,34 +311,4 @@ function overCnt(cnt){
     else{
         return true;
     }
-}
-
-//교수테이블에 추가반영
-function proSave(proData){
-    $.ajax({
-        url : "/savePro",
-        type : "POST",
-        data : JSON.stringify(proData),
-        contentType : "application/json"
-    }).done(result =>{
-        console.log(result);
-        // console.log(result.length);
-    }).fail(erorr =>{
-        console.log(erorr.responseText);
-    })
-}
-
-//교수테이블에 삭제반영
-function proDel(proData){
-    $.ajax({
-        url : "/delPro",
-        type : "POST",
-        data : JSON.stringify(proData),
-        contentType : "application/json"
-    }).done(result =>{
-        console.log(result);
-        // console.log(result.length);
-    }).fail(erorr =>{
-        console.log(erorr.responseText);
-    })
 }

@@ -140,24 +140,25 @@ body{
     display: flex;
     flex-wrap: wrap;
 
-    width: 720px;
+    width: 840px;
     height: 880px;
 
     border-top: 1px solid darkgray;
     border-left: 1px solid darkgray;
 }
-section div{
+#time div{
     font-family: 'ChosunSm';
     font-size: 12pt;
 
-    line-height: 79px;
+    display : flex;
+    justify-content : center;
+    align-items : center;
     text-align: center;
 
     border-right: 1px solid darkgray;
     border-bottom: 1px solid darkgray;
-    width: 119px;
+    width: 139px;
     height: 79px;
-
 }
 
 #schedule{
@@ -167,12 +168,14 @@ section div{
 }
 
 #schedule p{
-    text-align: center;
-    line-height: 50px;
-
     border: solid 1px darkgray;
     border-radius: 20px;
     height: 50px;
+
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    text-align: center;
 
     margin-bottom: 5px;
 }

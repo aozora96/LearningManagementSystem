@@ -7,7 +7,6 @@ function userCodeMaker() {
     return myRandom;
 }
 
-
 //아이디 중복검사
 // $("#id").keyup(checkId());
 let id = document.body.querySelector("#joinId");
@@ -84,9 +83,9 @@ function join(){
         "usercode" : userCodeMaker(),
         "grade" :$("#grade").val(),
         "name" : $("#name").val(),
-        "id" : $("#id").val(),
+        "id" : $("#joinId").val(),
         "pw" : $("#pw").val(),
-        "address" : $("#address").val(),
+        "address" : $("#address").val()+ $("#detailAddress").val(),
         "mobile" :$("#mobile").val(),
         "gender" :$("#gender").val(),
         "birth" :$("#birth").val(),

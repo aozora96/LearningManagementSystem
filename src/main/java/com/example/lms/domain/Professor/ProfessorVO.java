@@ -1,5 +1,6 @@
 package com.example.lms.domain.Professor;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,36 +11,39 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Getter
-@Table(name="pro_schedule")
-@NoArgsConstructor
+@Table(name="professor")
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class ProfessorVO {
     @Id
-    private int schedule_code;
-
-    @Column(name="usercode", nullable = false)
     private int usercode;
+    @Column(name="grade", nullable = false)
+    private String grade;
+
+    @Column(name="major", nullable = false)
+    private String major;
+
+    @Column(name="name", nullable = false)
+    private String name;
+
+    @Column(name="id", nullable = false)
+    private String id;
+
+    @Column(name="pw", nullable = false)
+    private String pw;
 
     @Column(name="subcode", nullable = false)
     private int subcode;
 
-    @Column(name="stucode", nullable = false)
-    private int stucode;
-
-    @Column(name="title", nullable = false)
-    private String title;
-
-    @Column(name="sub_schedule", nullable = false)
-    private String sub_schedule;
 
     public ProfessorVO(ProfessorDTO dto){
-        this.schedule_code = dto.getSchedule_code();
         this.usercode = dto.getUsercode();
+        this.grade =dto.getGrade();
+        this.major =dto.getMajor();
+        this.name = dto.getName();
+        this.id = dto.getId();
+        this.pw = dto.getPw();
         this.subcode = dto.getSubcode();
-        this.stucode = dto.getStucode();
-        this.title = dto.getTitle();
-        this.sub_schedule = dto.getSub_schedule();
     }
-
 }

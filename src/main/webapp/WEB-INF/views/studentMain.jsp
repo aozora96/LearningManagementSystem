@@ -24,7 +24,7 @@
     <%--    <button onclick = "location.href='/todo'">TODO 리스트</button>--%>
 
     <a style = "color:black;" href = "/todo">&nbsp;· TODO LIST</a><br>
-    <a style = "color:black;" href = "/todo">&nbsp;· 성적 조회 (구현 예정)</a><br>
+        <a style = "color:black;" href = "/scoreView">&nbsp;· 성적 조회 </a><br>
     <a style = "color:black;" href = "/todo">&nbsp;· 시간표 조회</a><br>
 
 </aside>

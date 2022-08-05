@@ -162,7 +162,7 @@ const  timeData = {
     "usercode" :$("#code").val()
 }
 $.ajax({
-    url : "/showTime",
+    url : "/showTime0",
     type : "POST",
     data : JSON.stringify(timeData),
     contentType : "application/json"
