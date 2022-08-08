@@ -1,5 +1,6 @@
 package com.example.lms.domain.board;
 
+import com.example.lms.domain.user.UserRequestDTO;
 import com.example.lms.util.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +27,8 @@ public class BoardVO extends Timestamp {
     private int usercode;
     @Column
     private char grade;
+    @Column
+    private int view_cnt;
 
     public BoardVO(BoardDTO dto){
         this.board_code = dto.getBoard_code();
@@ -33,6 +36,11 @@ public class BoardVO extends Timestamp {
         this.contents = dto.getContents();
         this.usercode = dto.getUsercode();
         this.grade = dto.getGrade();
+        this.view_cnt = dto.getView_cnt();
+    }
+
+    public void updateBoard(BoardDTO dto){
+        this.title = dto.getTitle();
+        this.contents = dto.getContents();
     }
 }
-

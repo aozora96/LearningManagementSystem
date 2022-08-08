@@ -21,3 +21,27 @@ body{
 footer{
     grid-area: footer;
 }
+
+table {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+table, td, th {
+    border-collapse : collapse;
+    border : none;
+
+}
+
+h1{
+    padding-bottom:20px;
+}
+thead{
+    border-top : solid 0.5px navy;
+}
+
+td{
+    border-bottom : solid 0.5px navy;
+    width : 180px;
+    height:50px;
+}

@@ -1,0 +1,37 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 210px 1fr 84px;
+    grid-template-areas:
+    "header header header"
+    "aside1 scoreList aside2"
+    "footer footer footer";
+}
+#top{
+    grid-area: header;
+}
+#scoreList{
+    font-size: 20px;
+    grid-area: scoreList;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#aside1{
+    grid-area: aside1;
+}
+#aside2{
+    grid-area: aside2;
+}
+footer{
+    grid-area: footer;
+}
+#sub{
+    margin-top: 7px;
+}

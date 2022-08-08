@@ -11,4 +11,5 @@ public class BoardDTO {
     private String contents;
     private int usercode;
     private char grade;
+    private int view_cnt;
 }

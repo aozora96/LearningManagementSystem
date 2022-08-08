@@ -21,26 +21,23 @@
 <c:import url = "/WEB-INF/views/header.jsp"/>
 <div id = "content">
     <h1 style ="text-align: center;">게시판</h1>
-    <input type = "hidden" id = "userId" value = <%=logId%> >
-    <section id = "boardList">
-<%--        해당 섹션에 게시글 태그 추가--%>
-        <table border="1px"; style ="text-align: center">
-            <thead>
-            <tr><td>no</td><td>제목</td><td>작성자</td><td>게시일</td><td>수정일</td></tr>
-            </thead>
-            <tbody id ="here">
-<%--            <tr><td>1</td><td>제목입니다</td><td>내용이에요</td><td>2022-08-05</td><td>2022-08-05</td></tr>--%>
-           <%
-
-           %>
-            </tbody>
-        </table>
-    </section>
     <%
-    if(log != null){
+        if(log != null){
     %>
     <button onclick="location.href='/boardWrite'">게시글 작성</button>
     <%}%>
+    <input type = "hidden" id = "userId" value = <%=logId%> >
+    <section id = "boardList">
+        <%--        해당 섹션에 게시글 태그 추가--%>
+        <table border="1px"; style ="text-align: center">
+            <thead>
+            <tr><td>no</td><td>제목</td><td>작성자</td><td>조회수</td><td>게시일</td><td>수정일</td></tr>
+            </thead>
+            <tbody id ="here">
+            </tbody>
+        </table>
+    </section>
+
 </div>
 
 <c:import url = "/WEB-INF/views/footer.jsp"/>
