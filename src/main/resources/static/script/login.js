@@ -16,6 +16,10 @@ function login(){
                 alert("로그인 성공!")
                 location.href='/';
             }
+            else{
+                alert("아이디와 비밀번호를 다시 확인하고 입력해주세요.")
+                location.href='/login';
+            }
 
         },
         error: function (result) {
@@ -49,6 +53,8 @@ function professorLogin(){
         }
     })
 }
+
+
 function checkOnlyOne(element) {
 
     const checkboxes

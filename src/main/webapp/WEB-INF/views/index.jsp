@@ -19,7 +19,7 @@
 </head>
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>
-<input type="hidden" id="hide" value="<%=log%>">
+<%--<input type="hidden" id="hide" value="<%=log%>">--%>
 <div class="slide">
     <div class="slides" >
         <input type="radio" id="ra01" name="ra" value="" checked>
@@ -27,7 +27,6 @@
         <input type="radio" id="ra03" name="ra" value="">
 
         <div class="sl"  style="text-align: center; opacity: 100%;">
-            <%--                <img src="image/002.png" alt="" height="550px">--%>
             <video src="image/ColVideo.mp4" class="colVideo" controls loop muted autoplay
                    height="1080px"></video>
             <h1 class="indexText">Where there is a will there is a way.</h1>

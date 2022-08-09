@@ -1,13 +1,13 @@
-const nowtime = new Date();
-//console.log(nowtime);
-//console.log(nowtime.getHours());
-//console.log(nowtime.getMinutes());
-const MM = nowtime.getMinutes();
-if(MM >=0 && MM < 10 || MM >= 20 && MM < 30 || MM >= 40 && MM < 50){
-    alert("수강신청 시간이 아닙니다.");
-    location.href = "/";
-}
- else{
+// const nowtime = new Date();
+// //console.log(nowtime);
+// //console.log(nowtime.getHours());
+// //console.log(nowtime.getMinutes());
+// const MM = nowtime.getMinutes();
+// if(MM >=0 && MM < 10 || MM >= 20 && MM < 30 || MM >= 40 && MM < 50){
+//     alert("수강신청 시간이 아닙니다.");
+//     location.href = "/";
+// }
+//  else{
 //전공학과 리스트 불러오기
     $.ajax({
         url : "/majorList",
@@ -25,7 +25,7 @@ if(MM >=0 && MM < 10 || MM >= 20 && MM < 30 || MM >= 40 && MM < 50){
         }
     }).fail(erorr =>{
         console.log(erorr.responseText);
-    })
+     })
 
 //기존에 수강신청한게 있으면 불러오기
     const  requestData = {
@@ -48,7 +48,7 @@ if(MM >=0 && MM < 10 || MM >= 20 && MM < 30 || MM >= 40 && MM < 50){
     }).fail(erorr =>{
         console.log(erorr.responseText);
     })
- }
+ //}
 
 //과목명 불러오기
 function callSub(){
@@ -237,33 +237,55 @@ $("#schedule").click(function (e){ // 밑에 추가된 강의명 선택하면 �
     let delSc = e.target.getAttribute("id");
     let cnt = parseInt(del.substring(4)) -parseInt(del.substring(2,4));
     minusCnt(cnt);
-
     console.log(del);//요일/시간
     console.log(cnt);//cnt(runtime)
     console.log(delSc);
-    console.log(del.value);
+    console.log(e.target.value);
+    console.log($("#"+delSc).text());
     //console.log(del !== null);
     if(del !== null){
         $("."+del).css('background','none');
-
         //학생시간표 삭제용
-        const  timeData = {
-            "subcode" : delSc,
-            "usercode" : $("#hide").val()
-        }
-
-        var result = confirm("과목을 삭제하시겠습니까?");
-        if(result){
-            $("."+del).empty();
-            $("."+del).removeClass(del);
-            e.target.remove();
-            timeDel(timeData);
-            alert("삭제되었습니다.");
-        }else{
-            alert("삭제취소되었습니다.");
-        }
+        // const  timeData = {
+        //     "subcode" : delSc,
+        //     "usercode" : $("#hide").val()
+        // }
+        document.querySelector('.modal_wrap').style.display='block';
+        document.querySelector('.black_bg').style.display='block';
+        $("#modal_text").attr("data-del",del);
+        $("#modal_text").attr("data-subcode",delSc);
+        $("#modal_text").text($("#"+delSc).text() + "  과목을 삭제하시겠습니까?");
+        // var result = confirm("과목을 삭제하시겠습니까?");
+        // if(result){
+        //     $("."+del).empty();
+        //     $("."+del).removeClass(del);
+        //     e.target.remove();
+        //     timeDel(timeData);
+        //     alert("삭제되었습니다.");
+        // }else{
+        //     alert("삭제취소되었습니다.");
+        // }
     }
 })
+function delOk(){
+    console.log($("#modal_text").data("del"));
+    console.log($("#modal_text").data("subcode"));
+    let del = $("#modal_text").data("del");
+    const  timeData = {
+        "subcode" :  $("#modal_text").data("subcode"),
+        "usercode" : $("#hide").val()
+    }
+    $("."+del).empty();
+    $("."+del).removeClass(del);
+    $("#"+$("#modal_text").data("subcode")).remove();
+    timeDel(timeData);
+    document.querySelector('.modal_wrap').style.display='none';
+    document.querySelector('.black_bg').style.display='none';
+}
+function delNo(){
+    document.querySelector('.modal_wrap').style.display='none';
+    document.querySelector('.black_bg').style.display='none';
+}
 
 // 선택한 강의목록 시간표에 추가
 function timeSave(timeData){

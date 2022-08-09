@@ -1,10 +1,51 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    display: grid;
+    grid-template-columns: 250px auto;
+    grid-template-rows: 210px auto 84px;
+    grid-template-areas:
+    "header header"
+    "aside section"
+    "footer footer"
+    ;
+}
+#top{
+    grid-area: header;
+}
+aside{
+    grid-area: aside;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+aside a{
+    margin-top: 30px;
+}
 section{
+    grid-area: section;
     background-color: darkgray;
+    text-align: center;
+}
+img{
+    margin: 150px;
+}
+footer{
+    grid-area: footer;
 }
 table,td{
     border: solid 1px;
 }
-
+form{
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
 a{
     cursor : pointer
 }

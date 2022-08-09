@@ -23,8 +23,13 @@
 %>
 <h2 id = "userName">< <%=logId%> 님의 TODO LIST ></h2>
 <div id = "list">
-    <form id = "todoList">
+    <div id= "todoList">
+
+    </div>
+    <form id ="addTodoList">
         <input type ="hidden" id ="code" value ="<%=log%>">
+        <input type="text" id="contents" name="contents" onkeyup="checkEnter()"/>
+        <button onclick="addTodo()" style="height:35px; width:35px;">+</button>
     </form>
 </div>
 <c:import url = "/WEB-INF/views/footer.jsp"/>

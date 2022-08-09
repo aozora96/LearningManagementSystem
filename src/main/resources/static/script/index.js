@@ -54,7 +54,7 @@ $.ajax({
     }
 })
 function checkLoad(){
-    let logCode = String($("#code").val());
+    //let logCode = String($("#code").val()); 이미 위에 있음
     const requestData = {
         "userCode" : $("#code").val() // user_code아님
     }
@@ -66,7 +66,6 @@ function checkLoad(){
         success: function (result) {
             const todoList = document.querySelector('#todoList');
             todoList.innerHTML = "";
-            //<input type ="hidden" id ="code" value ="<%=log%>">
             let hidden = document.createElement('input');
             hidden.setAttribute("type","hidden");
             hidden.setAttribute("id","code");
@@ -126,8 +125,6 @@ function checkClick(event)  {
         }).done(result =>{
             console.log("홍성현이 todo 권위자 등극 ");
             checkLoad();
-
-
         })
     }else {
         const requestData = {
@@ -167,12 +164,9 @@ $.ajax({
     data : JSON.stringify(timeData),
     contentType : "application/json"
 }).done(result =>{
-    //console.log(result);
-    // console.log(result.length);
     if(result.length > 0){
         for(let i=0; i<result.length; i++){
             colors2(result[i]);
-            //console.log(result[i].sub_schedule)
         }
     }
 }).fail(erorr =>{

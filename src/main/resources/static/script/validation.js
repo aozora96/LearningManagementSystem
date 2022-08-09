@@ -141,33 +141,6 @@ function leaveAction(){
     })
 }
 
-function login(){
-    console.log("id: "+$("#id").val());
-    console.log("pw: "+$("#pw").val());
-    const requestData = {
-        "id": $("#id").val(),
-        "pw": $("#pw").val()
-    }
-    $.ajax({
-        url: "/login",
-        type: "post",
-        data: JSON.stringify(requestData),
-        contentType: "application/json",
-        success: function (result) {
-            if(result === "/") {
-                alert("로그인 성공!")
-                location.href='/';
-            }
-            else{
-                alert("아이디와 비밀번호를 다시 확인하고 입력해주세요.")
-                location.href='/login';
-            }
-        },
-        error: function (result) {
-            alert("시스템 에러 발생. 관리자 문의 요망.")
-        }
-    })
-}
 
 // 여기서 부터 넣음
 var element_wrap = document.getElementById('wrap');

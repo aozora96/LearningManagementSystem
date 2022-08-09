@@ -19,8 +19,15 @@ aside{
     grid-area: aside;
     border-right: solid 2px navy;
     background: lightcyan;
-}
 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+aside a{
+    margin-top: 30px;
+}
 
 section{
     padding-left : 50px;

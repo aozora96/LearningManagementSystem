@@ -15,12 +15,10 @@
 <header id="top">
     <div id = "logMenu">
         <%
-            // admin : log = 1, 교수 : log 두 자리수, 학생 : log 네 자리수
-            //  session.setAttribute("log","10");
+            // 교수 : log 두 자리수, 학생 : log 네 자리수
             Object logObj = session.getAttribute("log");
             String log = null;
 
-            // String log = String.valueOf(session.getAttribute("log"));
             if(logObj == null){
         %>
         <a style ="padding-right: 15px; color: navy;"  href="/login">로그인</a>

@@ -16,8 +16,9 @@
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>
 <%
-    String logId = String.valueOf(session.getAttribute("logId"));
-    System.out.println("stringlog: "+logId);
+    String log = String.valueOf(session.getAttribute("log"));
+    //String logId = String.valueOf(session.getAttribute("logId"));
+    System.out.println("stringlog: "+log);
 %>
 <aside>
     <%--    어사이드에 강의정보(성적입력) / 투두리스트조회 이동--%>
@@ -32,9 +33,8 @@
 <section id="classinfo" style="display: none">
     <span>과목명 : <p id="title"></p></span>
     <form>
-
         <table>
-            <input type ="hidden" id = "stLog" value="<%=logId%>">
+            <input type ="hidden" id = "stLog" value="<%=log%>">
             <thead>
             <tr><td id="stucode">학생코드</td><td id="name">이름</td><td id="level">학년</td><td id="score">성적</td><td id="s_grade">학점</td></tr>
             </thead>

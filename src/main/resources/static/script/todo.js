@@ -1,4 +1,3 @@
-
 let logCode = String($("#code").val());
 const requestData = {
     "userCode" : $("#code").val() // user_code아님
@@ -11,6 +10,7 @@ $.ajax({
     success: function (result) {
         const todoList = document.querySelector('#todoList');
         todoList.innerHTML = "";
+        // document.querySelector('#contents');
         //<input type ="hidden" id ="code" value ="<%=log%>">
         let hidden = document.createElement('input');
         hidden.setAttribute("type","hidden");
@@ -54,21 +54,18 @@ $.ajax({
                 $("#todoList").append(label,delBtn,br);
             }
         }
-        let br = document.createElement('br');
-        let addContents = document.createElement('input');
-        addContents.setAttribute("type","text");
-        addContents.setAttribute("id","contents");
-        addContents.setAttribute("name","contents");
-        let addButton = document.createElement('input');
-        addButton.setAttribute("value","+");
-        addButton.setAttribute("type","button");
-        addButton.setAttribute("onclick","addTodo()");
-        // let delButton = document.createElement('input');
-        // delButton.setAttribute("value","완료된 일 삭제하기");
-        // delButton.setAttribute("type","button");
-        // delButton.setAttribute("onclick","delTodo()");
-
-        $("#todoList").append(addContents,addButton,br);
+        // let br = document.createElement('br');
+        // let addContents = document.createElement('input');
+        // addContents.setAttribute("type","text");
+        // addContents.setAttribute("id","contents");
+        // addContents.setAttribute("name","contents");
+        // let addButton = document.createElement('input');
+        // addButton.setAttribute("value","+");
+        // addButton.setAttribute("type","button");
+        // addButton.setAttribute("onclick","addTodo()");
+        //
+        //
+        // $("#addTodoList").append(addContents,addButton,br);
     },
     error: function (result) {
         alert("error");
@@ -89,6 +86,7 @@ function  todoList() {
         success: function (result) {
             const todoList = document.querySelector('#todoList');
             todoList.innerHTML = "";
+            // document.querySelector('#contents');
             //<input type ="hidden" id ="code" value ="<%=log%>">
             let hidden = document.createElement('input');
             hidden.setAttribute("type", "hidden");
@@ -132,21 +130,16 @@ function  todoList() {
                     $("#todoList").append(label,delBtn,br);
                 }
             }
-            let br = document.createElement('br');
-            let addContents = document.createElement('input');
-            addContents.setAttribute("type", "text");
-            addContents.setAttribute("id", "contents");
-            addContents.setAttribute("name", "contents");
-            let addButton = document.createElement('input');
-            addButton.setAttribute("value", "+");
-            addButton.setAttribute("type", "button");
-            addButton.setAttribute("onclick", "addTodo()");
-            // let delButton = document.createElement('input');
-            // delButton.setAttribute("value","완료된 일 삭제하기");
-            // delButton.setAttribute("type","button");
-            // delButton.setAttribute("onclick","delTodo()");
-
-            $("#todoList").append(addContents, addButton, br);
+            // let br = document.createElement('br');
+            // let addContents = document.createElement('input');
+            // addContents.setAttribute("type", "text");
+            // addContents.setAttribute("id", "contents");
+            // addContents.setAttribute("name", "contents");
+            // let addButton = document.createElement('input');
+            // addButton.setAttribute("value", "+");
+            // addButton.setAttribute("type", "button");
+            // addButton.setAttribute("onclick", "addTodo()");
+            // $("#addTodoList").append(addContents, addButton, br);
         },
         error: function (result) {
             alert("error");
@@ -228,8 +221,9 @@ function checkClick(event)  {
             todoList();
         })
     }
-
-
-
-
+}
+function checkEnter(){
+    if(window.event.keyCode ==13){
+        addTodo();
+    }
 }

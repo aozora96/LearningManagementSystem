@@ -10,7 +10,6 @@
 <c:import url = "/WEB-INF/views/header.jsp"/>
 <%
     Object log = session.getAttribute("log");
-    // System.out.println("log" + log);
     if(log == null){
         out.print("<script>alert('로그인 후 이용가능합니다'); location.href='/login';</script>");
         //        로그 없으면 로그인페이지로 이동

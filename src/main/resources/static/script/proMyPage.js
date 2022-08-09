@@ -1,8 +1,9 @@
 //교수코드랑 일치하는 수강생 정보 불러오기
 function getClassInfo(){
+    console.log($("#stLog").val());
     const proData = {
-        /*"usercode" : $("#hidden).val()*/
-        "usercode" : "25"
+        "usercode" : $("#stLog").val()
+        //"usercode" : "25"
     }
     $.ajax({
         url : "/proClassInfo",
@@ -86,8 +87,7 @@ function setScore(){
         console.log($("#stu"+i).val());
         console.log($("#stu"+i).data("code"));
         const stuSet ={
-            /*"p_code" : $("#hidden).val()*/
-            "p_code" : "25",
+            "p_code" : $("#stLog").val(),
             "usercode" : $("#stu"+i).data("code"),
             "score" : $("#stu"+i).val()
         }

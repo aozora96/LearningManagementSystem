@@ -90,6 +90,7 @@ public class ProfessorController {
         ArrayList<TimeTableVO> list = new ArrayList<>();
         for(int i=0; i<temp.size(); i++){
             if(dto.getUsercode() == temp.get(i).getP_code()){
+                System.out.println("ㅁㄴㅇ히ㅓㄴㅁ하이ㅓ: "+temp.get(i).getP_code());
                 list.add(temp.get(i));
             }
         }

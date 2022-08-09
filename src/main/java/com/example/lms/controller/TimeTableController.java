@@ -33,7 +33,7 @@ public class TimeTableController {
     }
 
     @PostMapping("/showTime0")
-    public ArrayList shoeTime(@RequestBody TimeTableDTO dto){
+    public ArrayList showTime(@RequestBody TimeTableDTO dto){
         ArrayList<TimeTableVO> schedule = new ArrayList<>();
         List<TimeTableVO> temp = timeTableService.showTime();
         for(int i=0; i<temp.size(); i++){
@@ -46,12 +46,8 @@ public class TimeTableController {
 
     @PostMapping("/setScore")
     public void setScore(@RequestBody TimeTableDTO dto){
-//        System.out.println(dto.getUsercode());
-//        System.out.println(dto.getScore());
 //        TimeTableVO stu = timeTableService.findTime(dto.getUsercode(), dto.getP_code());
 //        TimeTableVO temp = new TimeTableVO(stu,dto.getScore());
-//        System.out.println(temp.getTime_code());
-//        System.out.println(temp.getScore());
         timeTableService.setScore(dto);
     }
 }
