@@ -168,7 +168,6 @@ function addTodo(){
         contentType: "application/json",
         success: function (result) {
             todoList();
-            alert("success");
         },
         error: function (result) {
             alert("error");
@@ -189,7 +188,7 @@ function delTodo(event) {
         data: JSON.stringify(requestData),
         contentType: "application/json",
         success: function (result) {
-            console.log("del success");
+            todoList();
         },
         error: function (result) {
             console.log("del error");

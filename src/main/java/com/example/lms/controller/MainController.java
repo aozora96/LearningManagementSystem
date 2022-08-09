@@ -36,6 +36,11 @@ public class MainController {
     public String boardUpdate(){
         return "boardUpdate";
     }
+
+    @RequestMapping("/boardView")
+    public String boardView(){
+        return "boardView";
+    }
     @RequestMapping("/collegeInfo")
     public String collegeInfo(){
         return "collegeInfo";

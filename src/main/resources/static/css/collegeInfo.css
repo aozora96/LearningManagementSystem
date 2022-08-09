@@ -12,7 +12,7 @@ body{
     "collegeText collegeText collegeText"
     "aside1 teamInfo aside2"
     "footer footer footer"
-    ;
+;
 }
 #top{
     grid-area: header;
@@ -31,7 +31,7 @@ body{
     grid-template-areas:
     "collegeImg collegeImg collegeImg"
     "aside1 information aside2"
-    ;
+;
 }
 #teamInfo{
     grid-area: teamInfo;
@@ -70,4 +70,55 @@ footer{
     z-index: 1;
     text-shadow: 2px 2px 6px rgb(0 0 0);
     font-size: 40px;
+}
+
+.info{
+    padding-bottom:20px;
+    display: grid;
+    grid-template-columns: 230px auto;
+    grid-template-areas: "img text";
+}
+
+.info2{
+    padding-bottom:20px;
+    display: grid;
+    grid-template-columns: auto 230px;
+    grid-template-areas: "text img";
+    text-align: right;
+}
+
+.info2 img{
+    margin-left : 20px;
+}
+
+.img{
+    border-radius:5%;
+    grid-area : img;
+    width: 230px;
+    height: 300px;
+}
+.team{
+    padding-left: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 25% 65% 10%;
+    grid-template-areas:
+    "name"
+    "part"
+  "address";
+}
+
+.name{
+    font-size:1.7em;
+    grid-area: name;
+    line-height:75px;
+
+}
+
+.address{
+    grid-area: address;
+}
+
+.part{
+    grid-area: part;
 }

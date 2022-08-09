@@ -25,14 +25,10 @@ public class TimeTableVO {
         this.usercode = dto.getUsercode();
         this.title = dto.getTitle();
         this.sub_schedule = dto.getSub_schedule();
+        this.score = dto.getScore();
     }
 
-    public void setScore(TimeTableDTO dto,int score){
-        this.p_code = dto.getP_code();
-        this.subcode = dto.getSubcode();
-        this.usercode = dto.getUsercode();
-        this.title = dto.getTitle();
-        this.sub_schedule = dto.getSub_schedule();
+    public void setScore(int score){
         this.score = score;
     }
 }

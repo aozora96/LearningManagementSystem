@@ -110,4 +110,15 @@ public class UserController {
         }
         return false;
     }
+
+    @PostMapping("/findUser")
+    public UserVO findUser(@RequestBody UserRequestDTO dto){
+        // 여기서
+        System.out.println("getUser들어옴");
+        UserVO user =  userService.readCode(dto);
+//        System.out.println(user.getId());
+        if(user == null)
+            System.out.println("NULL");
+        return user;
+    }
 }

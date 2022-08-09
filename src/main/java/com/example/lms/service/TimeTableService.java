@@ -3,6 +3,8 @@ package com.example.lms.service;
 import com.example.lms.domain.TimeTable.TimeTableDTO;
 import com.example.lms.domain.TimeTable.TimeTableRepository;
 import com.example.lms.domain.TimeTable.TimeTableVO;
+import com.example.lms.domain.user.UserRequestDTO;
+import com.example.lms.domain.user.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,9 +38,19 @@ public class TimeTableService {
         return temp;
     }
 
-    public List<TimeTableVO> getScore(@RequestBody TimeTableDTO dto){
-        System.out.println("ss: "+dto.getUsercode());
-        List<TimeTableVO> list = timeTableRepository.findByCode(dto.getUsercode());
-        return list;
+    //시간표 하나 코드로 조회
+    public TimeTableVO findTime(int stucode, int p_code){
+        TimeTableVO temp = timeTableRepository.findByStu(stucode,p_code);
+        return temp;
     }
+
+    //성적 수정
+    public TimeTableVO setScore(@RequestBody TimeTableDTO dto){
+        TimeTableVO stu = timeTableRepository.findByStu(dto.getUsercode(), dto.getP_code());
+        stu.setScore(dto.getScore());
+        timeTableRepository.save(stu);
+
+        return stu;
+    }
+
 }

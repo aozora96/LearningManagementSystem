@@ -1,43 +1,54 @@
+const nowtime = new Date();
+//console.log(nowtime);
+//console.log(nowtime.getHours());
+//console.log(nowtime.getMinutes());
+const MM = nowtime.getMinutes();
+if(MM >=0 && MM < 10 || MM >= 20 && MM < 30 || MM >= 40 && MM < 50){
+    alert("수강신청 시간이 아닙니다.");
+    location.href = "/";
+}
+ else{
 //전공학과 리스트 불러오기
-$.ajax({
-    url : "/majorList",
-    type : "POST",
-    data : JSON.stringify(),
-    contentType : "application/json"
-}).done(result =>{
-    // console.log("result");
-    // console.log(result.length);
-    for(let i=0; i<result.length; i++){
-        let option = document.createElement("option");
-        option.setAttribute("value", result[i]);
-        option.innerText = result[i];
-        $('#major').append(option);
-    }
-}).fail(erorr =>{
-    console.log(erorr.responseText);
-})
+    $.ajax({
+        url : "/majorList",
+        type : "POST",
+        data : JSON.stringify(),
+        contentType : "application/json"
+    }).done(result =>{
+        // console.log("result");
+        // console.log(result.length);
+        for(let i=0; i<result.length; i++){
+            let option = document.createElement("option");
+            option.setAttribute("value", result[i]);
+            option.innerText = result[i];
+            $('#major').append(option);
+        }
+    }).fail(erorr =>{
+        console.log(erorr.responseText);
+    })
 
 //기존에 수강신청한게 있으면 불러오기
-const  requestData = {
-    "usercode" : $("#hide").val()
-}
-$.ajax({
-    url : "/showTime0",
-    type : "POST",
-    data : JSON.stringify(requestData),
-    contentType : "application/json"
-}).done(result =>{
-    //console.log(result);
-    // console.log(result.length);
-    if(result.length > 0){
-        for(let i=0; i<result.length; i++){
-            colors2(result[i]);
-            //console.log(result[i].sub_schedule)
-        }
+    const  requestData = {
+        "usercode" : $("#hide").val()
     }
-}).fail(erorr =>{
-    console.log(erorr.responseText);
-})
+    $.ajax({
+        url : "/showTime0",
+        type : "POST",
+        data : JSON.stringify(requestData),
+        contentType : "application/json"
+    }).done(result =>{
+        //console.log(result);
+        // console.log(result.length);
+        if(result.length > 0){
+            for(let i=0; i<result.length; i++){
+                colors2(result[i]);
+                //console.log(result[i].sub_schedule)
+            }
+        }
+    }).fail(erorr =>{
+        console.log(erorr.responseText);
+    })
+ }
 
 //과목명 불러오기
 function callSub(){
@@ -51,8 +62,8 @@ function callSub(){
         data : JSON.stringify(requestData),
         contentType : "application/json"
     }).done(result =>{
-        //console.log("result");
-        //console.log(result);
+        // console.log("result");
+        // console.log(result);
 
         //옵션지우기
         $("#subject").find("option").remove();
@@ -82,7 +93,7 @@ function callSub(){
             let sche = "["+head + result[i].sub_schedule.substring(2,4)+"~"+result[i].sub_schedule.substring(4,6)+"]";
             //console.log(head);
             //console.log(sche);
-            //console.log(result[i].p_code);
+            console.log(result[i].p_code);
             //console.log(result[i]);
             let subName = result[i].title + sche;
             option.setAttribute("value", result[i].sub_schedule);
@@ -185,6 +196,7 @@ function colors(){
     if(cc >= bc.length){
         cc = 0;
     }
+
 }
 
 //이미 신청된 강의목록

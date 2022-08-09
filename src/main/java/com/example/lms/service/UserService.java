@@ -69,4 +69,13 @@ public class UserService {
 
         return user;
     }
+
+    //usercode로 유저검색
+    public UserVO readCode(UserRequestDTO dto){
+        UserVO result = userRepository.findById(dto.getUsercode()).orElseThrow(
+                () -> new IllegalArgumentException("존재하지않는 회원정보")
+        );
+        System.out.println(result);
+        return result;
+    }
 }

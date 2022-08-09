@@ -52,16 +52,34 @@ body{
     grid-area: two;
 
     display: grid;
-    grid-template-columns: 450px auto;
+    grid-template-columns: 450px auto 450px;
     grid-template-areas:
-    "todo schedule";
+    "todo schedule aside";
 }
 
 #todo{
+    margin-right : 35px;
     font-family: 'NotoSerifKR';
     grid-area: todo;
     background-color: #0245A3;
     color : white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+#todo h2{
+    margin-top: 50px;
+}
+#todoList{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+#todoList label{
+    margin-top: 40px;
 }
 
 #schedule{
@@ -147,4 +165,14 @@ body{
 
 #ra03:checked~.sl:nth-of-type(3) {
     display: block;
+}
+
+aside{
+    grid-area: aside;
+    margin: auto;
+}
+
+aside img{
+    /* 554*641*/
+    width: 450px;
 }

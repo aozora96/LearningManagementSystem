@@ -26,6 +26,7 @@
     <a style = "color:black;" href = "/todo">&nbsp;· TODO LIST</a><br>
         <a style = "color:black;" href = "/scoreView">&nbsp;· 성적 조회 </a><br>
     <a style = "color:black;" href = "/todo">&nbsp;· 시간표 조회</a><br>
+        <a style = "color:black;" href = "/leave">&nbsp;· 회원 탈퇴 </a><br>
 
 </aside>
 <section>

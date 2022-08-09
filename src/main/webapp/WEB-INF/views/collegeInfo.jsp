@@ -46,10 +46,44 @@
 </div>
 <div id="teamInfo">
     <h1>팀원 소개</h1>
-    <p>정하늘 (소개 기입 예정)</p>
-    <p>조현희 (소개 기입 예정)</p>
-    <p>이인성 (소개 기입 예정)</p>
-    <p>홍성현 (소개 기입 예정)</p>
+
+    <div class = "info">
+        <img class = "img" src = "./image/하늘.jpg">
+        <section class = "team">
+        <div class = "name">정하늘</div><br>
+        <div class = "address">✉ dorothy_0422@naver.com | ☎ 010-3028-0218</div><br>
+        <div class = "part">팀장 | <br>
+        ·
+        </div><br>
+        </section>
+    </div>
+
+    <div class = "info2">
+    <img class = "img" src = "./image/현희.jpg">
+        <section class = "team">
+        <div class = "name">조현희</div><br>
+        <div class = "address">✉ bbanana@kakao.com | ☎ 010-4506-7082</div><br>
+        <div class = "part">서기 | 멋쟁이</div><br>
+            </section>
+    </div>
+
+    <div class = "info">
+    <img class = "img" src = "./image/인성.JPG">
+        <section class = "team">
+        <div class = "name">이인성</div><br>
+        <div class = "address">✉ insung1522@naver.com | ☎ 010-4655-2850</div><br>
+        <div class = "part">팀원 | 멋쟁이</div><br>
+            </section>
+    </div>
+
+    <div class = "info2">
+        <img class = "img" src = "./image/성현.jpg">
+        <section class = "team">
+        <div class = "name">홍성현</div><br>
+        <div class = "address">✉ dmdmdm1002@naver.com | ☎ 010-3058-5532</div><br>
+        <div class = "part">팀원 | 멋쟁이</div><br>
+            </section>
+    </div>
 </div>
 <c:import url = "/WEB-INF/views/footer.jsp"/>
 </body>

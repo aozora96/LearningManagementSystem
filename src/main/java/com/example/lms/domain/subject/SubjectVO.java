@@ -18,7 +18,7 @@ public class SubjectVO {
     private int subcode;
 
     private String major,p_name,title,content,thumbnail;
-    private int runtime;
+    private int runtime,p_code;
     private String sub_schedule;
 
 }

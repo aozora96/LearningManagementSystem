@@ -39,7 +39,7 @@
         </div>
 
         <div class="sl"  style="text-align: center; opacity: 100%;">
-            <img src="image/003.png" alt="" height="550px">
+            <a href = "http://www.randommenu.site/"><img src="image/003.png" alt="" height="550px"></a>
         </div>
 
     </div>
@@ -52,13 +52,13 @@
 </div>
 
 <section id = "last">
-    <div id = "todo">투두리스트
+    <div id = "todo">
+        <h2>My Todo</h2>
         <div id = "list">
             <form id = "todoList">
                 <input type ="hidden" id ="code" value ="<%=log%>">
             </form>
         </div>
-
     </div>
 
     <div id = "schedule">
@@ -74,6 +74,9 @@
         <div>17</div><div id="MO17"></div><div id="TU17"></div><div id="WE17"></div><div id="TH17"></div><div id="FR17"></div>
         <div>18</div><div id="MO18"></div><div id="TU18"></div><div id="WE18"></div><div id="TH18"></div><div id="FR18"></div>
     </div>
+    <aside>
+        <img src="image/aside.jpg">
+    </aside>
 </section>
 <c:import url = "/WEB-INF/views/footer.jsp"/>
 </body>

@@ -9,8 +9,4 @@ public class TimeTableDTO {
     private int time_code;
     private int p_code, subcode, usercode,score;
     private String title,sub_schedule;
-
-    public void setScore(int score){
-
-    }
 }

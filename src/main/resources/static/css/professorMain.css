@@ -1,0 +1,10 @@
+section{
+    background-color: darkgray;
+}
+table,td{
+    border: solid 1px;
+}
+
+a{
+    cursor : pointer
+}

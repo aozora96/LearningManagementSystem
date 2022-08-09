@@ -2,11 +2,13 @@ package com.example.lms.controller;
 
 import com.example.lms.domain.Professor.ProfessorDTO;
 import com.example.lms.domain.Professor.ProfessorVO;
+import com.example.lms.domain.TimeTable.TimeTableVO;
 import com.example.lms.domain.subject.SubjectVO;
 import com.example.lms.domain.user.UserRequestDTO;
 import com.example.lms.domain.user.UserVO;
 import com.example.lms.service.ProfessorService;
 import com.example.lms.service.SubjectService;
+import com.example.lms.service.TimeTableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +26,8 @@ import java.util.List;
 public class ProfessorController {
     @Autowired
     private ProfessorService professorService;
+    @Autowired
+    private TimeTableService timeTableService;
 
     @Autowired
     private SubjectService subjectService;
@@ -75,6 +79,25 @@ public class ProfessorController {
         }
 
         return url;
+    }
+
+    //수강생 리스트 불러오기
+    @PostMapping("/proClassInfo")
+    public ArrayList proClassInfo(@RequestBody ProfessorDTO dto){
+        System.out.println(dto.getUsercode());
+        //과목별 수강생 정보(usrcode) 불러오기
+        List<TimeTableVO> temp = timeTableService.showTime();
+        ArrayList<TimeTableVO> list = new ArrayList<>();
+        for(int i=0; i<temp.size(); i++){
+            if(dto.getUsercode() == temp.get(i).getP_code()){
+                list.add(temp.get(i));
+            }
+        }
+        //usercode를 기반으로 학생정보 불러오기
+//        for(int i=0; i<list.size(); i++){
+//        System.out.println(list.get(i));
+//        }
+        return list;
     }
 
 }
