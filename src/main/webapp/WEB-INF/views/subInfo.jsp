@@ -13,14 +13,15 @@
     <title>강좌소개</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link rel = "stylesheet" href="css/subInfo.css">
+    <link rel="shortcut icon" href="https://bit.ly/3P7ihIk">
 </head>
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>
 <select id="major" onchange="callSub()">
-    <option>--학과 선택--</option>
+
 </select>
 <section id="subject" >
-    <h1 id="msg" style="text-align: center; justify-content: center;">학과를 선택해주세요.</h1>
+    <%--    <h1 id="msg" style="text-align: center; justify-content: center;">학과를 선택해주세요.</h1>--%>
 </section>
 <aside id="aside1"></aside>
 <aside id="aside2"></aside>

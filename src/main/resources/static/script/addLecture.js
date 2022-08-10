@@ -9,46 +9,46 @@
 // }
 //  else{
 //전공학과 리스트 불러오기
-    $.ajax({
-        url : "/majorList",
-        type : "POST",
-        data : JSON.stringify(),
-        contentType : "application/json"
-    }).done(result =>{
-        // console.log("result");
-        // console.log(result.length);
-        for(let i=0; i<result.length; i++){
-            let option = document.createElement("option");
-            option.setAttribute("value", result[i]);
-            option.innerText = result[i];
-            $('#major').append(option);
-        }
-    }).fail(erorr =>{
-        console.log(erorr.responseText);
-     })
+$.ajax({
+    url : "/majorList",
+    type : "POST",
+    data : JSON.stringify(),
+    contentType : "application/json"
+}).done(result =>{
+    // console.log("result");
+    // console.log(result.length);
+    for(let i=0; i<result.length; i++){
+        let option = document.createElement("option");
+        option.setAttribute("value", result[i]);
+        option.innerText = result[i];
+        $('#major').append(option);
+    }
+}).fail(erorr =>{
+    console.log(erorr.responseText);
+})
 
 //기존에 수강신청한게 있으면 불러오기
-    const  requestData = {
-        "usercode" : $("#hide").val()
-    }
-    $.ajax({
-        url : "/showTime0",
-        type : "POST",
-        data : JSON.stringify(requestData),
-        contentType : "application/json"
-    }).done(result =>{
-        //console.log(result);
-        // console.log(result.length);
-        if(result.length > 0){
-            for(let i=0; i<result.length; i++){
-                colors2(result[i]);
-                //console.log(result[i].sub_schedule)
-            }
+const  requestData = {
+    "usercode" : $("#hide").val()
+}
+$.ajax({
+    url : "/showTime0",
+    type : "POST",
+    data : JSON.stringify(requestData),
+    contentType : "application/json"
+}).done(result =>{
+    //console.log(result);
+    // console.log(result.length);
+    if(result.length > 0){
+        for(let i=0; i<result.length; i++){
+            colors2(result[i]);
+            //console.log(result[i].sub_schedule)
         }
-    }).fail(erorr =>{
-        console.log(erorr.responseText);
-    })
- //}
+    }
+}).fail(erorr =>{
+    console.log(erorr.responseText);
+})
+//}
 
 //과목명 불러오기
 function callSub(){
@@ -238,11 +238,11 @@ $("#schedule").click(function (e){ // 밑에 추가된 강의명 선택하면 �
     let delSc = e.target.getAttribute("id");
     let cnt = del.substring(4) -del.substring(2,4);
     minusCnt(cnt);
-   // console.log(del);//요일/시간
-   // console.log("cnt"+cnt);//cnt(runtime)
+    // console.log(del);//요일/시간
+    // console.log("cnt"+cnt);//cnt(runtime)
     //console.log(delSc);//subcode
-   // console.log($("#hide").val());//usercode
-   // console.log($("#"+delSc).text());
+    // console.log($("#hide").val());//usercode
+    // console.log($("#"+delSc).text());
     //console.log(del !== null);
     if(del !== null){
         $("."+del).css('background','none');
@@ -283,7 +283,7 @@ function timeSave(timeData){
         data : JSON.stringify(timeData),
         contentType : "application/json"
     }).done(result =>{
-       // console.log(result);
+        // console.log(result);
         // console.log(result.length);
     }).fail(erorr =>{
         console.log(erorr.responseText);
@@ -300,7 +300,7 @@ function timeDel(timeData){
         data : JSON.stringify(timeData),
         contentType : "application/json"
     }).done(result =>{
-       // console.log(result);
+        // console.log(result);
         // console.log(result.length);
     }).fail(erorr =>{
         console.log(erorr.responseText);
@@ -334,5 +334,14 @@ function overCnt(cnt){
     }
     else{
         return true;
+    }
+}
+
+function checkGoIndex(){
+    var input = confirm('수강신청 완료! 메인페이지로 이동하시겠습니까?');
+    if (input === true){
+        location.href='/'
+    } else {
+        location.href='/addLecture'
     }
 }

@@ -12,6 +12,7 @@
 <head>
     <title>Title</title>
     <link rel = "stylesheet" href="css/updateInfo.css">
+    <link rel="shortcut icon" href="https://bit.ly/3P7ihIk">
 </head>
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>

@@ -4,6 +4,7 @@
 <head>
     <title>Title</title>
     <link rel ="stylesheet" href ="css/addLecture.css">
+    <link rel="shortcut icon" href="https://bit.ly/3P7ihIk">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
@@ -37,7 +38,7 @@
                 <option></option>
             </select>
             <span id="hakjum">0</span>점
-            <button id="move" onclick="location.href='/'">수강신청 완료</button>
+            <button id="move" onclick="checkGoIndex()">수강신청 완료</button>
             <%--메인으로 이동--%>
         </div>
         <span id="message">- 신청 강의목록(클릭시 삭제) -</span>

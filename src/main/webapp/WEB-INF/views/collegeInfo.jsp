@@ -9,6 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
+    <link rel="shortcut icon" href="https://bit.ly/3P7ihIk">
     <link rel ="stylesheet" href ="css/collegeInfo.css">
     <title>Title</title>
 </head>

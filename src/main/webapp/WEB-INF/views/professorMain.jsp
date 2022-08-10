@@ -10,6 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <html>
 <head>
+    <link rel="shortcut icon" href="https://bit.ly/3P7ihIk">
     <link rel = "stylesheet" href = "css/professorMain.css">
     <title>Professer Mypage</title>
 </head>

@@ -8,13 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="shortcut icon" href="https://bit.ly/3P7ihIk">
     <title>Title</title>
     <link rel="stylesheet" href="css/header.css?">
-    <link rel="shortcut icon" href="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcTi11g%2FbtrJlWnwj4L%2FHUb97JSsNhmfZ3BoloK4PK%2Fimg.png">
-
     <meta property="og:title" content="Green University">
-    <meta property="og:description" content="Green-Unversity만이 가지고있는 학사 정보 관리 시스템의 특별한 아이디어를 직접 확인해보세요!">
-    <meta property="og:image" content="https://blog.kakaocdn.net/dn/7jVxp/btrJmv4kTY7/atXkXNoBn3KR3ZKNSagXQk/img.png">
+    <meta property="og:description" content="GreenUnversity 만이 가지고있는 학사 정보 관리 시스템의 특별한 아이디어를 직접 확인해보세요!">
+    <meta property="og:image" content="https://bit.ly/3A9oHlQ">
 </head>
 <body>
 <header id="top">

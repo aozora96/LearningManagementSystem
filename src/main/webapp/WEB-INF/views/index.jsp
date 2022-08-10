@@ -7,11 +7,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
 <html>
 <head>
+    <link rel="shortcut icon" href="https://bit.ly/3P7ihIk">
     <%
         Object log = session.getAttribute("log");
+        String str  ="login";
+
+        String log2 = String.valueOf(log);
+        if(!log2.equals(null)) str = "addLecture";
+
     %>
     <link rel ="stylesheet" href ="css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -52,7 +58,7 @@
 
 <section id = "last">
     <div id = "todo">
-        <h2>My Todo</h2>
+        <% if(log != null && String.valueOf(log).length() == 4){%> <a href = "/todo"><%}%><h2>My Todo</h2><% if(log != null && String.valueOf(log).length() == 4){%>   </a><%}%>
         <div id = "list">
             <form id = "todoList">
                 <input type ="hidden" id ="code" value ="<%=log%>">
@@ -60,7 +66,8 @@
         </div>
     </div>
 
-    <div id = "schedule">
+    <a href ="/<%=str%>">
+        <div id = "schedule">
         <div>  </div><div id="MO">월</div><div id="TU">화</div><div id="WE">수</div><div id="TH">목</div><div id="FR">금</div>
         <div>9</div><div id="MO09"></div><div id="TU09"></div><div id="WE09"></div><div id="TH09"></div><div id="FR09"></div>
         <div>10</div><div id="MO10"></div><div id="TU10"></div><div id="WE10"></div><div id="TH10"></div><div id="FR10"></div>
@@ -73,6 +80,7 @@
         <div>17</div><div id="MO17"></div><div id="TU17"></div><div id="WE17"></div><div id="TH17"></div><div id="FR17"></div>
         <div>18</div><div id="MO18"></div><div id="TU18"></div><div id="WE18"></div><div id="TH18"></div><div id="FR18"></div>
     </div>
+    </a>
     <aside>
         <img src="image/aside.jpg">
     </aside>
