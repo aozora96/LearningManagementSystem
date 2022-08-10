@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'MICEMyungjo';
+    display: grid;
+    grid-template-rows: 210px auto 84px;
+    grid-template-areas:
+    "header"
+    "section"
+    "footer";
+}
+#top{
+    font-family: 'ChosunKg';
+    grid-area: header;
+}
+form{
+    font-size: 30px;
+    grid-area: section;
+    text-align: center;
+    padding: 170px;
+}
+footer{
+    grid-area: footer;
+}
+#pw{
+    height:30px;
+}
+#usercode{
+    width:225px;
+    height : 35px;
+    font-size : 30px;
+    color: black;
+}
+#delbtn{
+    width : 70px;
+    height : 30px
+}
