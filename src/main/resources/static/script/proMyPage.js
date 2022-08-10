@@ -1,10 +1,17 @@
 //교수코드랑 일치하는 수강생 정보 불러오기
-function getClassInfo(){
+function getInfo(){
     console.log($("#stLog").val());
     const proData = {
         "usercode" : $("#stLog").val()
-        //"usercode" : "25"
+        // "usercode" : "25"
     }
+    console.log(proData);
+    getPro(proData);
+    getClassInfo(proData);
+}
+
+//교수코드랑 일치하는 수강생 정보 불러오기
+function getClassInfo(proData){
     $.ajax({
         url : "/proClassInfo",
         type : "POST",
@@ -12,6 +19,9 @@ function getClassInfo(){
         contentType : "application/json"
     }).done(result =>{
         console.log(result);
+        $("tbody").remove();
+        let tbody = document.createElement("tbody");
+        $("table").append(tbody);
         $("#pagedefault").hide();
         $("#classinfo").show();
         //stucode/name/lever/score/s_grade
@@ -26,6 +36,21 @@ function getClassInfo(){
     })
 }
 
+function getPro(proData){
+    console.log(proData);
+    $.ajax({
+        url : "/getPro",
+        type : "POST",
+        data : JSON.stringify(proData),
+        contentType : "application/json"
+    }).done(result =>{
+        console.log(result);
+        console.log(result.major);
+        $("#title_name").text(result.major);
+    }).fail(erorr =>{
+        console.log(erorr.responseText);
+    })
+}
 let stucnt = 0;
 function getStudent(stuData,score){
     $.ajax({
@@ -35,6 +60,7 @@ function getStudent(stuData,score){
         contentType : "application/json"
     }).done(result =>{
         console.log(result);
+
         let klass = "stu"+stucnt;
         let tr = document.createElement("tr");
         let td = document.createElement("td");
@@ -118,27 +144,6 @@ score.addEventListener("change",e =>{
     //console.log(e.target.value);
     let score = e.target.value;
     grade(klass,score);
-    // if(score > 100){
-    //     alert("점수는 100점을 넘을 수 없습니다.")
-    //     $("#"+klass).val(100);
-    //     $("."+klass).text("A");
-    // }
-    // else if(score >= 90 && score <= 100){
-    //     $("."+klass).text("A");
-    // }
-    // else if(score >= 80 && score <= 90){
-    //     $("."+klass).text("B");
-    // }
-    // else if(score >= 70 && score <= 80){
-    //     $("."+klass).text("C");
-    // }
-    // else if(score >=60 && score <= 70){
-    //     $("."+klass).text("D");
-    // }
-    // else{
-    //     $("."+klass).text("F");
-    // }
-
 })
 
 function grade(klass,score){
@@ -150,17 +155,20 @@ function grade(klass,score){
     else if(score >= 90 && score <= 100){
         $("."+klass).text("A");
     }
-    else if(score >= 80 && score <= 90){
+    else if(score >= 80 && score < 90){
         $("."+klass).text("B");
     }
-    else if(score >= 70 && score <= 80){
+    else if(score >= 70 && score < 80){
         $("."+klass).text("C");
     }
-    else if(score >=60 && score <= 70){
+    else if(score >=60 && score < 70){
         $("."+klass).text("D");
     }
-    else{
+    else if(score > 0){
         $("."+klass).text("F");
+    }
+    else{
+        $("."+klass).text("");
     }
 
     if(score > 60 && score%10 >= 7 || score == 100){

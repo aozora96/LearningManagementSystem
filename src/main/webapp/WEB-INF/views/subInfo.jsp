@@ -15,16 +15,16 @@
     <link rel = "stylesheet" href="css/subInfo.css">
 </head>
 <body>
-    <c:import url = "/WEB-INF/views/header.jsp"/>
-    <select id="major" onchange="callSub()">
-        <option>--학과 선택--</option>
-    </select>
-    <section id="subject" >
-    </section>
-    <aside id="aside1"></aside>
-    <aside id="aside2"></aside>
-    <c:import url = "/WEB-INF/views/footer.jsp"/>
+<c:import url = "/WEB-INF/views/header.jsp"/>
+<select id="major" onchange="callSub()">
+    <option>--학과 선택--</option>
+</select>
+<section id="subject" >
+    <h1 id="msg" style="text-align: center; justify-content: center;">학과를 선택해주세요.</h1>
+</section>
+<aside id="aside1"></aside>
+<aside id="aside2"></aside>
+<c:import url = "/WEB-INF/views/footer.jsp"/>
 <script src="script/subInfo.js"></script>
 </body>
 </html>
-

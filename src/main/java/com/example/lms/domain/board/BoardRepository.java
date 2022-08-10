@@ -27,7 +27,7 @@ public interface BoardRepository extends JpaRepositoryImplementation<BoardVO, In
     public int findByBc(int view_cnt, int board_code);
 
     //게시판 최근순서대로 불러오기
-    @Query (value = "select * from(select row_number() over (order by board_code desc) rownum,board_code,title,contents,usercode,grade,created_at,modified_at,view_cnt from board)t where t.rownum between ?1 and ?2",nativeQuery = true)
+    @Query (value = "select * from(select row_number() over (order by board_code desc) rownum,board_code,title,contents,usercode,grade,created_at,modified_at,view_cnt,name from board)t where t.rownum between ?1 and ?2",nativeQuery = true)
     public List<BoardVO> readlist(int start, int end);
 
     @Query(value = "select count(*) from board", nativeQuery = true)

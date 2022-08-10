@@ -12,4 +12,6 @@ public class BoardDTO {
     private int usercode;
     private char grade;
     private int view_cnt;
+
+    private  String name;
 }

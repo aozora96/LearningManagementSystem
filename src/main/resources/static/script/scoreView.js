@@ -30,8 +30,31 @@ $.ajax({
                 subtitle = result[i].title;
                 let subScore = document.createElement('span');
                 subScore.innerText = result[i].score;
-                console.log(result[i].score);
-                sub.append(subtitle,": ",subScore,"점");
+                console.log("typeof score"+result[i].score.type);
+                let grade = document.createElement('span');
+                if(result[i].score >= 90 && result[i].score <= 100){
+                    grade.innerText = "A";
+                }
+                else if(result[i].score >= 80 && result[i].score < 90){
+                    grade.innerText = "B";
+                }
+                else if(result[i].score >= 70 && result[i].score < 80){
+                    grade.innerText = "C";
+                }
+                else if(result[i].score >=60 && result[i].score < 70){
+                    grade.innerText = "D";
+                }
+                else if(result[i].score >=1 && result[i].score < 60){
+                    grade.innerText = "F";
+                }
+                else{
+                    grade.innerText = "산출 전";
+                }
+
+                if(result[i].score > 60 && result[i].score%10 >= 7 || result[i].score == 100){
+                    grade.innerText += "+";
+                }
+                sub.append(subtitle,": ",subScore,"점    |   ","학점: ",grade);
                 $("#scoreList").append(sub);
             }
         }

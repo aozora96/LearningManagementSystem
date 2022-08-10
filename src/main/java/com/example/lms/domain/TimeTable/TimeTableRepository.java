@@ -16,4 +16,7 @@ public interface TimeTableRepository extends JpaRepository<TimeTableVO, Integer>
     @Query(value = "select * from time_table where usercode = ?1 and p_code=?2", nativeQuery = true)
     public TimeTableVO findByStu(int usercode, int p_code);
 
+    @Query(value = "select * from time_table where usercode = ?1",nativeQuery = true)
+    public List<TimeTableVO> findByUserCode(int usercode);
+
 }

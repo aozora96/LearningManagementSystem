@@ -27,7 +27,9 @@ function callSub(){
         data : JSON.stringify(requestData),
         contentType : "application/json"
     }).done(result =>{
+
         $("#subject").find("section").remove();
+        $("#subject").find("h1").remove();
         for(let i=0; i<result.length; i++){
             //섹션 만들기
             let section = document.createElement("section");
@@ -43,7 +45,7 @@ function callSub(){
             div.setAttribute("class","info");
             //div (title명)
             let div_title = document.createElement("div");
-            div_title.setAttribute("style","font-size:35px; ");
+            //div_title.setAttribute("style","font-size:35px; ");
             div_title.setAttribute("id","title");
             div_title.innerText = "강의명 : "+result[i].title;
             // 교수명

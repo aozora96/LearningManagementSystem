@@ -27,8 +27,8 @@ body{
 
 #subject{
     /*     #467ed0; */
-    background:#467ed0;
-    color : #fff;
+    /*background:#467ed0;*/
+    /*color : #fff;*/
     grid-area: subject;
     padding-top : 15px;
     /*background-color: lightpink;*/
@@ -47,19 +47,21 @@ footer{
 }
 
 #aside1{
-    background: linear-gradient( to left, #467ed0, skyblue );
+    /*background: linear-gradient( to left, #467ed0, skyblue );*/
     /*     linear-gradient( to left, #0245A3, red ) */
     grid-area: aside1;
 }
 #aside2{
-    background: linear-gradient( to right, #467ed0, skyblue);
+    /*background: linear-gradient( to right, #467ed0, skyblue);*/
     grid-area: aside2;
 }
 
 .sub{
-    border-top:0.25px solid;
-    border-color: white;
+    /*border-top:0.25px solid;*/
+    border-color: #0245a3;
     /*     margin: %; */
+    border-style: double;
+    margin: 7px;
     padding : 2%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -91,6 +93,9 @@ footer{
 }
 #title{
     grid-area: title;
+    border-bottom: groove;
+    margin-top: 25px;
+    font-size: 25px;
 }
 
 #name{

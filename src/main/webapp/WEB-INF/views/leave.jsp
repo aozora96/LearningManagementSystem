@@ -22,8 +22,9 @@
     <div style="font-size:35px;">회원탈퇴</div><br><br>
     <input type ="hidden" id ="code" value ="<%=logObj%>">
     UserCode : <input type="text" id="usercode" placeholder="<%=logObj%>" readonly style="border: none"><br><br>
-    비밀번호 : <input type="text" id="pw" placeholder="비밀번호 입력">
+    비밀번호 : <input type="text" id="pw" placeholder="비밀번호 입력"><br>
     <input type="button" value="탈퇴하기" id="delbtn" onclick="leaveAction()">
+    <input type="button" value="뒤로가기" id="back" onclick="location.href='/studentMain'">
 </form>
 <c:import url = "/WEB-INF/views/footer.jsp"/>
 <script src="/script/validation.js?ver=123"></script>

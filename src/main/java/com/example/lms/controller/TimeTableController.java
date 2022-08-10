@@ -50,4 +50,10 @@ public class TimeTableController {
 //        TimeTableVO temp = new TimeTableVO(stu,dto.getScore());
         timeTableService.setScore(dto);
     }
+
+    @PostMapping("/getScores")
+    public List<TimeTableVO> getScores(@RequestBody TimeTableDTO dto){
+        List<TimeTableVO> list = timeTableService.getScore(dto);
+        return list;
+    }
 }

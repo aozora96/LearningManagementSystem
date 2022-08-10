@@ -53,4 +53,9 @@ public class TimeTableService {
         return stu;
     }
 
+    public List<TimeTableVO> getScore(@RequestBody TimeTableDTO dto){
+        List<TimeTableVO> list = timeTableRepository.findByUserCode(dto.getUsercode());
+        return list;
+    }
+
 }

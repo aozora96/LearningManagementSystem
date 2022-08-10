@@ -19,15 +19,26 @@
     Object log = session.getAttribute("log");
     Object logId = session.getAttribute("logId");
 %>
-<div id = "scoreList">
-    <h2>< <%=logId%> 님의 성적입니다. ></h2>
+<aside id="aside1">
+    <%--    어사이드에 성적조회 / 시간표조회 / 투두리스트조회 이동--%>
+    <%--    <button onclick = "location.href='/todo'">TODO 리스트</button>--%>
+
+    <a style = "color:black;" href = "/todo">&nbsp;· TODO LIST</a><br>
+    <a style = "color:black;" href = "/scoreView">&nbsp;· 성적 조회 </a><br>
+    <a style = "color:black;" href = "/leave">&nbsp;· 회원 탈퇴 </a><br>
+
+</aside>
+<aside id="aside2">
+
+</aside>
+
+<section id = "scoreList">
+    <h2>< <%=logId%> 님의 성적></h2><br>
     <form>
         <input type ="hidden" id ="code" value ="<%=log%>">
     </form>
-    <a href="/studentMain">뒤로가기</a>
-</div>
-<aside id="aside1"></aside>
-<aside id="aside2"></aside>
+</section>
+
 <c:import url = "/WEB-INF/views/footer.jsp"/>
 <script src="script/scoreView.js"></script>
 </body>

@@ -19,20 +19,23 @@
     String logId = String.valueOf(session.getAttribute("logId"));
     System.out.println("stringlog: "+logId);
 %>
-<aside>
+<aside id="aside1">
     <%--    어사이드에 성적조회 / 시간표조회 / 투두리스트조회 이동--%>
     <%--    <button onclick = "location.href='/todo'">TODO 리스트</button>--%>
 
     <a style = "color:black;" href = "/todo">&nbsp;· TODO LIST</a><br>
-        <a style = "color:black;" href = "/scoreView">&nbsp;· 성적 조회 </a><br>
-    <a style = "color:black;" href = "/todo">&nbsp;· 시간표 조회</a><br>
-        <a style = "color:black;" href = "/leave">&nbsp;· 회원 탈퇴 </a><br>
+    <a style = "color:black;" href = "/scoreView">&nbsp;· 성적 조회 </a><br>
+    <a style = "color:black;" href = "/leave">&nbsp;· 회원 탈퇴 </a><br>
+
+</aside>
+<aside id="aside2">
 
 </aside>
 <section>
     <form>
         <input type ="hidden" id = "stLog" value="<%=logId%>">
     </form>
+    <h1 style="text-align: center"> < 내 정보 > </h1>
     <div id = "id">ID : &nbsp;</div>
     <div id = "name">NAME : &nbsp;</div>
     <div id = "birth">BIRTH : &nbsp;</div>

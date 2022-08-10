@@ -1,4 +1,3 @@
-
 body{
     font-family: 'NotoSerifKR';
     margin : 0;
@@ -14,6 +13,7 @@ body{
     "footer footer footer"
 ;
 }
+
 #top{
     grid-area: header;
 }
@@ -45,7 +45,9 @@ body{
 }
 #information{
     grid-area: information;
+    display: grid;
 }
+
 #aside1{
     grid-area: aside1;
 }
@@ -101,7 +103,7 @@ footer{
     padding-left: 20px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 25% 65% 10%;
+    grid-template-rows: 25% 58% 17%;
     grid-template-areas:
     "name"
     "part"
@@ -120,5 +122,31 @@ footer{
 }
 
 .part{
+    font-size : 1.2em;
     grid-area: part;
+}
+
+/* 개별 background */
+#jeong{
+    background: linear-gradient( to right, beige 15%, white);
+    border-radius: 20%;
+    margin-bottom:23px;
+}
+
+#jo{
+    background: linear-gradient( to left, #F7E9D7 15%, white );
+    border-radius: 20%;
+    margin-bottom:30px;
+}
+
+#lee{
+    background: linear-gradient( to right, #e2e5f1 15%, white );
+    border-radius: 20%;
+    margin-bottom:30px;
+}
+
+#hong{
+    background: linear-gradient( to left,#EDEDED 15%, white );
+    border-radius: 20%;
+    margin-bottom: 30px;
 }

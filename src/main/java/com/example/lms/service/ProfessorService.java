@@ -32,4 +32,11 @@ public class ProfessorService {
         return result.get(0);
     }
 
+
+    public ProfessorVO readPro(ProfessorDTO dto){
+        ProfessorVO result = professorRepository.findById(dto.getUsercode()).orElseThrow();
+        System.out.println(result);
+        return result;
+    }
+
 }

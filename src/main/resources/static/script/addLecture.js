@@ -172,9 +172,10 @@ function colors(){
         }
         else{
             alert( $("#"+temp).text() + "  과목의 시간과 동일합니다.");
-            $("."+sel.value).css('background','none');
-            $("."+sel.value).empty();
-            $("."+sel.value).removeClass(sel.value);
+            console.log(sel.value);
+            // $("."+sel.value).css('background','none');
+            // $("."+sel.value).empty();
+            // $("."+sel.value).removeClass(sel.value);
             check = false;
             break;
         }
@@ -235,53 +236,40 @@ $("#schedule").click(function (e){ // 밑에 추가된 강의명 선택하면 �
     console.log(e.target);
     let del = e.target.getAttribute("class");
     let delSc = e.target.getAttribute("id");
-    let cnt = parseInt(del.substring(4)) -parseInt(del.substring(2,4));
+    let cnt = del.substring(4) -del.substring(2,4);
     minusCnt(cnt);
-    console.log(del);//요일/시간
-    console.log(cnt);//cnt(runtime)
-    console.log(delSc);
-    console.log(e.target.value);
-    console.log($("#"+delSc).text());
+   // console.log(del);//요일/시간
+   // console.log("cnt"+cnt);//cnt(runtime)
+    //console.log(delSc);//subcode
+   // console.log($("#hide").val());//usercode
+   // console.log($("#"+delSc).text());
     //console.log(del !== null);
     if(del !== null){
         $("."+del).css('background','none');
-        //학생시간표 삭제용
-        // const  timeData = {
-        //     "subcode" : delSc,
-        //     "usercode" : $("#hide").val()
-        // }
         document.querySelector('.modal_wrap').style.display='block';
         document.querySelector('.black_bg').style.display='block';
-        $("#modal_text").attr("data-del",del);
-        $("#modal_text").attr("data-subcode",delSc);
+        $("#subcode").val(delSc);
+        $("#times").val(del);
         $("#modal_text").text($("#"+delSc).text() + "  과목을 삭제하시겠습니까?");
-        // var result = confirm("과목을 삭제하시겠습니까?");
-        // if(result){
-        //     $("."+del).empty();
-        //     $("."+del).removeClass(del);
-        //     e.target.remove();
-        //     timeDel(timeData);
-        //     alert("삭제되었습니다.");
-        // }else{
-        //     alert("삭제취소되었습니다.");
-        // }
     }
 })
+
 function delOk(){
-    console.log($("#modal_text").data("del"));
-    console.log($("#modal_text").data("subcode"));
-    let del = $("#modal_text").data("del");
+    console.log($("#times").val());
+    console.log($("#subcode").val());
+    let del = $("#times").val();
     const  timeData = {
-        "subcode" :  $("#modal_text").data("subcode"),
+        "subcode" :  $("#subcode").val(),
         "usercode" : $("#hide").val()
     }
     $("."+del).empty();
     $("."+del).removeClass(del);
-    $("#"+$("#modal_text").data("subcode")).remove();
+    $("#"+$("#subcode").val()).remove();
     timeDel(timeData);
     document.querySelector('.modal_wrap').style.display='none';
     document.querySelector('.black_bg').style.display='none';
 }
+
 function delNo(){
     document.querySelector('.modal_wrap').style.display='none';
     document.querySelector('.black_bg').style.display='none';
@@ -295,7 +283,7 @@ function timeSave(timeData){
         data : JSON.stringify(timeData),
         contentType : "application/json"
     }).done(result =>{
-        console.log(result);
+       // console.log(result);
         // console.log(result.length);
     }).fail(erorr =>{
         console.log(erorr.responseText);
@@ -304,13 +292,15 @@ function timeSave(timeData){
 
 // 시간표 삭제
 function timeDel(timeData){
+    console.log("!!!!!!!!!!!!!!!");
+    console.log(timeData);
     $.ajax({
         url : "/delTime0",
         type : "DELETE",
         data : JSON.stringify(timeData),
         contentType : "application/json"
     }).done(result =>{
-        console.log(result);
+       // console.log(result);
         // console.log(result.length);
     }).fail(erorr =>{
         console.log(erorr.responseText);

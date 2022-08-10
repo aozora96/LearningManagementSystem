@@ -101,4 +101,14 @@ public class ProfessorController {
         return list;
     }
 
+    @PostMapping("/getPro")
+    public ProfessorVO getPro(@RequestBody ProfessorDTO dto){
+        // 여기서
+        System.out.println("getPro");
+        System.out.println(dto.getUsercode());
+        ProfessorVO professor =  professorService.readPro(dto);
+        System.out.println(professor.getMajor());
+        return professor;
+    }
+
 }

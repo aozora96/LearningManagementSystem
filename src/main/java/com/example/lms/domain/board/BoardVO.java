@@ -30,6 +30,8 @@ public class BoardVO extends Timestamp {
     @Column
     private int view_cnt;
 
+    @Column
+    private  String name;
     public BoardVO(BoardDTO dto){
         this.board_code = dto.getBoard_code();
         this.title = dto.getTitle();
@@ -37,6 +39,7 @@ public class BoardVO extends Timestamp {
         this.usercode = dto.getUsercode();
         this.grade = dto.getGrade();
         this.view_cnt = dto.getView_cnt();
+        this.name = dto.getName();
     }
 
     public void updateBoard(BoardDTO dto){

@@ -14,14 +14,14 @@ $.ajax({
         $("#title2").val(result.title);
         $("#content2").val(result.contents);
         if (String(result.usercode) === $("#usercode2").val()) {
-            $('#viewForm').append(
+            $('#buttons').append(
                 $(document.createElement('input')).prop({
                     type:'submit',
                     id:'submit2',
                     value:'수정하기'
                 })
             );
-            $('#viewForm').append(
+            $('#buttons').append(
                 $(document.createElement('input')).prop({
                     type: 'button',
                     id: 'delete2',

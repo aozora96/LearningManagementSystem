@@ -34,7 +34,7 @@
 
 
         <div class="sl" style="text-align: center; opacity: 100%;">
-            <img src="image/testInfo.png" alt="" height="550px">
+            <a href = "/board"><img src="image/testInfo.png" alt="" height="550px"></a>
         </div>
 
         <div class="sl"  style="text-align: center; opacity: 100%;">

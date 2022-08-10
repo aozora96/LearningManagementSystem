@@ -10,7 +10,7 @@ body{
     "header header"
     "aside section"
     "footer footer"
-    ;
+;
 }
 #top{
     grid-area: header;
@@ -28,8 +28,15 @@ aside a{
 }
 section{
     grid-area: section;
-    background-color: darkgray;
-    text-align: center;
+    background-color: #DFDFDE;
+    background-image: url("../image/Untitled.png");
+    background-size: auto;
+    background-position: center;
+    background-repeat : no-repeat;
+}
+span{
+    display: flex;
+    flex-wrap: wrap;
 }
 img{
     margin: 150px;
@@ -38,7 +45,16 @@ footer{
     grid-area: footer;
 }
 table,td{
+    text-align: center;
     border: solid 1px;
+    margin : 0;
+    padding : 0;
+}
+table{
+    border: solid 3px;
+}
+td input{
+    width:  100%;
 }
 form{
     display: flex;
@@ -46,6 +62,13 @@ form{
     /*justify-content: center;*/
     /*align-items: center;*/
 }
-a{
-    cursor : pointer
+#score{
+    margin : 0;
+}
+#menu_l:hover{
+    cursor: pointer;
+    background: #467ed0;
+}
+#title_name{
+    margin-left: 5px;
 }

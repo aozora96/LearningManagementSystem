@@ -8,7 +8,7 @@ $.ajax({
         console.log(result);
         $("#head_title").attr("href", "/boardView?boardcode=" + result.board_code + "&view_cnt=" + result.view_cnt+"");
         $("#head_title").text(result.title)
-        $("#head_name").text(result.usercode)
+        $("#head_name").text("< 교수 >"+result.name)
         $("#head_view").text(result.view_cnt)
         $("#head_date").text(result.createdAt.substring(0, 10))
         $("#head_modified").text(result.modifiedAt.substring(0, 10))
@@ -17,9 +17,6 @@ $.ajax({
 
     }
 })
-
-
-
 
 
 //페이지계산 준비
@@ -122,7 +119,14 @@ function list(start) {
                 a.innerText = result[i].title;
                 title.append(a);
                 // <td><a>title.innerText<a></td>
-                user.innerText = result[i].usercode;
+                console.log(result[i].usercode<100);
+                if(result[i].usercode <100){
+                    user.innerText = "< 교수 >" +result[i].name;
+                }
+                else{
+                    user.innerText = result[i].name;
+                }
+
                 let subCA = result[i].createdAt.substring(0, 10);
                 cA.innerText = subCA;
                 let subMA = result[i].modifiedAt.substring(0, 10);
@@ -140,8 +144,7 @@ function list(start) {
             makebt();
         }
         , error: function (result) {
-            console.log(err);
-            alert("시스템 에러 발생\n관리자에게 문의 바랍니다.")
+
         }
     })
 }
@@ -152,13 +155,15 @@ function boardW(){
     if($("#usercode").val().length == 2){
         grade_get = "F";
     }
+    console.log( $("#userName").val())
 
     console.log("grade_get: "+ grade_get);
     let requestData = {
         "title" : $("#title").val(),
         "contents" : $("#content").val(),
         "usercode" : $("#usercode").val(),
-        "grade" : grade_get
+        "grade" : grade_get,
+        "name" : $("#userName").val()
     }
     console.log("title: "+ $("#title").val());
     console.log("content: "+ $("#content").val());
@@ -183,7 +188,6 @@ function boardW(){
 
 //페이지 버튼 생성
 function makebt() {
-    $("#btHere").text("hey!!!!")
     console.log(pageStart);
     console.log(pageSize);
     console.log(pageEnd);

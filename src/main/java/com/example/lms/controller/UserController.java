@@ -31,11 +31,15 @@ public class UserController {
     }
 
     @DeleteMapping("/delete")
-    public boolean delete(@RequestBody UserRequestDTO dto){
+    public boolean delete(@RequestBody UserRequestDTO dto, HttpServletRequest request, HttpServletResponse response){
         System.out.println("UserController : "+dto.getUsercode());
         if(userService.readUserPw(dto) != null){
             userService.deleteUser(dto);
             System.out.println("회원정보 일치 -> 회원탈퇴 성공");
+            HttpSession session = request.getSession();
+            session.removeAttribute("log");
+            session.removeAttribute("logId");
+            session.removeAttribute("userName");
             return true;
         }
         System.out.println("회원정보 불일치 -> 회원탈퇴 실패");
@@ -65,6 +69,7 @@ public class UserController {
             HttpSession session = request.getSession();
             session.setAttribute("log",user.getUsercode());
             session.setAttribute("logId",user.getId());
+            session.setAttribute("userName",user.getName());
         }
         else {
             System.out.println(user.getPw());

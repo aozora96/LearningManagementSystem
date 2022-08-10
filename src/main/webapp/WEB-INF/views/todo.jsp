@@ -16,19 +16,34 @@
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>
 <%
+    //    session.setAttribute("log",7770);
+//    int log = (int)session.getAttribute("log");
     Object log = session.getAttribute("log");
     Object logId = session.getAttribute("logId");
 %>
+<aside id="aside1">
+    <%--    어사이드에 성적조회 / 시간표조회 / 투두리스트조회 이동--%>
+    <%--    <button onclick = "location.href='/todo'">TODO 리스트</button>--%>
+
+    <a style = "color:black;" href = "/todo">&nbsp;· TODO LIST</a><br>
+    <a style = "color:black;" href = "/scoreView">&nbsp;· 성적 조회 </a><br>
+    <a style = "color:black;" href = "/leave">&nbsp;· 회원 탈퇴 </a><br>
+
+</aside>
+<aside id="aside2">
+
+</aside>
 <h2 id = "userName">< <%=logId%> 님의 TODO LIST ></h2>
-<div id = "list">
+<section id = "list">
     <div id= "todoList">
+
     </div>
     <form id ="addTodoList">
         <input type ="hidden" id ="code" value ="<%=log%>">
         <input type="text" id="contents" name="contents" onkeyup="checkEnter()"/>
         <button onclick="addTodo()" style="height:35px; width:35px;">+</button>
     </form>
-</div>
+</section>
 <c:import url = "/WEB-INF/views/footer.jsp"/>
 <script src="script/todo.js"></script>
 </body>

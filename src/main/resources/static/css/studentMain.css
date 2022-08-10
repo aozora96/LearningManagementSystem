@@ -3,21 +3,21 @@ body{
     padding : 0;
     font-family: 'MICEMyungjo';
     display: grid;
-    grid-template-columns: 250px auto;
+    grid-template-columns: 250px auto 250px;
     grid-template-rows: 210px auto 84px;
     grid-template-areas:
-    "header header"
-    "aside content"
-    "footer footer";
+    "header header header"
+    "aside1 content aside2"
+    "footer footer footer";
 }
 
 #top{
     grid-area: header;
 }
 
-aside{
-    grid-area: aside;
-    border-right: solid 2px navy;
+#aside1{
+    grid-area: aside1;
+    border-right: solid 1px navy;
     background: lightcyan;
 
     display: flex;
@@ -28,12 +28,16 @@ aside{
 aside a{
     margin-top: 30px;
 }
+#aside2{
+    grid-area:aside2;
+    border-left: solid 1px navy;
+    background: lightcyan;
+}
 
 section{
-    padding-left : 50px;
-    text-align:left;
+    margin: 0 auto;
     grid-area: content;
-
+    margin-top : 50px;
 }
 
 section div{

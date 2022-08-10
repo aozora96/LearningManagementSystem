@@ -18,9 +18,11 @@
     Object log = session.getAttribute("log");
     String boardcode = request.getParameter("boardcode");
     System.out.println("board_code2: "+boardcode);
+    Object userName = session.getAttribute("userName");
 %>
 <c:import url = "/WEB-INF/views/header.jsp"/>
 <form id = "writeForm">
+    <input type = "hidden" id = "userName" value = <%=userName%> >
     <input type = "text" id = "title" name = "title" placeholder="제목을 입력하세요." required><br>
     <textarea name = "content" id = "content" placeholder="내용을 입력하세요." required></textarea><br>
     <input type ="button" value = "수정완료" id = "submit" onclick="update()">

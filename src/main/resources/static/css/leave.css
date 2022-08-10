@@ -25,15 +25,19 @@ footer{
     grid-area: footer;
 }
 #pw{
-    height:30px;
+    height:35px;
+
+
 }
 #usercode{
-    width:225px;
+    width:145px;
     height : 35px;
     font-size : 30px;
-    color: black;
 }
-#delbtn{
-    width : 70px;
-    height : 30px
+#delbtn,#back{
+    margin-top : 35px;
+    color : white;
+    background-color : #467ed0;
+    width : 150px;
+    height : 40px
 }

@@ -18,20 +18,23 @@
 <%
     String log = String.valueOf(session.getAttribute("log"));
     //String logId = String.valueOf(session.getAttribute("logId"));
-    System.out.println("stringlog: "+log);
+    System.out.println("log: "+log);
+    System.out.println(log);
+    if(log == null){
+        out.print("<script>alert('로그인 후 이용가능합니다'); location.href='/login';</script>");
+        //        로그 없으면 로그인페이지로 이동
+    }
 %>
 <aside>
-    <%--    어사이드에 강의정보(성적입력) / 투두리스트조회 이동--%>
+    <%--    어사이드에 강의정보(성적입력)--%>
 
-    <a style = "color:black;" href = "/todo">&nbsp;· TODO LIST</a><br>
-    <a style = "color:black;" onclick="getClassInfo()">&nbsp;· 강의정보</a><br>
+    <a id="menu_l" style = "color:black;" onclick=" getInfo()">&nbsp;· 강의정보</a><br>
 
 </aside>
 <section id="pagedefault">
-    <img src="image/Untitled.png">
 </section>
 <section id="classinfo" style="display: none">
-    <span>과목명 : <p id="title"></p></span>
+    <span>과목명 : <p id="title_name"></p></span>
     <form>
         <table>
             <input type ="hidden" id = "stLog" value="<%=log%>">
@@ -42,7 +45,7 @@
 
             </tbody>
         </table>
-        <input type="button" value="저장하기" onclick="setScore()">
+        <input id="saveBT" type="button" value="저장하기" onclick="setScore()">
     </form>
 </section>
 <c:import url = "/WEB-INF/views/footer.jsp"/>

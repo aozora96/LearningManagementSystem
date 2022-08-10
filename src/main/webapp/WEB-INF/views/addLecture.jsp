@@ -63,6 +63,8 @@
 <div class="black_bg"></div>
 <div class="modal_wrap">
     <div id="modal_text"></div>
+    <input type="hidden" id="subcode">
+    <input type="hidden" id="times">
     <button onclick="delOk()">삭제</button>
     <button onclick="delNo()">취소</button>
 </div>
