@@ -25,4 +25,15 @@ public interface BoardRepository extends JpaRepositoryImplementation<BoardVO, In
     @Transactional
     @Query(value ="update board set view_cnt = ?1 where board_code =?2",nativeQuery = true)
     public int findByBc(int view_cnt, int board_code);
+
+    //게시판 최근순서대로 불러오기
+    @Query (value = "select * from(select row_number() over (order by board_code desc) rownum,board_code,title,contents,usercode,grade,created_at,modified_at,view_cnt from board)t where t.rownum between ?1 and ?2",nativeQuery = true)
+    public List<BoardVO> readlist(int start, int end);
+
+    @Query(value = "select count(*) from board", nativeQuery = true)
+    public int getCnt();
+
+    //가장최근 공지사항 -> F등급이 작성한 가장 최근게시물
+    @Query(value = "select * from board where grade='F' ORDER BY created_at desc limit 1", nativeQuery = true)
+    public BoardVO getNotice();
 }

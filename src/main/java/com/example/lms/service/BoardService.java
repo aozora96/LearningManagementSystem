@@ -64,4 +64,22 @@ public class BoardService {
 
         return bd;
     }
+
+    //getList
+    public List<BoardVO> readList(int start, int end){
+        List<BoardVO> list = boardRepository.readlist(start,end);
+        return  list;
+    }
+
+    //getCnt(총갯수)
+    public int getCnt(){
+        int temp = boardRepository.getCnt();
+        return temp;
+    }
+
+    //get Notice
+    public BoardVO getNotice(){
+        BoardVO temp = boardRepository.getNotice();
+        return temp;
+    }
 }

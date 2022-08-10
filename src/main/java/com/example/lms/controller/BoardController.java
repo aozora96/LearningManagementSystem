@@ -78,4 +78,23 @@ public class BoardController {
         System.out.println("이건뭐지?: "+cnt);
         return cnt;
     }
+
+    @PostMapping("/readList")
+    public List<BoardVO>  resdList(@RequestParam("start") int start){
+        System.out.println(start);
+        int end = start * 10;
+        List<BoardVO> list = boardService.readList(start,end);
+        return list;
+    }
+
+    @PostMapping("/getCnt")
+    public int getCnt(){
+        return boardService.getCnt();
+    }
+
+    // 공지사항
+    @PostMapping("/getNotice")
+    public BoardVO getNoptice(){
+        return boardService.getNotice();
+    }
 }
