@@ -13,6 +13,11 @@
     if(log == null){
         out.print("<script>alert('로그인 후 이용가능합니다'); location.href='/login';</script>");
         //        로그 없으면 로그인페이지로 이동
+    } else {
+        String stLog = String.valueOf(log);
+        if(stLog.length() == 2){
+            out.print("<script>alert('교수님은 이용하실 수 없습니다'); location.href='/';</script>");
+        }
     }
 %>
 <input type="hidden" id="hide" value="<%=log%>">

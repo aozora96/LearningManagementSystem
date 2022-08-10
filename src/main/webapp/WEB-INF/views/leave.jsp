@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel = "stylesheet" href = "css/leave.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
@@ -17,13 +18,12 @@
 <%
     Object logObj = session.getAttribute("log");
 %>
-
-회원탈퇴
 <form>
+    <div style="font-size:35px;">회원탈퇴</div><br><br>
     <input type ="hidden" id ="code" value ="<%=logObj%>">
-    UserCode : <input type="text" placeholder="<%=logObj%>" readonly style="border: none"><br>
+    UserCode : <input type="text" id="usercode" placeholder="<%=logObj%>" readonly style="border: none"><br><br>
     비밀번호 : <input type="text" id="pw" placeholder="비밀번호 입력">
-    <input type="button" value="탈퇴하기" onclick="leaveAction()">
+    <input type="button" value="탈퇴하기" id="delbtn" onclick="leaveAction()">
 </form>
 <c:import url = "/WEB-INF/views/footer.jsp"/>
 <script src="/script/validation.js?ver=123"></script>

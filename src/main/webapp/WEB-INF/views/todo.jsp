@@ -16,15 +16,12 @@
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>
 <%
-    //    session.setAttribute("log",7770);
-//    int log = (int)session.getAttribute("log");
     Object log = session.getAttribute("log");
     Object logId = session.getAttribute("logId");
 %>
 <h2 id = "userName">< <%=logId%> 님의 TODO LIST ></h2>
 <div id = "list">
     <div id= "todoList">
-
     </div>
     <form id ="addTodoList">
         <input type ="hidden" id ="code" value ="<%=log%>">
