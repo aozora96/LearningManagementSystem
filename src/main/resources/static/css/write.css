@@ -41,11 +41,7 @@ textarea{
 }
 
 #buttons{
-    /*     width: 100%;
-
-        padding-left : 25%; */
     display:flex;
     justify-content: center;
-    /*     marin: 0 auto; */
     margin-top : 20px;
 }

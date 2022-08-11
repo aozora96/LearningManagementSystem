@@ -93,7 +93,7 @@ function callSub(){
             let sche = "["+head + result[i].sub_schedule.substring(2,4)+"~"+result[i].sub_schedule.substring(4,6)+"]";
             //console.log(head);
             //console.log(sche);
-            console.log(result[i].p_code);
+            //console.log(result[i].p_code);
             //console.log(result[i]);
             let subName = result[i].title + sche;
             option.setAttribute("value", result[i].sub_schedule);
@@ -125,7 +125,7 @@ function colors(){
 
     let sel = document.body.querySelector("#subject");
     //console.log(sel.value);
-    // console.log($("#subject option:checked").data("runtime"));
+    //console.log($("#subject option:checked").data("runtime"));
     let start = sel.value.substring(0,2);
     let add = sel.value.substring(2,4);
     let cnt = parseInt($("#subject option:checked").data("runtime"));
@@ -172,10 +172,17 @@ function colors(){
         }
         else{
             alert( $("#"+temp).text() + "  과목의 시간과 동일합니다.");
-            console.log(sel.value);
-            // $("."+sel.value).css('background','none');
-            // $("."+sel.value).empty();
-            // $("."+sel.value).removeClass(sel.value);
+            //console.log(sel.value);
+            //console.log(temp);
+            let x = $("#"+temp);
+            // console.log($("#"+temp));
+            //console.log($("#"+temp).attr("class"));
+            if($("#"+temp).attr("class") !== sel.value){
+                console.log(temp);
+                $("."+sel.value).css('background','none');
+                $("."+sel.value).empty();
+                $("."+sel.value).removeClass(sel.value);
+            }
             check = false;
             break;
         }
@@ -232,20 +239,15 @@ function colors2(result){
     }
 }
 
-$("#schedule").click(function (e){ // 밑에 추가된 강의명 선택하면 삭제
-    console.log(e.target);
+// 밑에 추가된 강의명 선택하면 삭제
+$("#schedule").click(function (e){
+    //console.log(e.target);
     let del = e.target.getAttribute("class");
     let delSc = e.target.getAttribute("id");
     let cnt = del.substring(4) -del.substring(2,4);
     minusCnt(cnt);
-    // console.log(del);//요일/시간
-    // console.log("cnt"+cnt);//cnt(runtime)
-    //console.log(delSc);//subcode
-    // console.log($("#hide").val());//usercode
-    // console.log($("#"+delSc).text());
-    //console.log(del !== null);
+
     if(del !== null){
-        $("."+del).css('background','none');
         document.querySelector('.modal_wrap').style.display='block';
         document.querySelector('.black_bg').style.display='block';
         $("#subcode").val(delSc);
@@ -262,6 +264,7 @@ function delOk(){
         "subcode" :  $("#subcode").val(),
         "usercode" : $("#hide").val()
     }
+    $("."+del).css('background','none');
     $("."+del).empty();
     $("."+del).removeClass(del);
     $("#"+$("#subcode").val()).remove();

@@ -11,7 +11,7 @@
 <head>
     <link rel = "stylesheet" href = "css/write.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <title>update</title>
+    <title>Green</title>
     <link rel="shortcut icon" href="https://bit.ly/3P7ihIk">
 </head>
 <body>
@@ -26,8 +26,10 @@
     <input type = "hidden" id = "userName" value = <%=userName%> >
     <input type = "text" id = "title" name = "title" placeholder="제목을 입력하세요." required><br>
     <textarea name = "content" id = "content" placeholder="내용을 입력하세요." required></textarea><br>
+    <div id = "buttons">
     <input type ="button" value = "수정완료" id = "submit" onclick="update()">
     <input type = "button" value = "뒤로가기" id = "back" onclick="location.href = '/board'">
+    </div>
     <input type = "hidden" id = "usercode" value ="<%=log%>">
     <input type = "hidden" id = "boardcode" value = "<%=boardcode%>">
 </form>

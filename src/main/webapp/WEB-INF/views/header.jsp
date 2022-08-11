@@ -9,7 +9,7 @@
 <html>
 <head>
     <link rel="shortcut icon" href="https://bit.ly/3P7ihIk">
-    <title>Title</title>
+    <title>Green</title>
     <link rel="stylesheet" href="css/header.css?">
     <meta property="og:title" content="Green University">
     <meta property="og:description" content="GreenUnversity 만이 가지고있는 학사 정보 관리 시스템의 특별한 아이디어를 직접 확인해보세요!">

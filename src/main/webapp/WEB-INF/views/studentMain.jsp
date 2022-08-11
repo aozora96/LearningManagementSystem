@@ -12,7 +12,7 @@
 <head>
     <link rel="shortcut icon" href="https://bit.ly/3P7ihIk">
     <link rel = "stylesheet" href = "css/studentMain.css">
-    <title>학생 마이페이지</title>
+    <title>Green</title>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>

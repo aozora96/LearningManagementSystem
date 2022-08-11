@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="https://bit.ly/3P7ihIk">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link rel = "stylesheet" href="css/scoreView.css">
-    <title>Title</title>
+    <title>Green</title>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>

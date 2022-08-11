@@ -7,8 +7,8 @@ body{
     font-family: 'MICEMyungjo';
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: 210px 1fr 80px;
+    grid-template-columns: 250px auto 250px;
+    grid-template-rows: 210px auto 84px;
     grid-template-areas:
     "header header header"
     "aside1 update aside2"
@@ -30,7 +30,9 @@ h1{
     justify-content: flex-start;
     align-items: center;
 }
-
+#aside1 a{
+    margin-top: 30px;
+}
 #aside2{
     grid-area:aside2;
     border-left: solid 1px navy;
@@ -62,6 +64,3 @@ footer{
     grid-area: footer;
 
 }
-
-
-

@@ -10,7 +10,7 @@
 <head>
 </head>
 <body>
-    <title>Title</title>
+    <title>Green</title>
     <link rel="stylesheet" href="css/footer.css">
 <footer>
     <div>

@@ -21,7 +21,7 @@
     %>
     <link rel ="stylesheet" href ="css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <title>MAIN</title>
+    <title>Green</title>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>

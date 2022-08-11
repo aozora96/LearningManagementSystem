@@ -10,7 +10,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>강좌소개</title>
+    <title>Green</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link rel = "stylesheet" href="css/subInfo.css">
     <link rel="shortcut icon" href="https://bit.ly/3P7ihIk">

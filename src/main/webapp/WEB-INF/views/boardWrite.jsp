@@ -12,7 +12,7 @@
 <head>
     <link rel = "stylesheet" href="css/write.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <title>Title</title>
+    <title>Green</title>
     <link rel="shortcut icon" href="https://bit.ly/3P7ihIk">
 </head>
 <body>

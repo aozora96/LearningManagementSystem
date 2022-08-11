@@ -11,7 +11,7 @@
 <head>
     <link rel="shortcut icon" href="https://bit.ly/3P7ihIk">
     <link rel ="stylesheet" href ="css/collegeInfo.css">
-    <title>Title</title>
+    <title>Green</title>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>
