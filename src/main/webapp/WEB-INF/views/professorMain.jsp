@@ -12,7 +12,7 @@
 <head>
     <link rel="shortcut icon" href="https://bit.ly/3P7ihIk">
     <link rel = "stylesheet" href = "css/professorMain.css">
-    <title>Green</title>
+    <title>Professer Mypage</title>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/header.jsp"/>
@@ -35,12 +35,12 @@
 <section id="pagedefault">
 </section>
 <section id="classinfo" style="display: none">
-    <span>학과명 : <p id="title_name"></p></span>
+    <span>과목명 : <p id="title_name"></p></span>
     <form>
         <table>
             <input type ="hidden" id = "stLog" value="<%=log%>">
             <thead>
-            <tr><td id="stucode">학생코드</td><td id="name">이름</td><td id="level">학년</td><td id="score">성적</td><td id="s_grade">학점</td></tr>
+            <tr><td id="stucode">학생코드</td><td id="major">전공</td><td id="name">이름</td><td id="level">학년</td><td id="score">성적</td><td id="s_grade">학점</td></tr>
             </thead>
             <tbody>
 
@@ -50,6 +50,7 @@
     </form>
 </section>
 <c:import url = "/WEB-INF/views/footer.jsp"/>
-<script src="script/proMypage.js"></script>
+<script src="script/professorMain.js"></script>
+<%--<script src="script/proMypage.js"></script>--%>
 </body>
 </html>

@@ -79,6 +79,9 @@ function getStudent(stuData,score){
         td.innerText = result.usercode;
         tr.append(td);
         td = document.createElement("td");
+        td.innerText = result.major;
+        tr.append(td);
+        td = document.createElement("td");
         td.innerText = result.name;
         tr.append(td);
         td = document.createElement("td");

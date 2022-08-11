@@ -146,19 +146,7 @@ function colors(){
         //console.log(tt);
         if($("#"+temp).attr("class") == undefined || tt.length < 1){
             if(i == 0){
-                // console.log($("#subject option:checked").data("sc"));
-                // console.log( $("#hide").val());
-                // console.log($("#subject option:checked").text());
-                // console.log(sel.value);
-                // console.log($("#subject option:checked").data("p"));
-                const  timeData = {
-                    "p_code" : $("#subject option:checked").data("pcode"),
-                    "subcode" : $("#subject option:checked").data("sc"),
-                    "usercode" : $("#hide").val(),
-                    "title" : title_,
-                    "sub_schedule" : sel.value,
-                }
-                timeSave(timeData);
+                check = true;
             }
             document.getElementById(temp).setAttribute("class",sel.value);
             document.getElementById(temp).innerText = title_;
@@ -187,8 +175,20 @@ function colors(){
             break;
         }
     }
+
+    console.log(check)
+    console.log(cnt)
+    // if(i == cnt){
     //수강신청된 시간에 동일 class명 부여
-    if(check){
+    if(check == true){
+        const  timeData = {
+            "p_code" : $("#subject option:checked").data("pcode"),
+            "subcode" : $("#subject option:checked").data("sc"),
+            "usercode" : $("#hide").val(),
+            "title" : title_,
+            "sub_schedule" : sel.value,
+        }
+        timeSave(timeData);
         //학점계산
         hakjumCnt(cnt);
         cc++;
@@ -201,6 +201,9 @@ function colors(){
         $("#schedule").append(sche);
         //console.log($("#subject option:checked").data("pcode"));
     }
+    // }
+
+
     if(cc >= bc.length){
         cc = 0;
     }
