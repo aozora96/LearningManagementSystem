@@ -26,8 +26,10 @@
     <input type = "hidden" id = "userName" value = <%=userName%> >
     <input type = "text" id = "title" name = "title" placeholder="제목을 입력하세요." required><br>
     <textarea name = "content" id = "content" placeholder="내용을 입력하세요." required></textarea><br>
+    <div id = "buttons">
     <input type ="button" value = "작성하기" id = "submit" onclick="boardW()">
     <input type = "button" value = "뒤로가기" id = "back" onclick="location.href = '/board'">
+    </div>
     <input type = "hidden" id = "usercode" value ="<%=log%>">
 </form>
 <c:import url = "/WEB-INF/views/footer.jsp"/>
