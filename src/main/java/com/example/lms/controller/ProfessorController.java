@@ -71,6 +71,7 @@ public class ProfessorController {
             HttpSession session = request.getSession();
             session.setAttribute("log",professor.getUsercode());
             session.setAttribute("logId",professor.getId());
+            session.setAttribute("userName",professor.getName());
         }
         else {
             System.out.println(professor.getPw());
@@ -90,7 +91,6 @@ public class ProfessorController {
         ArrayList<TimeTableVO> list = new ArrayList<>();
         for(int i=0; i<temp.size(); i++){
             if(dto.getUsercode() == temp.get(i).getP_code()){
-                System.out.println("ㅁㄴㅇ히ㅓㄴㅁ하이ㅓ: "+temp.get(i).getP_code());
                 list.add(temp.get(i));
             }
         }

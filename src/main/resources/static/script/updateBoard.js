@@ -8,7 +8,6 @@ $.ajax({
     data: JSON.stringify(requestData),
     contentType: "application/json",
     success: function (result) {
-        console.log(title)
         $("#title").val(result.title);
         $("#content").val(result.contents);
     },

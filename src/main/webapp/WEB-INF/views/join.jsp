@@ -37,8 +37,8 @@
             성별<br>
             <select id = "gender">
                 <option name = "none" value ="성별">성별</option>
-                <option name = "Female" value ="F">F</option>
-                <option name = "Male" value ="M">M</option>
+                <option name = "Female" value ="F">여성</option>
+                <option name = "Male" value ="M">남성</option>
             </select><br><br>
             전공<br>
             <select id = "major">
@@ -52,7 +52,7 @@
             <input type = "text" name ="mobile" id = "mobile" required placeholder="010-0000-0000"><br><br>
             생년월일<br>
             <input type = "date" name ="birth" id = "birth" required><br><br>
-            <input type = "button" class="btn" value ="회원가입" onclick = "join()" ><br><br>
+            <input type = "button" class="btn" value ="회원가입" onclick = "joinCheck()" ><br><br>
             <input type = "hidden" name ="grade" id = "grade" value ="S">
         </form>
     </div>

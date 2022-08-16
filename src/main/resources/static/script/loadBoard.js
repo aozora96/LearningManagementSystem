@@ -10,7 +10,7 @@ $.ajax({
     data: JSON.stringify(requestData),
     contentType: "application/json",
     success: function(result) {
-        console.log(result);
+
         $("#title2").val(result.title);
         $("#content2").val(result.contents);
         if (String(result.usercode) === $("#usercode2").val()) {
@@ -31,7 +31,7 @@ $.ajax({
             $("#delete2").click(function(){
                 deleteBoard()
             })
-        } else console.log("떼잉..쯧..")
+        }
     },
     error: function (result) {
         alert("시스템 에러 발생\n관리자 문의 바랍니다.");

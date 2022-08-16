@@ -83,6 +83,8 @@ public class UserController {
     @GetMapping("/logout")
     public void logout(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
         request.getSession().removeAttribute("log");
+        request.getSession().removeAttribute("logId");
+        request.getSession().removeAttribute("userName");
         response.sendRedirect("/");
     }
 

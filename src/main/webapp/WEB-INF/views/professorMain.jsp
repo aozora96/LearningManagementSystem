@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2022-07-27
-  Time: 오후 3:13
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -18,9 +11,6 @@
 <c:import url = "/WEB-INF/views/header.jsp"/>
 <%
     String log = String.valueOf(session.getAttribute("log"));
-    //String logId = String.valueOf(session.getAttribute("logId"));
-    System.out.println("log: "+log);
-    System.out.println(log);
     if(log == null){
         out.print("<script>alert('로그인 후 이용가능합니다'); location.href='/login';</script>");
         //        로그 없으면 로그인페이지로 이동
@@ -35,7 +25,7 @@
 <section id="pagedefault">
 </section>
 <section id="classinfo" style="display: none">
-    <span>과목명 : <p id="title_name"></p></span>
+    <span>강의명 : <p id="title_name"></p></span>
     <form>
         <table>
             <input type ="hidden" id = "stLog" value="<%=log%>">
@@ -51,6 +41,5 @@
 </section>
 <c:import url = "/WEB-INF/views/footer.jsp"/>
 <script src="script/professorMain.js"></script>
-<%--<script src="script/proMypage.js"></script>--%>
 </body>
 </html>

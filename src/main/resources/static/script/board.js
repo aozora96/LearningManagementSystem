@@ -5,7 +5,6 @@ $.ajax({
     data: JSON.stringify(),
     contentType: "application/json",
     success: function(result){
-        console.log(result);
         $("#head_title").attr("href", "/boardView?boardcode=" + result.board_code + "&view_cnt=" + result.view_cnt+"");
         $("#head_title").text(result.title)
         $("#head_name").text("< 교수 >"+result.name)
@@ -31,8 +30,6 @@ let pageNum = 0;
 
 let pageStart = 1;
 let pageEnd;
-console.log("pageTemp");
-console.log(pageTemp);
 //total Cnt
 $.ajax({
     url : "/getCnt",
@@ -53,41 +50,26 @@ $.ajax({
         pageStart = 1;
         end = 10;
     } else {
-        console.log("ddddddddddddd");
         pageNum = pageTemp;
         start = (pageNum - 1) * 10 + 1; // 1/1 , 2/11, 3/21 => x-1*10+1??
-        console.log(pageNum);
-        console.log(start);
     }
-    console.log((pageNum - 1) * 10 + 1);
 
     if(pageNum == start){
         pageStart = (pageNum - 1) * 10 + 1; // 1/1 2/6 3/11
         end = pageNum * 10; //
     }
 
-    console.log("end+num");
-    console.log(start);
-    console.log(pageEnd);
-    console.log(totalPage);
-    console.log(totalPage/10);
 
     pageEnd =  pageStart * 10;
     if (pageEnd > totalPage) {
         pageEnd = totalPage;
     }
-    console.log("---"+pageEnd);
-    console.log(start);
     list(start);
 
 }).fail(erorr =>{
-    console.log(erorr.responseText);
 })
 
 function list(start) {
-    console.log(":::::::::::::::")
-    console.log(start)
-    console.log(typeof(start))
 // 게시글 조회
     $.ajax({
         url: "/readList",
@@ -96,7 +78,6 @@ function list(start) {
             "start" : start
         },
         success: function (result) {
-            console.log(result);
             for (let i = 0; i < result.length; i++) {
                 let tr = document.createElement("tr");
                 let no = document.createElement("td");
@@ -119,7 +100,6 @@ function list(start) {
                 a.innerText = result[i].title;
                 title.append(a);
                 // <td><a>title.innerText<a></td>
-                console.log(result[i].usercode<100);
                 if(result[i].usercode <100){
                     user.innerText = "< 교수 >" +result[i].name;
                 }
@@ -155,9 +135,6 @@ function boardW(){
     if($("#usercode").val().length == 2){
         grade_get = "F";
     }
-    console.log( $("#userName").val())
-
-    console.log("grade_get: "+ grade_get);
     let requestData = {
         "title" : $("#title").val(),
         "contents" : $("#content").val(),
@@ -165,8 +142,6 @@ function boardW(){
         "grade" : grade_get,
         "name" : $("#userName").val()
     }
-    console.log("title: "+ $("#title").val());
-    console.log("content: "+ $("#content").val());
 
     if($("#title").val() == "" || $("#content").val()=="") alert("게시글을 작성해주세요.")
     else{
@@ -188,10 +163,6 @@ function boardW(){
 
 //페이지 버튼 생성
 function makebt() {
-    console.log(pageStart);
-    console.log(pageSize);
-    console.log(pageEnd);
-    console.log(totalPage);
     if (pageStart > pageSize) {
         let before = document.createElement("a");
         before.setAttribute("value","이전");

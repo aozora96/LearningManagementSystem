@@ -13,7 +13,6 @@ function getInfo(){
         // "usercode" : "25"
     }
     // console.log(proData);
-    getPro(proData);
     getClassInfo(proData);
 
     // }
@@ -31,12 +30,13 @@ function getClassInfo(proData){
         data : JSON.stringify(proData),
         contentType : "application/json"
     }).done(result =>{
-        // console.log(result);
+        console.log(result);
         $("tbody").remove();
         let tbody = document.createElement("tbody");
         $("table").append(tbody);
         $("#pagedefault").hide();
         $("#classinfo").show();
+        $("#title_name").text(result[0].title);
         //stucode/name/lever/score/s_grade
         for(let i=0; i<result.length; i++){
             const stuData = {
@@ -49,21 +49,6 @@ function getClassInfo(proData){
     })
 }
 
-function getPro(proData){
-    console.log(proData);
-    $.ajax({
-        url : "/getPro",
-        type : "POST",
-        data : JSON.stringify(proData),
-        contentType : "application/json"
-    }).done(result =>{
-        //console.log(result);
-        //console.log(result.major);
-        $("#title_name").text(result.major);
-    }).fail(erorr =>{
-        console.log(erorr.responseText);
-    })
-}
 let stucnt = 0;
 function getStudent(stuData,score){
     $.ajax({
@@ -113,7 +98,7 @@ function getStudent(stuData,score){
         td.innerText = "A";
         tr.append(td);
         $("tbody").append(tr);
-        //console.log(text.getAttribute("data-code"));
+
 
         grade(klass,score)
         stucnt++;
@@ -124,9 +109,6 @@ function getStudent(stuData,score){
 
 function setScore(){
     for(let i=0; i<stucnt; i++){
-        // console.log($("#stu"+i));
-        // console.log($("#stu"+i).val());
-        // console.log($("#stu"+i).data("code"));
         const stuSet ={
             "p_code" : $("#stLog").val(),
             "usercode" : $("#stu"+i).data("code"),
@@ -145,7 +127,6 @@ function scoreAdd(stuSet){
         data : JSON.stringify(stuSet),
         contentType : "application/json"
     }).done(result =>{
-        console.log(result);
     }).fail(erorr =>{
         console.log(erorr.responseText);
     })

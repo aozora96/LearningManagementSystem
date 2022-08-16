@@ -59,7 +59,7 @@ $.ajax({
 function updateUserInfo(){
     let pw=$("#pw").val();
     let repw=$("#repw").val();
-    if(pw===repw){
+    if(pw===repw && pw !==""){
         let requestData = {
             "usercode" : $("#userCode").val(),
             "grade" :$("#grade").val(),

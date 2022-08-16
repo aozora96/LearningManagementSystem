@@ -17,8 +17,6 @@ $.ajax({
         hidden.setAttribute("id","code");
         hidden.setAttribute("value",`${logCode}`);
         $("#todoList").append(hidden);
-        console.log(result); //
-        console.log(typeof result); //
         if(result.length === 0){
             $("#list").innerText = "todo 리스트를 추가해보세요.";
         }
@@ -37,7 +35,6 @@ $.ajax({
                     checkbox.setAttribute("checked","checked");
                     content.setAttribute("style","text-decoration:line-through; color:gray;");
                 }
-                //console.log(result[i].todoCode);
                 let stringi = String(result[i].todoCode);
                 checkbox.setAttribute("value",`${stringi}`);
                 checkbox.setAttribute("id","checkbox"+i);
@@ -54,18 +51,6 @@ $.ajax({
                 $("#todoList").append(label,delBtn,br);
             }
         }
-        // let br = document.createElement('br');
-        // let addContents = document.createElement('input');
-        // addContents.setAttribute("type","text");
-        // addContents.setAttribute("id","contents");
-        // addContents.setAttribute("name","contents");
-        // let addButton = document.createElement('input');
-        // addButton.setAttribute("value","+");
-        // addButton.setAttribute("type","button");
-        // addButton.setAttribute("onclick","addTodo()");
-        //
-        //
-        // $("#addTodoList").append(addContents,addButton,br);
     },
     error: function (result) {
         alert("error");
@@ -93,8 +78,6 @@ function  todoList() {
             hidden.setAttribute("id", "code");
             hidden.setAttribute("value", `${logCode}`);
             $("#todoList").append(hidden);
-            console.log(result); //
-            console.log(typeof result); //
             if (result.length === 0) {
                 $("#list").innerText = "todo 리스트를 추가해보세요.";
             } else{
@@ -112,7 +95,6 @@ function  todoList() {
                         checkbox.setAttribute("checked","checked");
                         content.setAttribute("style","text-decoration:line-through; color:gray;");
                     }
-                    //console.log(result[i].todoCode);
                     let stringi = String(result[i].todoCode);
                     checkbox.setAttribute("value",`${stringi}`);
                     checkbox.setAttribute("id","checkbox"+i);
@@ -130,16 +112,6 @@ function  todoList() {
                     $("#todoList").append(label,delBtn,br);
                 }
             }
-            // let br = document.createElement('br');
-            // let addContents = document.createElement('input');
-            // addContents.setAttribute("type", "text");
-            // addContents.setAttribute("id", "contents");
-            // addContents.setAttribute("name", "contents");
-            // let addButton = document.createElement('input');
-            // addButton.setAttribute("value", "+");
-            // addButton.setAttribute("type", "button");
-            // addButton.setAttribute("onclick", "addTodo()");
-            // $("#addTodoList").append(addContents, addButton, br);
         },
         error: function (result) {
             alert("error");
@@ -147,8 +119,6 @@ function  todoList() {
     })
 }
 function addTodo(){
-    console.log($("#code").val());
-    console.log($("#contents").val());
     const requestData = {
         "userCode" : $("#code").val(),
         "contents" : $("#contents").val(),
@@ -201,10 +171,7 @@ function checkClick(event)  {
             data: JSON.stringify(requestData),
             contentType: "application/json",
         }).done(result =>{
-            console.log("홍성현이 todo 권위자 등극 ");
             todoList();
-
-
         })
     }else {
         const requestData = {
@@ -217,7 +184,6 @@ function checkClick(event)  {
             data: JSON.stringify(requestData),
             contentType: "application/json",
         }).done(result =>{
-            console.log("이인성이 todo 권위자 등극 ");
             todoList();
         })
     }

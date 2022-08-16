@@ -1,5 +1,4 @@
 let logCode = String($("#code").val());
-console.log("sjsw: "+$("#code").val())
 const requestData = {
     "usercode" : $("#code").val()
 }
@@ -17,12 +16,10 @@ $.ajax({
         hidden.setAttribute("id","code");
         hidden.setAttribute("value",`${logCode}`);
         $("#scoreList").append(hidden);
-        console.log("js19: "+result.length);
         if(result.length === 0){
             title.innerText = "수강내역이 없습니다.";
         }
         else{
-            console.log("결과리스트 길이: "+result.length);
             for(let i = 0; i<result.length; i++){
                 let sub = document.createElement('div');
                 sub.setAttribute("id","sub");
@@ -30,7 +27,6 @@ $.ajax({
                 subtitle = result[i].title;
                 let subScore = document.createElement('span');
                 subScore.innerText = result[i].score;
-                console.log("typeof score"+result[i].score.type);
                 let grade = document.createElement('span');
                 if(result[i].score >= 90 && result[i].score <= 100){
                     grade.innerText = "A";

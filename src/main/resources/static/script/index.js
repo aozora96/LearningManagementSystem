@@ -16,8 +16,6 @@ $.ajax({
         hidden.setAttribute("id","code");
         hidden.setAttribute("value",`${logCode}`);
         $("#todoList").append(hidden);
-        console.log(result); //
-        console.log(typeof result); //
         if(result.length === 0){
             $("#list").innerText = "todo 리스트를 추가해보세요.";
         }
@@ -35,7 +33,6 @@ $.ajax({
                     checkbox.setAttribute("checked","checked");
                     content.setAttribute("style","text-decoration:line-through; color:gray;");
                 }
-                //console.log(result[i].todoCode);
                 let stringi = String(result[i].todoCode);
                 checkbox.setAttribute("value",`${stringi}`);
                 checkbox.setAttribute("id","checkbox"+i);
@@ -71,8 +68,6 @@ function checkLoad(){
             hidden.setAttribute("id","code");
             hidden.setAttribute("value",`${logCode}`);
             $("#todoList").append(hidden);
-            console.log(result); //
-            console.log(typeof result); //
             if(result.length === 0){
                 $("#list").innerText = "todo 리스트를 추가해보세요.";
             }
@@ -90,7 +85,6 @@ function checkLoad(){
                         checkbox.setAttribute("checked","checked");
                         content.setAttribute("style","text-decoration:line-through; color:gray;");
                     }
-                    //console.log(result[i].todoCode);
                     let stringi = String(result[i].todoCode);
                     checkbox.setAttribute("value",`${stringi}`);
                     checkbox.setAttribute("id","checkbox"+i);
@@ -123,7 +117,6 @@ function checkClick(event)  {
             data: JSON.stringify(requestData),
             contentType: "application/json",
         }).done(result =>{
-            console.log("홍성현이 todo 권위자 등극 ");
             checkLoad();
         })
     }else {
@@ -137,7 +130,6 @@ function checkClick(event)  {
             data: JSON.stringify(requestData),
             contentType: "application/json",
         }).done(result =>{
-            console.log("이인성이 todo 권위자 등극 ");
             checkLoad();
         })
     }

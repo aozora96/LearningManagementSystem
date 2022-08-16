@@ -1,7 +1,7 @@
 let requestData = {
     "id" : $("#stLog").val()
 }
-console.log($("#stLog").val());
+
 $.ajax({
     url : "/user",
     type : "POST",
@@ -19,7 +19,11 @@ $.ajax({
     let dateSplit = result.birth.split("-");
     let day = dateSplit[2].split("T");
     let intDay = parseInt(day);
-    birth.innerText += dateSplit[0] + "년 " + dateSplit[1] + "월 " + "0"+(intDay + 1) +"일";
+    if((intDay) < 10){
+        birth.innerText += dateSplit[0] + "년 " + dateSplit[1] + "월 0" +(intDay) +"일";
+    }else{
+        birth.innerText += dateSplit[0] + "년 " + dateSplit[1] + "월 " +(intDay+1) +"일";
+    }
     major.innerText += result.major;
     address.innerText += result.address;
     mobile.innerText +=

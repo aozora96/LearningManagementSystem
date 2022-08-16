@@ -4,8 +4,7 @@ $.ajax({
     data : JSON.stringify(),
     contentType : "application/json"
 }).done(result =>{
-    // console.log("result");
-    // console.log(result.length);
+
     for(let i=0; i<result.length; i++){
         let option = document.createElement("option");
         option.setAttribute("value", result[i]);
@@ -18,7 +17,6 @@ $.ajax({
 const  requestData = {
     "major" : "컴퓨터공학"
 }
-console.log($("#major").val());
 $.ajax({
     url : "/getSub",
     type : "POST",
@@ -78,7 +76,6 @@ function callSub(){
     const  requestData = {
         "major" : $("#major").val()
     }
-    console.log($("#major").val());
     $.ajax({
         url : "/getSub",
         type : "POST",
